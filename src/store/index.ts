@@ -15,11 +15,11 @@ import {
 import { flashShown, setFlashShown } from "./flash";
 import { Font, FONTS } from "./font";
 import { isPadding, Padding } from "./padding";
+import { showLineNumbers, setShowLineNumbers, showLineNumbersAtom } from "./line-numbers";
 import { themeId, setThemeId, darkMode, setDarkMode } from "./themes";
 
 const [windowWidth, setWindowWidth] = createSignal<number | null>(null);
 const [showBackground, setShowBackground] = createSignal<boolean>(true);
-const [showLineNumbers, setShowLineNumbers] = createSignal<boolean | undefined>(undefined);
 const [fileName, setFileName] = createSignal<string>("");
 const [subtitle, setSubtitle] = createSignal<string>("");
 const [highlighter, setHighlighter] = createSignal<Highlighter | null>(null);

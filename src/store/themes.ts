@@ -1,6 +1,6 @@
 import { createSignal, createMemo, JSX } from "solid-js";
 
-import { showLineNumbers } from "./index";
+import { showLineNumbersAtom } from "./line-numbers";
 
 type CSSProperties = JSX.CSSProperties | Record<string, string | number | undefined>;
 
@@ -1700,11 +1700,11 @@ export const themeLineNumbersAtom = createMemo(() => {
   const currentTheme = themeAtom();
   if (currentTheme.partner) {
     if (currentTheme.lineNumbersToggleable) {
-      return showLineNumbers() ?? currentTheme.lineNumbers ?? false;
+      return showLineNumbersAtom() ?? currentTheme.lineNumbers ?? false;
     }
     return currentTheme.lineNumbers || false;
   }
-  return showLineNumbers() ?? false;
+  return showLineNumbersAtom() ?? false;
 });
 
 export const [unlockedThemesAtom, setUnlockedThemesAtom] = createSignal<string[]>([]);

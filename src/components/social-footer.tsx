@@ -30,7 +30,7 @@ export function SocialFooter(_props?: { referral?: string }) {
       <div class="mt-2 flex items-center justify-between gap-2">
         <div class="group flex items-center gap-1 text-gray-12">
           <RaycastLogoNegIcon class="h-6 w-6" />
-          <span class="text-[11px] font-medium">Made by Krea8 &</span>
+          <span class="text-[11px] font-medium">Forked by Krea8 &</span>
           <span class="text-[11px] font-medium">
             Inspired by <em>Raycast</em>
           </span>
