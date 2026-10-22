@@ -1,10 +1,12 @@
+<img src="/placeholder.png" alt="placeholder" />
+
 # 8tool
 
 > A high-performance, modern rewrite of Raycast's [ray.so](https://ray.so) code snippet generator, powered by **SolidStart 2.0**, **Solid.js 1.9**, and **Tailwind CSS v4**.
 
 Create beautiful, shareable images of your code with 60+ language grammars, 30+ themes and branded partner frames, in-browser formatting, and instant clipboard/image exports.
 
-[![Netlify](https://api.netlify.com/api/v1/badges/8b9619c7-8909-41e6-82e1-ed65a5041d5f/deploy-status)](https://app.netlify.com/projects/8tool/deploys) [![Built with SolidStart](https://shields.io)](https://github.com/solidjs/solid-start) [![linting: oxlint](https://shields.io)](https://github.com/oxc-project/oxc) [![formatting: oxfmt](https://shields.io)](https://github.com/oxc-project/oxc)
+[![Netlify](https://api.netlify.com/api/v1/badges/8b9619c7-8909-41e6-82e1-ed65a5041d5f/deploy-status)](https://app.netlify.com/projects/8tool/deploys)
 
 ---
 
