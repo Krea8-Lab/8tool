@@ -27,7 +27,11 @@ const formatCode = async (code: string, language: Language | null) => {
   }
 
   if (language.name === "Python") {
-    const { default: initRuff, Workspace, PositionEncoding } = await import("@astral-sh/ruff-wasm-web");
+    const {
+      default: initRuff,
+      Workspace,
+      PositionEncoding,
+    } = await import("@astral-sh/ruff-wasm-web");
     await initRuff();
 
     const workspace = new Workspace(Workspace.defaultSettings(), PositionEncoding.Utf16);

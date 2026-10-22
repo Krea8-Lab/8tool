@@ -4,22 +4,10 @@ import {
   fileNameAtom,
   setFileName,
   subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
-import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
+import { selectedLanguageAtom } from "@/store/code";
 import { cn } from "@/utils/cn";
-
-
-
-
-
 
 import useIsSafari from "@/util/useIsSafari";
 
@@ -28,13 +16,8 @@ import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./Auth0Frame.module.css";
 
 const Auth0Frame = () => {
-  
-  
-  
-  
-  
   const isSafari = useIsSafari();
-  
+
   const subtitleFallback = selectedLanguageAtom()?.name ?? "Plain Text";
   const subtitleDisplayValue = subtitleAtom() || subtitleFallback;
 
@@ -50,7 +33,9 @@ const Auth0Frame = () => {
       )}
       style={{ padding: `${paddingOption()}px` }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
 
       <div class={styles.shell}>
         {showBackgroundAtom() && (

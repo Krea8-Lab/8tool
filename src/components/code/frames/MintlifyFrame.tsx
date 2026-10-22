@@ -3,22 +3,9 @@ import {
   showBackgroundAtom,
   fileNameAtom,
   setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
-import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
-
-
-
-
 
 import mintlifyPatternDark from "@/assets/mintlify-pattern-dark.svg?url";
 import mintlifyPatternLight from "@/assets/mintlify-pattern-light.svg?url";
@@ -28,11 +15,6 @@ import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./MintlifyFrame.module.css";
 
 const MintlifyFrame = () => {
-  
-  
-  
-  
-
   return (
     <div
       class={cn(
@@ -44,10 +26,16 @@ const MintlifyFrame = () => {
       )}
       style={{ padding: `${paddingOption()}px` }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       {showBackgroundAtom() && (
         <span class={styles.patternWrapper}>
-          <img src={themeDarkModeAtom() ? mintlifyPatternDark : mintlifyPatternLight} alt="" class={styles.pattern} />
+          <img
+            src={themeDarkModeAtom() ? mintlifyPatternDark : mintlifyPatternLight}
+            alt=""
+            class={styles.pattern}
+          />
         </span>
       )}
       <div class={styles.window}>

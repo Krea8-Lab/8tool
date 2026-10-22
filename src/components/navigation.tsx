@@ -6,17 +6,17 @@ import { CodeImageIcon } from "~/components/icons";
 
 export function Navigation() {
   return (
-    <nav class="flex items-center gap-3 h-[50px] pl-4 pr-5 text-white w-full fixed z-10">
+    <nav class="fixed z-10 flex h-[50px] w-full items-center gap-3 pr-5 pl-4 text-white">
       <div class="flex items-center gap-3">
-        <div class="inline-flex shrink-0 items-center justify-center whitespace-nowrap font-medium transition-colors duration-100 overflow-hidden focus-visible:outline-none hover:cursor-default disabled:pointer-events-none disabled:opacity-50 hover:bg-gray-a4 hover:text-gray-12 focus-visible:ring-gray-a7 focus-visible:ring-2 h-[30px] rounded-md px-3 text-sm py-1 pl-1 pr-2 gap-2 data-[state=open]:bg-gray-4 text-gray-12">
-          <CodeImageIcon class="w-6 h-6" />
+        <div class="hover:bg-gray-a4 hover:text-gray-12 focus-visible:ring-gray-a7 data-[state=open]:bg-gray-4 text-gray-12 inline-flex h-[30px] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-md px-3 py-1 pr-2 pl-1 text-sm font-medium whitespace-nowrap transition-colors duration-100 hover:cursor-default focus-visible:ring-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50">
+          <CodeImageIcon class="h-6 w-6" />
           <span class="text-[15px] font-medium">Code Snippets</span>
         </div>
-        <div class="-ml-2 flex items-center relative z-10 gap-[4px]">
-          <span class="text-sm text-gray-9">by </span>
-          <div class="flex gap-1 pl-[8px] items-center">
-            <RaycastLogoNegIcon class="w-6 h-6" />
-            <span class="text-sm text-gray-12 font-medium hidden sm:block">Krea8</span>
+        <div class="relative z-10 -ml-2 flex items-center gap-[4px]">
+          <span class="text-gray-9 text-sm">by </span>
+          <div class="flex items-center gap-1 pl-[8px]">
+            <RaycastLogoNegIcon class="h-6 w-6" />
+            <span class="text-gray-12 hidden text-sm font-medium sm:block">Krea8</span>
           </div>
         </div>
       </div>
@@ -24,7 +24,9 @@ export function Navigation() {
   );
 }
 
-export const NavigationActions: ParentComponent<{ class?: string; className?: string }> = (props) => {
+export const NavigationActions: ParentComponent<{ class?: string; className?: string }> = (
+  props,
+) => {
   return (
     <div
       class={cn(

@@ -6,7 +6,11 @@
     "dev": "turbo run vite:dev",
     "build": "vite build",
     "start": "node .output/server/index.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   },
   "dependencies": {
     "@astral-sh/ruff-wasm-web": "^0.17.1",
@@ -40,11 +44,10 @@
     "vite-plugin-solid-svg": "^0.8.1",
     "zod": "^4.6.7"
   },
-  "engines": {
-    "node": ">=24"
-  },
   "devDependencies": {
     "@types/node": "^26.6.5",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
     "turbo": "^2.11.10"
   },
   "devEngines": {
@@ -52,5 +55,8 @@
       "name": "bun",
       "version": "1.4.0"
     }
+  },
+  "engines": {
+    "node": ">=24"
   }
 }

@@ -1,13 +1,6 @@
 import * as menu from "@zag-js/menu";
 import { normalizeProps, useMachine } from "@zag-js/solid";
-import {
-  createMemo,
-  createSignal,
-  createUniqueId,
-  onMount,
-  Show,
-  For,
-} from "solid-js";
+import { createMemo, createSignal, createUniqueId, onMount, Show, For } from "solid-js";
 import { Portal } from "solid-js/web";
 import ImageIcon from "@/assets/icons/image-16.svg";
 import LinkIcon from "@/assets/icons/link-16.svg";
@@ -21,12 +14,7 @@ import download from "@/util/download";
 import { toPng, toSvg, toBlob } from "@/lib/image";
 import useHotkeys from "@/utils/useHotkeys";
 import usePngClipboardSupported from "@/util/usePngClipboardSupported";
-import {
-  EXPORT_SIZE_OPTIONS,
-  SIZE_LABELS,
-  exportSize,
-  setExportSize,
-} from "@/store/image";
+import { EXPORT_SIZE_OPTIONS, SIZE_LABELS, exportSize, setExportSize } from "@/store/image";
 import { ButtonGroup } from "@/components/button-group";
 import { Button } from "@/components/button";
 import { ChevronRightIcon, CircleIcon, DownloadIcon } from "@/components/icons";
@@ -58,7 +46,7 @@ export const ExportButton = () => {
 
       if (!dataUrl || dataUrl === "data:," || dataUrl.length < 100) {
         throw new Error(
-          "Canvas data extraction blocked or produced empty image. Please allow canvas permissions in your browser."
+          "Canvas data extraction blocked or produced empty image. Please allow canvas permissions in your browser.",
         );
       }
 
@@ -67,7 +55,7 @@ export const ExportButton = () => {
       console.error("Failed to export PNG:", err);
       toast.error(
         err?.message ||
-          "Export failed. If using Firefox/LibreWolf, allow canvas data extraction in your browser address bar."
+          "Export failed. If using Firefox/LibreWolf, allow canvas data extraction in your browser address bar.",
       );
     } finally {
       setFlashShown(false);
@@ -90,7 +78,7 @@ export const ExportButton = () => {
 
       if (!blob || blob.size < 100) {
         throw new Error(
-          "Canvas data extraction blocked or produced empty image. Please allow canvas permissions in your browser."
+          "Canvas data extraction blocked or produced empty image. Please allow canvas permissions in your browser.",
         );
       }
 
@@ -108,8 +96,7 @@ export const ExportButton = () => {
       console.error("Failed to copy PNG to clipboard:", err);
       setFlashShown(false);
       toast.error(
-        err?.message ||
-          "Failed to copy image. Check browser canvas/clipboard permissions."
+        err?.message || "Failed to copy image. Check browser canvas/clipboard permissions.",
       );
     }
   };
@@ -140,9 +127,9 @@ export const ExportButton = () => {
 
     try {
       const encodedUrl = encodeURIComponent(url);
-      const response = await fetch(
-        `/api/shorten-url?url=${encodedUrl}&ref=codeImage`
-      ).then((res) => res.json());
+      const response = await fetch(`/api/shorten-url?url=${encodedUrl}&ref=codeImage`).then((res) =>
+        res.json(),
+      );
       if (response.link) {
         urlToCopy = response.link;
       }
@@ -239,12 +226,8 @@ export const ExportButton = () => {
 
   return (
     <ButtonGroup>
-      <Button
-        onClick={handleExportClick}
-        variant="primary"
-        aria-label="Export as PNG"
-      >
-        <DownloadIcon class="w-4 h-4" />
+      <Button onClick={handleExportClick} variant="primary" aria-label="Export as PNG">
+        <DownloadIcon class="h-4 w-4" />
         <span>Export</span> <span class="hidden md:inline-block">Image</span>
       </Button>
       <Button
@@ -262,11 +245,11 @@ export const ExportButton = () => {
           <div {...rootApi().getPositionerProps()} class="z-50">
             <div
               {...rootApi().getContentProps()}
-              class="z-50 min-w-[9.5rem] overflow-hidden rounded-md bg-panel border border-gray-4 p-1 shadow-md animate-slideDownAndFade outline-none"
+              class="bg-panel border-gray-4 animate-slideDownAndFade z-50 min-w-[9.5rem] overflow-hidden rounded-md border p-1 shadow-md outline-none"
             >
               <div
                 {...rootApi().getItemProps({ value: "save-png" })}
-                class="relative flex cursor-default select-none items-center rounded px-2 py-1.5 text-sm outline-none transition-colors hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white text-gray-11"
+                class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
               >
                 <ImageIcon /> <span class="ml-2">Save PNG</span>
                 <KbdGroup>
@@ -277,7 +260,7 @@ export const ExportButton = () => {
 
               <div
                 {...rootApi().getItemProps({ value: "save-svg" })}
-                class="relative flex cursor-default select-none items-center rounded px-2 py-1.5 text-sm outline-none transition-colors hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white text-gray-11"
+                class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
               >
                 <ImageIcon /> <span class="ml-2">Save SVG</span>
                 <KbdGroup>
@@ -290,7 +273,7 @@ export const ExportButton = () => {
               <Show when={pngClipboardSupported()}>
                 <div
                   {...rootApi().getItemProps({ value: "copy-png" })}
-                  class="relative flex cursor-default select-none items-center rounded px-2 py-1.5 text-sm outline-none transition-colors hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white text-gray-11"
+                  class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
                 >
                   <ClipboardIcon /> <span class="ml-2">Copy Image</span>
                   <KbdGroup>
@@ -302,7 +285,7 @@ export const ExportButton = () => {
 
               <div
                 {...rootApi().getItemProps({ value: "copy-url" })}
-                class="relative flex cursor-default select-none items-center rounded px-2 py-1.5 text-sm outline-none transition-colors hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white text-gray-11"
+                class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
               >
                 <LinkIcon /> <span class="ml-2">Copy URL</span>
                 <KbdGroup>
@@ -312,20 +295,17 @@ export const ExportButton = () => {
                 </KbdGroup>
               </div>
 
-              <div
-                {...rootApi().getSeparatorProps()}
-                class="-mx-1 my-1 h-px bg-gray-4"
-              />
+              <div {...rootApi().getSeparatorProps()} class="bg-gray-4 -mx-1 my-1 h-px" />
 
               {/* Submenu Trigger */}
               <div
                 {...rootApi().getTriggerItemProps(subApi())}
-                class="relative flex cursor-default select-none items-center rounded px-2 py-1.5 text-sm outline-none transition-colors hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white text-gray-11"
+                class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
               >
                 <ArrowsExpandingIcon /> <span class="ml-2">Size</span>
-                <div class="ml-auto flex gap-1 items-center">
+                <div class="ml-auto flex items-center gap-1">
                   <span class="text-gray-9">{SIZE_LABELS[exportSize()]}</span>
-                  <ChevronRightIcon class="h-4 w-4 text-gray-9" />
+                  <ChevronRightIcon class="text-gray-9 h-4 w-4" />
                 </div>
               </div>
             </div>
@@ -337,7 +317,7 @@ export const ExportButton = () => {
           <div {...subApi().getPositionerProps()} class="z-50">
             <div
               {...subApi().getContentProps()}
-              class="z-50 min-w-[8rem] overflow-hidden rounded-md border border-gray-4 bg-panel p-1 shadow-lg animate-slideRightAndFade outline-none"
+              class="border-gray-4 bg-panel animate-slideRightAndFade z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-lg outline-none"
             >
               <For each={EXPORT_SIZE_OPTIONS}>
                 {(size) => {
@@ -350,11 +330,11 @@ export const ExportButton = () => {
                         value: String(size),
                         checked: isChecked(),
                       })}
-                      class="relative flex cursor-default select-none items-center rounded py-1.5 pl-8 pr-2 text-sm outline-none transition-colors hover:bg-gray-a3 text-gray-11 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
+                      class="hover:bg-gray-a3 text-gray-11 data-[highlighted]:bg-gray-a3 relative flex cursor-default items-center rounded py-1.5 pr-2 pl-8 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
                     >
                       <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
                         <Show when={isChecked()}>
-                          <CircleIcon class="h-2 w-2 fill-current text-brand" />
+                          <CircleIcon class="text-brand h-2 w-2 fill-current" />
                         </Show>
                       </span>
                       {SIZE_LABELS[size]}

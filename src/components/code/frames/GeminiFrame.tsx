@@ -3,23 +3,10 @@ import {
   showBackgroundAtom,
   fileNameAtom,
   setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
+import { themeDarkModeAtom } from "@/store/themes";
 import { flashShown } from "@/store/flash";
 import { cn } from "@/utils/cn";
-
-
-
-
-
 
 import useIsSafari from "@/util/useIsSafari";
 
@@ -28,12 +15,7 @@ import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./GeminiFrame.module.css";
 
 const GeminiFrame = () => {
-  
-  
-  
-  
   const isSafari = useIsSafari();
-  
 
   return (
     <div
@@ -47,7 +29,9 @@ const GeminiFrame = () => {
       )}
       style={{ padding: `${paddingOption()}px` }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       {showBackgroundAtom() && <img src="/stars.svg" alt="stars" class={styles.stars} />}
       <div class={styles.window}>
         {fileNameAtom().length > 0 ? (

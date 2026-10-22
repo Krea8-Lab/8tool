@@ -8,7 +8,8 @@
   --runtime-color: #727272ff;
   --gridline-color: rgb(255 255 255 / 0.12);
   --window-background: linear-gradient(180deg, rgb(255 255 255 / 2.5%), transparent 15%), #171717ff;
-  --window-shadow: 0 0 0 1px rgb(255 255 255 / 10%), 0 1px 3px rgb(0 0 0 / 6%), 0 1px 2px -1px rgb(0 0 0 / 6%);
+  --window-shadow:
+    0 0 0 1px rgb(255 255 255 / 10%), 0 1px 3px rgb(0 0 0 / 6%), 0 1px 2px -1px rgb(0 0 0 / 6%);
   --line-number: #636d83ff;
 
   position: relative;
@@ -32,8 +33,10 @@
   --badge-color: #2a2c36;
   --runtime-color: #7a8092;
   --gridline-color: rgb(42 44 54 / 0.12);
-  --window-background: linear-gradient(180deg, rgb(255 255 255 / 100%), rgb(245 243 241 / 50%) 15%), #ffffff;
-  --window-shadow: 0 0 0 1px rgb(124 92 224 / 10%), 0 1px 3px rgb(0 0 0 / 4%), 0 1px 2px -1px rgb(0 0 0 / 5%);
+  --window-background:
+    linear-gradient(180deg, rgb(255 255 255 / 100%), rgb(245 243 241 / 50%) 15%), #ffffff;
+  --window-shadow:
+    0 0 0 1px rgb(124 92 224 / 10%), 0 1px 3px rgb(0 0 0 / 4%), 0 1px 2px -1px rgb(0 0 0 / 5%);
   --line-number: #9aa4bd;
 
   &.withBackground {
@@ -75,8 +78,20 @@
     height: 1px;
     background: var(--gridline-color);
     content: "";
-    -webkit-mask-image: linear-gradient(to left, transparent, white 3rem, white calc(100% - 3rem), transparent);
-    mask-image: linear-gradient(to left, transparent, white 3rem, white calc(100% - 3rem), transparent);
+    -webkit-mask-image: linear-gradient(
+      to left,
+      transparent,
+      white 3rem,
+      white calc(100% - 3rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to left,
+      transparent,
+      white 3rem,
+      white calc(100% - 3rem),
+      transparent
+    );
   }
 
   &:after {
@@ -97,8 +112,20 @@
     height: calc(100% + 6rem);
     background: var(--gridline-color);
     content: "";
-    -webkit-mask-image: linear-gradient(to top, transparent, white 3rem, white calc(100% - 3rem), transparent);
-    mask-image: linear-gradient(to top, transparent, white 3rem, white calc(100% - 3rem), transparent);
+    -webkit-mask-image: linear-gradient(
+      to top,
+      transparent,
+      white 3rem,
+      white calc(100% - 3rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to top,
+      transparent,
+      white 3rem,
+      white calc(100% - 3rem),
+      transparent
+    );
   }
 
   &:after {

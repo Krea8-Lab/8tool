@@ -1,39 +1,18 @@
 import {
   paddingOption,
   showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-  subtitleAtom,
-  setSubtitle,
   windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom, code } from "@/store/code";
-import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
+import { code } from "@/store/code";
 import { cn } from "@/utils/cn";
-
-import { createSignal, createEffect, onMount, onCleanup, JSX } from "solid-js";
-
-
-
-
-
+import { createSignal, createEffect } from "solid-js";
 import useIsSafari from "@/util/useIsSafari";
-
 import Editor from "../Editor";
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./StripeFrame.module.css";
 
 const StripeFrame = () => {
-  
-  
-  
-  
-  
   const isSafari = useIsSafari();
 
   let windowRef: HTMLDivElement | undefined;
@@ -86,7 +65,9 @@ const StripeFrame = () => {
       style={{ padding: `${paddingOption()}px` }}
       ref={frameRef}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       {showBackgroundAtom() && (
         <div class={styles.background}>
           <div

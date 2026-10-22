@@ -1,6 +1,5 @@
 import {
   BrandGithubIcon,
-  BrandSlackIcon,
   BrandXIcon,
   BrandYoutubeIcon,
   RaycastLogoNegIcon,
@@ -28,14 +27,14 @@ const socialLinks = [
 export function SocialFooter(props: { referral?: string }) {
   const referral = () => props.referral || "ray-so";
   return (
-    <div class="pt-2 mt-auto">
-      <div class="flex items-center gap-2 mt-2 justify-between">
-        <div
-          class="flex items-center gap-1 text-gray-12 group"
-        >
-          <RaycastLogoNegIcon class="w-6 h-6" />
-          <span class="text-[11px] font-medium">Made by Krea8 &</span> 
-          <span class="text-[11px] font-medium">Inspired by <em>Raycast</em></span>
+    <div class="mt-auto pt-2">
+      <div class="mt-2 flex items-center justify-between gap-2">
+        <div class="text-gray-12 group flex items-center gap-1">
+          <RaycastLogoNegIcon class="h-6 w-6" />
+          <span class="text-[11px] font-medium">Made by Krea8 &</span>
+          <span class="text-[11px] font-medium">
+            Inspired by <em>Raycast</em>
+          </span>
         </div>
         <div class="flex gap-3">
           <For each={socialLinks}>
@@ -49,7 +48,7 @@ export function SocialFooter(props: { referral?: string }) {
                   aria-label={link.label}
                   class="text-gray-9 hover:text-gray-11 transition-colors"
                 >
-                  <Icon class="w-4 h-4" />
+                  <Icon class="h-4 w-4" />
                 </a>
               );
             }}

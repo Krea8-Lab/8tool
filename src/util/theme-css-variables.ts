@@ -42,7 +42,8 @@ export function createCssVariablesTheme(options: CssVariablesThemeOptions = {}):
   const { name = "css-variables", variablePrefix = "--shiki-", fontStyle = true } = options;
 
   const variable = (name: string) => {
-    if (options.variableDefaults?.[name]) return `var(${variablePrefix}${name}, ${options.variableDefaults[name]})`;
+    if (options.variableDefaults?.[name])
+      return `var(${variablePrefix}${name}, ${options.variableDefaults[name]})`;
     return `var(${variablePrefix}${name})`;
   };
 
@@ -107,13 +108,23 @@ export function createCssVariablesTheme(options: CssVariablesThemeOptions = {}):
         },
       },
       {
-        scope: ["string", "markup.fenced_code", "markup.inline", "string.quoted.docstring.multi.python"],
+        scope: [
+          "string",
+          "markup.fenced_code",
+          "markup.inline",
+          "string.quoted.docstring.multi.python",
+        ],
         settings: {
           foreground: variable("token-string"),
         },
       },
       {
-        scope: ["comment", "string.quoted.docstring.multi", "meta.diff.header.from-file", "meta.diff.header.to-file"],
+        scope: [
+          "comment",
+          "string.quoted.docstring.multi",
+          "meta.diff.header.from-file",
+          "meta.diff.header.to-file",
+        ],
         settings: {
           foreground: variable("token-comment"),
         },

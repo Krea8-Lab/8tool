@@ -7,11 +7,9 @@ import {
   createContext,
   useContext,
   JSX,
-  ParentComponent,
-  createSignal,
 } from "solid-js";
 import { Portal } from "solid-js/web";
-import { CheckIcon, ChevronRightIcon, CircleIcon } from "@/components/icons";
+import { CircleIcon } from "@/components/icons";
 import { cn } from "@/utils/cn";
 
 interface MenuContextType {
@@ -79,7 +77,7 @@ export function DropdownMenuContent(props: {
             {...ctx.api().getContentProps()}
             class={cn(
               "z-50 min-w-[9.5rem] overflow-hidden rounded-md bg-panel border border-gray-4 p-1 shadow-md animate-slideDownAndFade outline-none",
-              props.class
+              props.class,
             )}
           >
             {props.children}
@@ -113,7 +111,7 @@ export function DropdownMenuItem(props: {
       }}
       class={cn(
         "relative flex cursor-default select-none items-center rounded px-2 py-1.5 text-sm outline-none transition-colors hover:bg-gray-a3 hover:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50 text-gray-11",
-        props.class || props.className
+        props.class || props.className,
       )}
     >
       {props.children}
@@ -137,9 +135,7 @@ export function DropdownMenuRadioGroup(props: {
   children: JSX.Element;
 }) {
   return (
-    <RadioGroupContext.Provider
-      value={{ value: props.value, onValueChange: props.onValueChange }}
-    >
+    <RadioGroupContext.Provider value={{ value: props.value, onValueChange: props.onValueChange }}>
       <div role="group">{props.children}</div>
     </RadioGroupContext.Provider>
   );
@@ -164,17 +160,15 @@ export function DropdownMenuRadioItem(props: {
       }}
       class={cn(
         "relative flex cursor-default select-none items-center rounded py-1.5 pl-8 pr-2 text-sm outline-none transition-colors hover:bg-gray-a3 text-gray-11 hover:text-white",
-        props.class
+        props.class,
       )}
     >
       <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
         <Show when={isChecked()}>
-          <CircleIcon class="h-2 w-2 fill-current text-brand" />
+          <CircleIcon class="text-brand h-2 w-2 fill-current" />
         </Show>
       </span>
       {props.children}
     </div>
   );
 }
-
-

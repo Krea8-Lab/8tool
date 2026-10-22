@@ -42,7 +42,7 @@ export const toast = {
       loading: string;
       success: string | ((data: T) => string);
       error: string | ((err: any) => { message: string; description?: () => JSX.Element });
-    }
+    },
   ) {
     const id = toaster.create({
       title: options.loading,
@@ -96,12 +96,12 @@ function ToastItem(props: { toast: any; parent: any; index: number }) {
       class={cn(
         "pointer-events-auto flex items-center justify-between gap-3 w-auto min-w-[240px] max-w-md rounded-lg p-3 shadow-lg border text-xs font-medium transition-all duration-200 animate-slideDownAndFade bg-background text-gray-12 border-gray-4",
         api().type === "error" && "border-red-900/50 text-red-200",
-        api().type === "success" && "border-emerald-900/50 text-emerald-200"
+        api().type === "success" && "border-emerald-900/50 text-emerald-200",
       )}
     >
       <div class="flex flex-col gap-1">
         <Show when={api().title}>
-          <span {...api().getTitleProps()} class="font-medium text-gray-12">
+          <span {...api().getTitleProps()} class="text-gray-12 font-medium">
             {api().title as JSX.Element}
           </span>
         </Show>
@@ -115,7 +115,7 @@ function ToastItem(props: { toast: any; parent: any; index: number }) {
       </div>
       <button
         {...api().getCloseTriggerProps()}
-        class="text-gray-9 hover:text-white p-1 rounded transition-colors text-xs"
+        class="text-gray-9 rounded p-1 text-xs transition-colors hover:text-white"
       >
         <MultiplyIcon class="h-4 w-4" />
       </button>
@@ -135,7 +135,7 @@ export function Toaster(props: { position?: string; offset?: number; duration?: 
     <Portal>
       <div
         {...api().getGroupProps()}
-        class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-2 pointer-events-none"
+        class="pointer-events-none fixed top-4 left-1/2 z-[100] flex -translate-x-1/2 flex-col items-center gap-2"
       >
         <For each={api().getToasts()}>
           {(toast, index) => <ToastItem toast={toast} parent={service} index={index()} />}

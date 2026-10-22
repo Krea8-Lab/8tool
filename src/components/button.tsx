@@ -41,7 +41,7 @@ export const buttonVariants = cva(
       size: "medium",
       iconOnly: false,
     },
-  }
+  },
 );
 
 export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> &

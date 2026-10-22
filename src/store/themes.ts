@@ -46,7 +46,6 @@ import Auth0LogoUrl from "@/assets/auth0.svg?url";
 
 import { createCssVariablesTheme } from "../util/theme-css-variables";
 
-
 export const shikiTheme = createCssVariablesTheme({
   name: "css-variables",
   variablePrefix: "--ray-",
@@ -118,7 +117,9 @@ export type Theme = {
   hidden?: boolean;
   lineNumbers?: boolean;
   lineNumbersToggleable?: boolean;
-  syntax: { light: CSSProperties; dark?: CSSProperties } | { light?: CSSProperties; dark: CSSProperties };
+  syntax:
+    | { light: CSSProperties; dark?: CSSProperties }
+    | { light?: CSSProperties; dark: CSSProperties };
 };
 
 export const THEMES: { [index: string]: Theme } = {
@@ -1708,10 +1709,4 @@ export const themeLineNumbersAtom = createMemo(() => {
 
 export const [unlockedThemesAtom, setUnlockedThemesAtom] = createSignal<string[]>([]);
 
-export {
-  darkMode,
-  darkMode as darkModeAtom,
-  setDarkMode,
-  themeId,
-  setThemeId,
-};
+export { darkMode, darkMode as darkModeAtom, setDarkMode, themeId, setThemeId };

@@ -1,19 +1,8 @@
 import {
   paddingOption,
   showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
-import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
 import { exportSize } from "@/store/image";
 import { cn } from "@/utils/cn";
 import { createSignal, createEffect, onMount, onCleanup, JSX } from "solid-js";
@@ -99,7 +88,10 @@ function FirecrawlFrameCanvas(props: {
     const canvas = canvasRef;
     const s = size();
     if (!canvas || s.width === 0 || s.height === 0) return;
-    const displayDpr = Math.min(2, typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1);
+    const displayDpr = Math.min(
+      2,
+      typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1,
+    );
     const dpr = Math.max(displayDpr, props.exportPixelRatio || 2);
     canvas.width = s.width * dpr;
     canvas.height = s.height * dpr;
@@ -111,7 +103,11 @@ function FirecrawlFrameCanvas(props: {
 
   return (
     <div ref={overlayRef} class={styles.frameOverlay} data-grid>
-      <canvas ref={canvasRef} style={{ display: "block", width: "100%", height: "100%" }} aria-hidden />
+      <canvas
+        ref={canvasRef}
+        style={{ display: "block", width: "100%", height: "100%" }}
+        aria-hidden
+      />
     </div>
   );
 }
@@ -133,7 +129,9 @@ export const FirecrawlFrame = () => {
         "--frame-padding": `${paddingOption()}px`,
       }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       <div class={styles.window}>
         {showBackgroundAtom() && (
           <div class={styles.asciiArtContainer}>

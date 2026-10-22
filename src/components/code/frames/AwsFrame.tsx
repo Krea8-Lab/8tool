@@ -1,35 +1,15 @@
 import {
   paddingOption,
   showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
-import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
-
-
-
-
-
 
 import Editor from "../Editor";
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./AwsFrame.module.css";
 
 const AwsFrame = () => {
-  
-  
-  
-
   return (
     <div
       class={cn(
@@ -41,7 +21,9 @@ const AwsFrame = () => {
       )}
       style={{ padding: `${paddingOption()}px` }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       <div class={styles.awsWindow}>
         <span class={styles.awsGridlinesHorizontal} data-grid></span>
         <span class={styles.awsGridlinesVertical} data-grid></span>

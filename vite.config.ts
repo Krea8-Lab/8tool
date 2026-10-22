@@ -12,7 +12,7 @@ export default defineConfig({
       defaultAsComponent: true,
     }),
     tailwindcss(),
-    nitro()
+    nitro(),
   ],
   resolve: {
     alias: {

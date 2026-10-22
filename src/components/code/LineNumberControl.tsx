@@ -1,4 +1,4 @@
-import { showLineNumbers, setShowLineNumbers } from "@/store";
+import { setShowLineNumbers } from "@/store";
 import { themeAtom, themeLineNumbersAtom } from "@/store/themes";
 import useHotkeys from "@/utils/useHotkeys";
 import ControlContainer from "./ControlContainer";

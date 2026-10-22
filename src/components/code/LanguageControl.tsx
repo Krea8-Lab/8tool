@@ -1,9 +1,5 @@
 import { createMemo } from "solid-js";
-import {
-  autoDetectLanguage,
-  selectedLanguage,
-  setSelectedLanguage,
-} from "@/store/code";
+import { autoDetectLanguage, selectedLanguage, setSelectedLanguage } from "@/store/code";
 import { loadingLanguage } from "@/store";
 import { Language, LANGUAGES } from "@/util/languages";
 import ControlContainer from "./ControlContainer";
@@ -82,11 +78,7 @@ export const LanguageControl = () => {
         <ComboboxContent searchPlaceholder="Search languages…">
           <ComboboxEmpty>No languages found.</ComboboxEmpty>
           <ComboboxList<LanguageItem>>
-            {(item) => (
-              <ComboboxItem value={item}>
-                {item.name}
-              </ComboboxItem>
-            )}
+            {(item) => <ComboboxItem value={item}>{item.name}</ComboboxItem>}
           </ComboboxList>
         </ComboboxContent>
       </Combobox>

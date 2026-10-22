@@ -45,10 +45,7 @@ export default function Home() {
   return (
     <>
       <Title>Create beautiful images of your code</Title>
-      <Meta
-        name="description"
-        content="Turn your code into beautiful images."
-      />
+      <Meta name="description" content="Turn your code into beautiful images." />
       <NavigationActions>
         <InfoDialog />
         <FormatCodeButton />

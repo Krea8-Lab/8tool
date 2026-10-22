@@ -219,7 +219,11 @@
     },
     {
       "name": "[CSS] - Meta Name - eg. font-family, 'name'",
-      "scope": ["source.css meta.property-name", "source.css support.type.property-name", "source.css string"],
+      "scope": [
+        "source.css meta.property-name",
+        "source.css support.type.property-name",
+        "source.css string"
+      ],
       "settings": {
         "foreground": "#7dd3fc"
       }

@@ -50,7 +50,7 @@ export function Combobox<T = any>(props: ComboboxProps<T>) {
       items: props.items,
       itemToString: (item) => itemToString(item),
       itemToValue: (item) => itemToValue(item),
-    })
+    }),
   );
 
   const service = useMachine(combobox.machine, () => ({
@@ -125,7 +125,7 @@ const triggerVariants = cva(
       variant: "classic",
       size: "medium",
     },
-  }
+  },
 );
 
 export function ComboboxTrigger(props: {
@@ -150,7 +150,7 @@ export function ComboboxTrigger(props: {
           variant: props.variant,
           size: props.size,
           className: props.class || props.className,
-        })
+        }),
       )}
     >
       <span class="truncate">{props.children}</span>
@@ -161,9 +161,7 @@ export function ComboboxTrigger(props: {
   );
 }
 
-export function ComboboxValue<T = any>(props: {
-  children: (value: T | null) => JSX.Element;
-}) {
+export function ComboboxValue<T = any>(props: { children: (value: T | null) => JSX.Element }) {
   const ctx = useContext(ComboboxContext);
   if (!ctx) return null;
 
@@ -188,17 +186,17 @@ export function ComboboxContent(props: {
             {...ctx.api().getContentProps()}
             class={cn(
               "z-50 min-w-[12rem] max-h-80 overflow-hidden rounded-md bg-panel border border-gray-4 p-1 shadow-lg animate-slideDownAndFade outline-none flex flex-col",
-              props.class
+              props.class,
             )}
           >
-            <div class="flex items-center px-2 py-1.5 border-b border-gray-4 gap-2">
+            <div class="border-gray-4 flex items-center gap-2 border-b px-2 py-1.5">
               <Show when={props.showSearchIcon ?? true}>
-                <MagnifyingGlassIcon class="w-3.5 h-3.5 text-gray-9 shrink-0" />
+                <MagnifyingGlassIcon class="text-gray-9 h-3.5 w-3.5 shrink-0" />
               </Show>
               <input
                 {...ctx.api().getInputProps()}
                 placeholder={props.searchPlaceholder || "Search..."}
-                class="bg-transparent border-none outline-none text-xs text-gray-12 placeholder:text-gray-9 w-full"
+                class="text-gray-12 placeholder:text-gray-9 w-full border-none bg-transparent text-xs outline-none"
                 value={ctx.query()}
                 onInput={(e) => ctx.setQuery(e.currentTarget.value)}
                 autofocus
@@ -207,7 +205,7 @@ export function ComboboxContent(props: {
             <div
               class={cn(
                 "overflow-y-auto max-h-60 p-1 flex flex-col gap-0.5 bg-transparent scrollbar-thin",
-                props.listClass
+                props.listClass,
               )}
             >
               {props.children}
@@ -225,7 +223,7 @@ export function ComboboxEmpty(props: { children: JSX.Element }) {
 
   return (
     <Show when={ctx.filteredItems().length === 0}>
-      <div class="py-4 text-center text-xs text-gray-9">{props.children}</div>
+      <div class="text-gray-9 py-4 text-center text-xs">{props.children}</div>
     </Show>
   );
 }
@@ -236,18 +234,10 @@ export function ComboboxList<T = any>(props: {
   const ctx = useContext(ComboboxContext);
   if (!ctx) return null;
 
-  return (
-    <For each={ctx.filteredItems()}>
-      {(item, idx) => props.children(item, idx)}
-    </For>
-  );
+  return <For each={ctx.filteredItems()}>{(item, idx) => props.children(item, idx)}</For>;
 }
 
-export function ComboboxItem<T = any>(props: {
-  value: T;
-  children: JSX.Element;
-  class?: string;
-}) {
+export function ComboboxItem<T = any>(props: { value: T; children: JSX.Element; class?: string }) {
   const ctx = useContext(ComboboxContext);
   if (!ctx) return null;
 
@@ -266,7 +256,7 @@ export function ComboboxItem<T = any>(props: {
       class={cn(
         "relative flex cursor-default select-none items-center rounded px-2 py-1.5 text-xs outline-none transition-colors hover:bg-gray-a3 text-gray-11 hover:text-white",
         isSelected() && "bg-gray-a3 text-white font-medium",
-        props.class
+        props.class,
       )}
     >
       {props.children}
@@ -279,7 +269,7 @@ export function ComboboxGroup(props: {
   children: JSX.Element | ((item: any) => JSX.Element);
 }) {
   return (
-    <div role="group" class="flex flex-col gap-0.5 mb-1">
+    <div role="group" class="mb-1 flex flex-col gap-0.5">
       {typeof props.children === "function" && props.items ? (
         <For each={props.items}>{(item) => (props.children as any)(item)}</For>
       ) : (
@@ -291,12 +281,12 @@ export function ComboboxGroup(props: {
 
 export function ComboboxGroupLabel(props: { children: JSX.Element }) {
   return (
-    <div class="px-2 py-1 text-[10px] font-semibold text-gray-9 uppercase tracking-wider">
+    <div class="text-gray-9 px-2 py-1 text-[10px] font-semibold tracking-wider uppercase">
       {props.children}
     </div>
   );
 }
 
 export function ComboboxSeparator() {
-  return <div class="-mx-1 my-1 h-px bg-gray-4" />;
+  return <div class="bg-gray-4 -mx-1 my-1 h-px" />;
 }

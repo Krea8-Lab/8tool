@@ -72,10 +72,7 @@ export const ResizableFrame: ParentComponent = (props) => {
         class={cn(styles.windowSizeDragPoint, styles.right)}
         onMouseDown={handleResizeFrameX("right")}
       />
-      <div
-        ref={windowRef}
-        style={{ width: windowWidth() ? `${windowWidth()}px` : "auto" }}
-      >
+      <div ref={windowRef} style={{ width: windowWidth() ? `${windowWidth()}px` : "auto" }}>
         {props.children}
       </div>
 

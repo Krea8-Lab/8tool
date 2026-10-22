@@ -1,11 +1,6 @@
 import { createSignal, onMount, onCleanup, createMemo, JSX } from "solid-js";
 import styles from "./Editor.module.css";
-import {
-  code,
-  setCode,
-  isCodeExample,
-  selectedLanguage,
-} from "@/store/code";
+import { code, setCode, isCodeExample, selectedLanguage } from "@/store/code";
 import {
   THEMES,
   themeAtom,
@@ -19,7 +14,7 @@ import {
 import useHotkeys from "@/utils/useHotkeys";
 import HighlightedCode from "./HighlightedCode";
 import { triggerFlash } from "@/store/flash";
-import { highlightedLinesAtom, setHighlightedLines } from "@/store";
+import { setHighlightedLines } from "@/store";
 import { LANGUAGES } from "@/util/languages";
 import { cn } from "@/utils/cn";
 import { Dynamic } from "solid-js/web";
@@ -87,7 +82,7 @@ function handleEnter(textarea: HTMLTextAreaElement) {
   const currentIndentationMatch = currentLine.match(/^(\s+)/);
   let wantedIndentation = currentIndentationMatch ? currentIndentationMatch[0] : "";
 
-  if (currentLine.match(/([{\[:>])$/)) {
+  if (currentLine.match(/([{[:>])$/)) {
     wantedIndentation += "  ";
   }
 
@@ -173,7 +168,9 @@ export const Editor = () => {
         message: "Evil Rabbit Theme Unlocked",
         variant: "unlock",
         timeout: 2000,
-        icon: THEMES.rabbit.icon ? <Dynamic component={THEMES.rabbit.icon} style={{ color: "black" }} /> : undefined,
+        icon: THEMES.rabbit.icon ? (
+          <Dynamic component={THEMES.rabbit.icon} style={{ color: "black" }} />
+        ) : undefined,
       });
     }
 
@@ -196,7 +193,7 @@ export const Editor = () => {
       if (lineNumber && isHighlightingLines()) {
         const line = Number(lineNumber);
         setHighlightedLines((prev) =>
-          prev.includes(line) ? prev.filter((l) => l !== line) : [...prev, line]
+          prev.includes(line) ? prev.filter((l) => l !== line) : [...prev, line],
         );
       }
     };
@@ -239,7 +236,7 @@ export const Editor = () => {
           selectedLanguage() !== LANGUAGES.plaintext && [
             styles.showLineNumbers,
             numberOfLines() > 8 && styles.showLineNumbersLarge,
-          ]
+          ],
       )}
       style={{
         "--editor-padding": "16px",

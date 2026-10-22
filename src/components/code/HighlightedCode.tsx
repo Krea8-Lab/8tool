@@ -1,11 +1,7 @@
 import { createSignal, createEffect } from "solid-js";
 import { Language, LANGUAGES } from "@/util/languages";
 import styles from "./Editor.module.css";
-import {
-  highlightedLinesAtom,
-  highlighterAtom,
-  setLoadingLanguage,
-} from "@/store";
+import { highlightedLinesAtom, highlighterAtom, setLoadingLanguage } from "@/store";
 import { themeDarkModeAtom, themeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
 
@@ -95,7 +91,7 @@ export const HighlightedCode = (props: HighlightedCodeProps) => {
     <div
       class={cn(
         styles.formatted,
-        props.selectedLanguage === LANGUAGES.plaintext && styles.plainText
+        props.selectedLanguage === LANGUAGES.plaintext && styles.plainText,
       )}
       innerHTML={highlightedHtml()}
     />

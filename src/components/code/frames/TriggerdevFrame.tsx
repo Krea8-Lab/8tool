@@ -3,40 +3,17 @@ import {
   showBackgroundAtom,
   fileNameAtom,
   setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
+import { themeBackgroundAtom, themeDarkModeAtom } from "@/store/themes";
+import { selectedLanguageAtom } from "@/store/code";
 import { flashShown } from "@/store/flash";
 import { cn } from "@/utils/cn";
-
-
-
-
-
-
-
 import triggerPattern from "@/assets/triggerdev/pattern.svg?url";
-
 import Editor from "../Editor";
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./TriggerdevFrame.module.css";
 
 const TriggerdevFrame = () => {
-  
-  
-  
-  
-  
-  
-  
-
   return (
     <div
       class={cn(
@@ -46,13 +23,22 @@ const TriggerdevFrame = () => {
         !showBackgroundAtom() && sharedStyles.noBackground,
         !showBackgroundAtom() && styles.noBackground,
       )}
-      style={{ padding: `${paddingOption()}px`, "background-image": showBackgroundAtom() && themeDarkModeAtom() ? themeBackgroundAtom() : "" }}
+      style={{
+        padding: `${paddingOption()}px`,
+        "background-image":
+          showBackgroundAtom() && themeDarkModeAtom() ? themeBackgroundAtom() : "",
+      }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       {showBackgroundAtom() && (
         <>
           <div class={styles.patternTop} style={{ "background-image": `url(${triggerPattern})` }} />
-          <div class={styles.patternBottom} style={{ "background-image": `url(${triggerPattern})` }} />
+          <div
+            class={styles.patternBottom}
+            style={{ "background-image": `url(${triggerPattern})` }}
+          />
         </>
       )}
       <div class={styles.window}>

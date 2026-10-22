@@ -1,4 +1,4 @@
-import { createMemo, For, Show } from "solid-js";
+import { createMemo, Show } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { themeAtom, setThemeId, THEMES, unlockedThemesAtom } from "@/store/themes";
 import { setPaddingOption } from "@/store";
@@ -10,20 +10,12 @@ import {
   ComboboxTrigger,
   ComboboxContent,
   ComboboxList,
-  ComboboxGroup,
-  ComboboxGroupLabel,
   ComboboxItem,
-  ComboboxSeparator,
   ComboboxValue,
   ComboboxEmpty,
 } from "@/components/combobox";
 import { UniqueSvg } from "@/components/unique-svg";
 import { ChevronUpIcon } from "@/components/icons";
-
-interface ThemeGroup {
-  label: string;
-  items: any[];
-}
 
 function ThemePreview(props: { theme: any }) {
   const icon = () => props.theme?.icon;
@@ -65,7 +57,7 @@ export const ThemeControl = () => {
 
   useHotkeys("c", () => {
     const availableThemes = Object.values(THEMES).filter(
-      (t: any) => unlockedThemes().includes(t.id) || !t.hidden
+      (t: any) => unlockedThemes().includes(t.id) || !t.hidden,
     );
     const currentIndex = availableThemes.findIndex((t: any) => t.id === currentTheme().id);
     if (availableThemes[currentIndex + 1]) {
@@ -88,20 +80,16 @@ export const ThemeControl = () => {
       }
       return acc;
     },
-    { partnerThemes: [], themes: [] }
+    { partnerThemes: [], themes: [] },
   );
 
   const filteredPartnerThemes = createMemo(() =>
     partnerThemes.filter(
-      (t: any) =>
-        unlockedThemes().includes(t.id) || !t.hidden || t.name === currentTheme().name
-    )
+      (t: any) => unlockedThemes().includes(t.id) || !t.hidden || t.name === currentTheme().name,
+    ),
   );
 
-  const allThemesList = createMemo(() => [
-    ...filteredPartnerThemes(),
-    ...themes,
-  ]);
+  const allThemesList = createMemo(() => [...filteredPartnerThemes(), ...themes]);
 
   return (
     <ControlContainer title="Theme">

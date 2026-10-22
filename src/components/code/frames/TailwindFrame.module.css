@@ -48,8 +48,20 @@
     height: 1px;
     background: color(display-p3 1 1 1 / 0.1);
     content: "";
-    -webkit-mask-image: linear-gradient(to left, transparent, white 4rem, white calc(100% - 4rem), transparent);
-    mask-image: linear-gradient(to left, transparent, white 4rem, white calc(100% - 4rem), transparent);
+    -webkit-mask-image: linear-gradient(
+      to left,
+      transparent,
+      white 4rem,
+      white calc(100% - 4rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to left,
+      transparent,
+      white 4rem,
+      white calc(100% - 4rem),
+      transparent
+    );
   }
 
   &:after {
@@ -70,8 +82,20 @@
     height: calc(100% + 8rem);
     background: color(display-p3 1 1 1 / 0.1);
     content: "";
-    -webkit-mask-image: linear-gradient(to top, transparent, white 4rem, white calc(100% - 4rem), transparent);
-    mask-image: linear-gradient(to top, transparent, white 4rem, white calc(100% - 4rem), transparent);
+    -webkit-mask-image: linear-gradient(
+      to top,
+      transparent,
+      white 4rem,
+      white calc(100% - 4rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to top,
+      transparent,
+      white 4rem,
+      white calc(100% - 4rem),
+      transparent
+    );
   }
 
   &:after {

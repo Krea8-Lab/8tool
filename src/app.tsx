@@ -15,9 +15,9 @@ export default function App() {
           <Meta name="description" content="Create beautiful images of your code" />
           <Meta name="theme-color" content="#181818" />
           <Link rel="icon" type="image/png" href="/favicon.png" />
-          <div class="isolate h-full bg-background text-gray-12 min-h-screen">
+          <div class="bg-background text-gray-12 isolate h-full min-h-screen">
             <Navigation />
-            <main class="flex flex-col min-h-full pt-[50px]">
+            <main class="flex min-h-full flex-col pt-[50px]">
               <Suspense>{props.children}</Suspense>
             </main>
             <Toaster />

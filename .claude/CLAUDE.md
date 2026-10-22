@@ -15,6 +15,7 @@ This repository (`rayCode`) is a modern port and refactoring of the Raycast [ray
 ## 2. Core Guidelines for AI Agents
 
 ### 🚨 STRICT SOLID.JS RULES (NO REACT CODE!)
+
 1. **Never use React hooks**:
    - ❌ `useState`, `useEffect`, `useCallback`, `useMemo`, `useRef`, `useContext`
    - ✅ `createSignal`, `createEffect`, `createMemo`, `onMount`, `onCleanup`, `createContext`, `useContext`
@@ -42,17 +43,21 @@ This repository (`rayCode`) is a modern port and refactoring of the Raycast [ray
 ## 3. Architecture & Code Conventions
 
 ### Headless UI with Zag.js
+
 All accessible primitives (Tooltips, Menus, Dialogs, Comboboxes, Switches) use `@zag-js/solid`:
+
 - Initialize machine with `zag.useMachine(...)`.
 - Connect service with `zag.connect(service, zag.normalizeProps)`.
 - Use the anatomy spread properties: `{...api().getRootProps()}`, `{...api().getTriggerProps()}`, etc.
 
 ### State Management (`src/store/`)
+
 - All global editor state is held in reactive signals inside `src/store/`.
 - [src/store/index.ts](file:///D:/CodeBase/rayCode/src/store/index.ts) manages bidirectional URL hash synchronization.
 - When updating or adding signals that should persist in shareable URLs, ensure they are registered in the serialization logic (`syncHashWithState` and `readStateFromHash`).
 
 ### SSR & Browser Safety
+
 - Always guard browser-only globals (`window`, `document`, `navigator`, `localStorage`, `AudioContext`, `HTMLCanvasElement`) with:
   ```typescript
   if (typeof window === "undefined") return;
@@ -60,11 +65,13 @@ All accessible primitives (Tooltips, Menus, Dialogs, Comboboxes, Switches) use `
   or run browser-dependent setup inside `onMount(() => { ... })`.
 
 ### CSS & Styling Conventions
+
 - Utility classes are merged using `cn(...)` from `src/utils/cn.ts` (`clsx` + `twMerge`).
 - When defining animations in `.module.css` files, **never nest `@keyframes` inside CSS selectors**. LightningCSS requires `@keyframes` declarations to be at top level to avoid parsing errors.
 - Partner frame themes rely on CSS custom properties defined via `theme-css-variables.ts`.
 
 ### Assets & Icons
+
 - Raycast SVG icons are located in `src/components/icons.tsx` as native Solid JSX components.
 - Partner logos can be imported as Solid components (`import Icon from "@/assets/icon.svg"`) or asset URLs via `?url` suffix (`import iconUrl from "@/assets/icon.svg?url"`).
 
@@ -95,14 +102,14 @@ bun run preview
 
 ## 5. Directory Map
 
-| Path | Description |
-| :--- | :--- |
-| `src/routes/index.tsx` | Main application page with Frame, Editor, and Controls |
-| `src/routes/api/config.ts` | Config API endpoint (languages, themes, padding) |
-| `src/routes/api/shorten-url.ts`| Dub URL shortener endpoint |
-| `src/components/code/` | Core editor, HighlightedCode (Shiki), Frame, Controls |
-| `src/components/code/frames/` | 19 partner branded frames |
-| `src/components/ui/` | Accessible Zag.js headless primitives |
-| `src/store/` | Fine-grained signals & URL hash sync |
-| `src/util/` | Formatters (Ruff WASM, Prettier), languages, audio |
-| `src/assets/` | Static SVG icons, PNG patterns, and partner logos |
+| Path                            | Description                                            |
+| :------------------------------ | :----------------------------------------------------- |
+| `src/routes/index.tsx`          | Main application page with Frame, Editor, and Controls |
+| `src/routes/api/config.ts`      | Config API endpoint (languages, themes, padding)       |
+| `src/routes/api/shorten-url.ts` | Dub URL shortener endpoint                             |
+| `src/components/code/`          | Core editor, HighlightedCode (Shiki), Frame, Controls  |
+| `src/components/code/frames/`   | 19 partner branded frames                              |
+| `src/components/ui/`            | Accessible Zag.js headless primitives                  |
+| `src/store/`                    | Fine-grained signals & URL hash sync                   |
+| `src/util/`                     | Formatters (Ruff WASM, Prettier), languages, audio     |
+| `src/assets/`                   | Static SVG icons, PNG patterns, and partner logos      |

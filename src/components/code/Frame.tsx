@@ -74,10 +74,7 @@ export const Frame = (props: { resize?: boolean }) => {
   }
 
   return (
-    <div
-      class={styles.frameContainer}
-      data-theme={themeDarkModeAtom() ? "dark" : "light"}
-    >
+    <div class={styles.frameContainer} data-theme={themeDarkModeAtom() ? "dark" : "light"}>
       {resize() ? (
         <ResizableFrame>
           <FlashMessage />

@@ -26,19 +26,19 @@ Create beautiful, shareable images of your code with 60+ language grammars, 30+ 
 
 This project is a complete port and architectural migration from the original Next.js 16 (React 19) codebase to the Solid ecosystem:
 
-| Domain | Original Stack | SolidStart Stack | Why Solid? |
-| :--- | :--- | :--- | :--- |
-| **Meta-Framework** | Next.js 16 (App Router) | **SolidStart 2.0** (`@solidjs/start`) | Unified Nitro 3 engine with blazing fast SSR and hybrid static rendering. |
-| **Reactivity** | React 19 (`useState`, `useEffect`) | **Solid.js 1.9 Signals** | Fine-grained signals with direct DOM updates and no re-render cascades. |
-| **Server Engine** | Next.js Node Runtime / Edge | **Nitro 3** (`node-server` preset) | Ultra-lightweight, portable, and fast production server runtime. |
-| **Bundler & HMR** | Turbopack / Webpack | **Vite 8** | Instant Hot Module Replacement and optimized bundle splitting. |
-| **Styling** | Tailwind CSS v4 | **Tailwind CSS v4** (`@tailwindcss/vite`) | Next-generation engine with native CSS variables and `@theme` tokens. |
-| **Headless UI** | Radix UI / Base UI / Sonner | **Zag.js for Solid** (`@zag-js/solid`) | Robust, framework-agnostic finite state machines for fully accessible UI. |
-| **Keyboard Shortcuts**| `hotkeys-js` | **`@tanstack/solid-hotkeys`** | Solid-friendly hotkey bindings with SSR safety. |
-| **State Sync** | `jotai` + `jotai-location` | **Native Solid Signals + URL Hash** | Explicit, reactive URL hash serialization (`Base64`) with history management. |
-| **Syntax Highlighting**| `shiki` + `highlight.js` | **`shiki` (WASM Oniguruma)** | High-fidelity token-based highlighting with dual-theme (dark/light) dynamic palettes. |
-| **Code Formatting** | Prettier + Ruff WASM | **Prettier + Ruff WASM** | Fast in-browser formatting without external API roundtrips. |
-| **Image Rendering** | `html-to-image` + Canvas | **`html-to-image` + Web Audio** | High-DPI rasterization with embedded web fonts (Commit Mono, Soehne Mono). |
+| Domain                  | Original Stack                     | SolidStart Stack                          | Why Solid?                                                                            |
+| :---------------------- | :--------------------------------- | :---------------------------------------- | :------------------------------------------------------------------------------------ |
+| **Meta-Framework**      | Next.js 16 (App Router)            | **SolidStart 2.0** (`@solidjs/start`)     | Unified Nitro 3 engine with blazing fast SSR and hybrid static rendering.             |
+| **Reactivity**          | React 19 (`useState`, `useEffect`) | **Solid.js 1.9 Signals**                  | Fine-grained signals with direct DOM updates and no re-render cascades.               |
+| **Server Engine**       | Next.js Node Runtime / Edge        | **Nitro 3** (`node-server` preset)        | Ultra-lightweight, portable, and fast production server runtime.                      |
+| **Bundler & HMR**       | Turbopack / Webpack                | **Vite 8**                                | Instant Hot Module Replacement and optimized bundle splitting.                        |
+| **Styling**             | Tailwind CSS v4                    | **Tailwind CSS v4** (`@tailwindcss/vite`) | Next-generation engine with native CSS variables and `@theme` tokens.                 |
+| **Headless UI**         | Radix UI / Base UI / Sonner        | **Zag.js for Solid** (`@zag-js/solid`)    | Robust, framework-agnostic finite state machines for fully accessible UI.             |
+| **Keyboard Shortcuts**  | `hotkeys-js`                       | **`@tanstack/solid-hotkeys`**             | Solid-friendly hotkey bindings with SSR safety.                                       |
+| **State Sync**          | `jotai` + `jotai-location`         | **Native Solid Signals + URL Hash**       | Explicit, reactive URL hash serialization (`Base64`) with history management.         |
+| **Syntax Highlighting** | `shiki` + `highlight.js`           | **`shiki` (WASM Oniguruma)**              | High-fidelity token-based highlighting with dual-theme (dark/light) dynamic palettes. |
+| **Code Formatting**     | Prettier + Ruff WASM               | **Prettier + Ruff WASM**                  | Fast in-browser formatting without external API roundtrips.                           |
+| **Image Rendering**     | `html-to-image` + Canvas           | **`html-to-image` + Web Audio**           | High-DPI rasterization with embedded web fonts (Commit Mono, Soehne Mono).            |
 
 ---
 
@@ -134,12 +134,12 @@ The production output will be generated inside the `.output/` directory, ready t
 
 ## 💡 Keyboard Shortcuts
 
-| Shortcut | Action |
-| :--- | :--- |
-| <kbd>⌘</kbd> + <kbd>C</kbd> / <kbd>Ctrl</kbd> + <kbd>C</kbd> *(outside input)* | Copy snippet image to clipboard |
-| <kbd>⌘</kbd> + <kbd>S</kbd> / <kbd>Ctrl</kbd> + <kbd>S</kbd> | Export image (PNG) |
-| <kbd>⌘</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>K</kbd> | Open language picker |
-| <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd> | Auto-format current code snippet |
+| Shortcut                                                                       | Action                           |
+| :----------------------------------------------------------------------------- | :------------------------------- |
+| <kbd>⌘</kbd> + <kbd>C</kbd> / <kbd>Ctrl</kbd> + <kbd>C</kbd> _(outside input)_ | Copy snippet image to clipboard  |
+| <kbd>⌘</kbd> + <kbd>S</kbd> / <kbd>Ctrl</kbd> + <kbd>S</kbd>                   | Export image (PNG)               |
+| <kbd>⌘</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>K</kbd>                   | Open language picker             |
+| <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>                               | Auto-format current code snippet |
 
 ---
 

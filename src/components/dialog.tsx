@@ -36,18 +36,10 @@ export function Dialog(props: {
 
   const api = createMemo(() => dialog.connect(service, normalizeProps));
 
-  return (
-    <DialogContext.Provider value={{ api }}>
-      {props.children}
-    </DialogContext.Provider>
-  );
+  return <DialogContext.Provider value={{ api }}>{props.children}</DialogContext.Provider>;
 }
 
-export function DialogTrigger(props: {
-  children: JSX.Element;
-  asChild?: boolean;
-  class?: string;
-}) {
+export function DialogTrigger(props: { children: JSX.Element; asChild?: boolean; class?: string }) {
   const ctx = useContext(DialogContext);
   if (!ctx) return <>{props.children}</>;
 
@@ -84,29 +76,29 @@ export function DialogContent(props: {
       <Portal>
         <div
           {...ctx.api().getBackdropProps()}
-          class="bg-black/60 fixed inset-0 z-50 data-[state=open]:animate-overlayShow overflow-y-auto grid place-items-center"
+          class="data-[state=open]:animate-overlayShow fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/60"
         >
-            <div
-              {...ctx.api().getContentProps()}
-              class={cn(
-                "grid w-full gap-4 rounded-md bg-panel border border-gray-a3 shadow-md duration-200 data-[state=open]:animate-contentShow sm:rounded-lg my-10 relative",
-                size() === "small" && "max-w-xs p-8",
-                size() === "medium" && "max-w-lg p-6",
-                size() === "large" && "max-w-3xl p-6",
-                props.class
-              )}
+          <div
+            {...ctx.api().getContentProps()}
+            class={cn(
+              "grid w-full gap-4 rounded-md bg-panel border border-gray-a3 shadow-md duration-200 data-[state=open]:animate-contentShow sm:rounded-lg my-10 relative",
+              size() === "small" && "max-w-xs p-8",
+              size() === "medium" && "max-w-lg p-6",
+              size() === "large" && "max-w-3xl p-6",
+              props.class,
+            )}
+          >
+            {props.children}
+            <button
+              type="button"
+              {...ctx.api().getCloseTriggerProps()}
+              class="ring-offset-panel focus:ring-gray-7 text-gray-11 absolute top-4 right-4 rounded-full opacity-70 transition-opacity hover:text-white hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
+              aria-label="Close"
             >
-              {props.children}
-              <button
-                type="button"
-                {...ctx.api().getCloseTriggerProps()}
-                class="absolute right-4 top-4 rounded-full opacity-70 ring-offset-panel transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-7 focus:ring-offset-2 disabled:pointer-events-none text-gray-11 hover:text-white"
-                aria-label="Close"
-              >
-                <MultiplyIcon class="h-4 w-4" />
-              </button>
-            </div>
+              <MultiplyIcon class="h-4 w-4" />
+            </button>
           </div>
+        </div>
       </Portal>
     </Show>
   );
@@ -114,7 +106,12 @@ export function DialogContent(props: {
 
 export function DialogTitle(props: { children: JSX.Element; class?: string }) {
   const ctx = useContext(DialogContext);
-  if (!ctx) return <h2 class={cn("text-base font-semibold leading-none tracking-tight", props.class)}>{props.children}</h2>;
+  if (!ctx)
+    return (
+      <h2 class={cn("text-base font-semibold leading-none tracking-tight", props.class)}>
+        {props.children}
+      </h2>
+    );
 
   return (
     <h2

@@ -7,7 +7,7 @@ export async function GET() {
     id: key,
     ...rest,
   }));
-  const themes = Object.entries(THEMES).map(([key, { syntax, icon, ...rest }]) => ({
+  const themes = Object.entries(THEMES).map(([_key, { syntax, icon, ...rest }]) => ({
     ...rest,
   }));
   const padding = PADDING_OPTIONS;

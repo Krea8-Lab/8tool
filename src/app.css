@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -139,7 +139,6 @@
   --animate-content-show: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-
 html,
 body {
   height: 100%;
@@ -189,11 +188,19 @@ main {
 }
 
 .themes-body {
-  background-image: radial-gradient(43.48% 62.9% at 50% 31.28%, hsl(0 0% 100% / 0.2) 0, hsl(0 0% 100% / 0) 100%);
+  background-image: radial-gradient(
+    43.48% 62.9% at 50% 31.28%,
+    hsl(0 0% 100% / 0.2) 0,
+    hsl(0 0% 100% / 0) 100%
+  );
 }
 
 .light .themes-body {
-  background-image: radial-gradient(43.48% 62.9% at 50% 31.28%, hsl(0, 0, 0, 0.2) 0, transparent 100%);
+  background-image: radial-gradient(
+    43.48% 62.9% at 50% 31.28%,
+    hsl(0, 0, 0, 0.2) 0,
+    transparent 100%
+  );
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -225,42 +232,92 @@ main {
 }
 
 @keyframes slideDownAndFade {
-  from { opacity: 0; transform: translateY(-2px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideLeftAndFade {
-  from { opacity: 0; transform: translateX(2px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideUpAndFade {
-  from { opacity: 0; transform: translateY(2px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideRightAndFade {
-  from { opacity: 0; transform: translateX(-2px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes overlayShow {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes contentShow {
-  from { opacity: 0; transform: translateY(-1%) scale(0.98); }
-  to { opacity: 1; transform: translateY(0%) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(-1%) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%) scale(1);
+  }
 }
 
 @keyframes flicker {
-  0%, 24% { opacity: 1; }
-  25%, 29% { opacity: 0.5; }
-  30%, 69% { opacity: 1; }
-  70%, 74% { opacity: 0.7; }
-  75% { opacity: 1; }
-  100% { opacity: 1; }
+  0%,
+  24% {
+    opacity: 1;
+  }
+  25%,
+  29% {
+    opacity: 0.5;
+  }
+  30%,
+  69% {
+    opacity: 1;
+  }
+  70%,
+  74% {
+    opacity: 0.7;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .flicker {

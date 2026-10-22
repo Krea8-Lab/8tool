@@ -3,35 +3,15 @@ import {
   showBackgroundAtom,
   fileNameAtom,
   setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
-import { flashShown } from "@/store/flash";
+import { themeAtom, themeBackgroundAtom, themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
-
-
-
-
-
 import useIsSafari from "@/util/useIsSafari";
 import Editor from "../Editor";
 import styles from "./DefaultFrame.module.css";
 
 const DefaultFrame = () => {
-  
   const isSafari = useIsSafari();
-  
-  
-  
-  
-  
 
   return (
     <div
@@ -42,7 +22,8 @@ const DefaultFrame = () => {
         showBackgroundAtom() && styles.withBackground,
       )}
       style={{
-        padding: `${paddingOption()}px`, "background-image": showBackgroundAtom() ? themeBackgroundAtom() : "",
+        padding: `${paddingOption()}px`,
+        "background-image": showBackgroundAtom() ? themeBackgroundAtom() : "",
       }}
     >
       {!showBackgroundAtom() && <div data-ignore-in-export class={styles.transparentPattern}></div>}

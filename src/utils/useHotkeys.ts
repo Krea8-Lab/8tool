@@ -16,20 +16,22 @@ function isEditable(el: EventTarget | null) {
 export default function useHotkeys(
   keyCombo: string,
   handler: (e: KeyboardEvent) => void,
-  options: { allowInInput?: boolean } = {}
+  options: { allowInInput?: boolean } = {},
 ) {
   if (isServer) return;
 
   const onKeyDown = (e: KeyboardEvent) => {
-    const parts = keyCombo.toLowerCase().split("+").map((s) => s.trim());
+    const parts = keyCombo
+      .toLowerCase()
+      .split("+")
+      .map((s) => s.trim());
     const needCtrlOrMeta =
       parts.includes("mod") ||
       parts.includes("cmd") ||
       parts.includes("command") ||
       parts.includes("⌘");
     const needShift = parts.includes("shift") || parts.includes("⇧");
-    const needAlt =
-      parts.includes("alt") || parts.includes("option") || parts.includes("⌥");
+    const needAlt = parts.includes("alt") || parts.includes("option") || parts.includes("⌥");
 
     const mainKey = parts[parts.length - 1];
 

@@ -1,19 +1,10 @@
 import {
   paddingOption,
   showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-  subtitleAtom,
-  setSubtitle,
   windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
-import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
+import { codeAtom } from "@/store/code";
 import { cn } from "@/utils/cn";
 import { createEffect, createSignal, onMount, onCleanup } from "solid-js";
 import Editor from "../Editor";
@@ -70,7 +61,9 @@ export const ElevenLabsFrame = () => {
       )}
       style={{ padding: `${paddingOption()}px` }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       <div class={styles.window} ref={windowRef}>
         <span
           class={cn(styles.circle, isTransitioning() && styles.isTransitioning)}

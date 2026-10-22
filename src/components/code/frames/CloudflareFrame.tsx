@@ -3,38 +3,16 @@ import {
   showBackgroundAtom,
   fileNameAtom,
   setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
+import { themeDarkModeAtom } from "@/store/themes";
+import { selectedLanguageAtom } from "@/store/code";
 import { flashShown } from "@/store/flash";
 import { cn } from "@/utils/cn";
-
-
-
-
-
-
-
-
 import Editor from "../Editor";
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./CloudflareFrame.module.css";
 
 const CloudflareFrame = () => {
-  
-  
-  
-  
-  
-  
-
   return (
     <div
       class={cn(
@@ -46,7 +24,9 @@ const CloudflareFrame = () => {
       )}
       style={{ padding: `${paddingOption()}px` }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       <div class={styles.window}>
         <span class={styles.gridlinesHorizontal} data-grid></span>
         <span class={styles.gridlinesVertical} data-grid></span>

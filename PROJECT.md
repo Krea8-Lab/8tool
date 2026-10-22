@@ -5,6 +5,7 @@
 **Ray.so (SolidStart Edition)** is a full port and refactor of Raycast's popular [ray.so](https://ray.so) code snippet image generator. The original application was built with **Next.js 16 (App Router) and React 19**. This repository (`rayCode`) is a rewrite into a modern **SolidStart 2.0 and Solid.js 1.9** application.
 
 The application allows developers to:
+
 - Paste or type source code in 60+ programming languages.
 - Apply 30+ meticulously designed themes and partner frames (such as Vercel, Supabase, Tailwind, OpenAI, Stripe, Firecrawl, Gemini, AWS, Clerk, etc.).
 - Customize padding, background gradient, dark/light window styles, line numbers, and typography.
@@ -18,20 +19,20 @@ The application allows developers to:
 
 Every React-specific library and Next.js pattern in the original codebase was replaced with a Solid or web-standard alternative:
 
-| Feature / Domain | Original Next.js Stack | SolidStart Stack | Rationale |
-| :--- | :--- | :--- | :--- |
-| **Meta-Framework** | Next.js 16 (App Router) | **SolidStart 2.0 (`@solidjs/start`)** | Full SSR and hybrid static rendering, file-system routing, and unified Nitro server engine. |
-| **Reactivity & UI** | React 19 (`useState`, `useEffect`, Jotai) | **Solid.js 1.9 Fine-grained Reactivity** | Real DOM node manipulation without a Virtual DOM overhead; reactive signals (`createSignal`), memos (`createMemo`), and control flow (`<Show>`, `<For>`). |
-| **Server Engine** | Next.js Node Runtime / Edge | **Nitro 3 (`node-server` preset)** | Lightweight, cross-platform server runtime for production and edge deployment. |
-| **Bundler & Build Tool**| Webpack / Turbopack | **Vite 8 + Rolldown** | Lightning-fast HMR and bundle compilation. |
-| **Styling** | Tailwind CSS v4 | **Tailwind CSS v4 (`@tailwindcss/vite`)** | Next-generation Tailwind CSS with native CSS variables and `@theme` directive support. |
-| **Headless UI** | Radix UI / Base UI / Sonner | **Zag.js for Solid (`@zag-js/solid`)** | State-machine driven headless components for Dialog, Menu, Combobox, Tooltip, Toast, and Switch. |
-| **Keyboard Shortcuts** | `hotkeys-js` | **`@tanstack/solid-hotkeys`** | Solid-friendly hotkey bindings with an SSR-safe wrapper. |
-| **State Management** | `jotai` + `jotai-location` | **Native Solid Signals + URL Hash Sync** | Global signals in `src/store/` with bidirectional hash synchronization (`#code=...&theme=...`). |
-| **Syntax Highlighting** | `shiki` + `highlight.js` | **`shiki` + `highlight.js`** | High-fidelity token-based highlighting with dual-theme (light/dark) support. |
-| **Code Formatting** | Prettier + `@astral-sh/ruff-wasm-web` | **Prettier + `@astral-sh/ruff-wasm-web`** | In-browser formatting using WebAssembly and standalone Prettier plugins. |
-| **Image Export** | `html-to-image` + SVG rasterizer | **`html-to-image` + Canvas + Web Audio** | High-DPI screenshot generation with audio click cues and clipboard integration. |
-| **SVG Processing** | `@svgr/webpack` | **`vite-plugin-solid-svg`** | Imports SVGs as native Solid JSX components or raw asset URLs via `?url`. |
+| Feature / Domain         | Original Next.js Stack                    | SolidStart Stack                          | Rationale                                                                                                                                                 |
+| :----------------------- | :---------------------------------------- | :---------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Meta-Framework**       | Next.js 16 (App Router)                   | **SolidStart 2.0 (`@solidjs/start`)**     | Full SSR and hybrid static rendering, file-system routing, and unified Nitro server engine.                                                               |
+| **Reactivity & UI**      | React 19 (`useState`, `useEffect`, Jotai) | **Solid.js 1.9 Fine-grained Reactivity**  | Real DOM node manipulation without a Virtual DOM overhead; reactive signals (`createSignal`), memos (`createMemo`), and control flow (`<Show>`, `<For>`). |
+| **Server Engine**        | Next.js Node Runtime / Edge               | **Nitro 3 (`node-server` preset)**        | Lightweight, cross-platform server runtime for production and edge deployment.                                                                            |
+| **Bundler & Build Tool** | Webpack / Turbopack                       | **Vite 8 + Rolldown**                     | Lightning-fast HMR and bundle compilation.                                                                                                                |
+| **Styling**              | Tailwind CSS v4                           | **Tailwind CSS v4 (`@tailwindcss/vite`)** | Next-generation Tailwind CSS with native CSS variables and `@theme` directive support.                                                                    |
+| **Headless UI**          | Radix UI / Base UI / Sonner               | **Zag.js for Solid (`@zag-js/solid`)**    | State-machine driven headless components for Dialog, Menu, Combobox, Tooltip, Toast, and Switch.                                                          |
+| **Keyboard Shortcuts**   | `hotkeys-js`                              | **`@tanstack/solid-hotkeys`**             | Solid-friendly hotkey bindings with an SSR-safe wrapper.                                                                                                  |
+| **State Management**     | `jotai` + `jotai-location`                | **Native Solid Signals + URL Hash Sync**  | Global signals in `src/store/` with bidirectional hash synchronization (`#code=...&theme=...`).                                                           |
+| **Syntax Highlighting**  | `shiki` + `highlight.js`                  | **`shiki` + `highlight.js`**              | High-fidelity token-based highlighting with dual-theme (light/dark) support.                                                                              |
+| **Code Formatting**      | Prettier + `@astral-sh/ruff-wasm-web`     | **Prettier + `@astral-sh/ruff-wasm-web`** | In-browser formatting using WebAssembly and standalone Prettier plugins.                                                                                  |
+| **Image Export**         | `html-to-image` + SVG rasterizer          | **`html-to-image` + Canvas + Web Audio**  | High-DPI screenshot generation with audio click cues and clipboard integration.                                                                           |
+| **SVG Processing**       | `@svgr/webpack`                           | **`vite-plugin-solid-svg`**               | Imports SVGs as native Solid JSX components or raw asset URLs via `?url`.                                                                                 |
 
 ---
 
@@ -177,6 +178,7 @@ Instead of Jotai atoms with `atomWithHash`, the Solid port utilizes native Solid
 ### 4.2 Syntax Highlighting Engine
 
 Implemented in [src/components/code/HighlightedCode.tsx](file:///D:/CodeBase/rayCode/src/components/code/HighlightedCode.tsx):
+
 - Built on top of `shiki` using `createHighlighterCore` with an explicit `createOnigurumaEngine(getWasm)` WebAssembly engine (required in modern Shiki v3/v4).
 - Shiki and its WebAssembly engine are dynamically imported inside client-side `onMount` to ensure SSR isolation and prevent Nitro's unwasm compilation issues.
 - Dynamically imports language grammars on demand from `@shikijs/langs`.
@@ -188,6 +190,7 @@ Implemented in [src/components/code/HighlightedCode.tsx](file:///D:/CodeBase/ray
 ### 4.3 Code Formatting Engine
 
 Implemented in [src/util/formatCode.ts](file:///D:/CodeBase/rayCode/src/util/formatCode.ts):
+
 - **Python**: Uses `@astral-sh/ruff-wasm-web` running entirely in WebAssembly in the browser.
 - **JavaScript, TypeScript, JSX, TSX, CSS, HTML, JSON, Markdown, YAML**: Formatted using `prettier/standalone` with respective parser plugins loaded asynchronously.
 - The "Format Code" button automatically toggles loading states and flashes success or syntax error messages.
@@ -195,6 +198,7 @@ Implemented in [src/util/formatCode.ts](file:///D:/CodeBase/rayCode/src/util/for
 ### 4.4 Image Export Pipeline
 
 Implemented in [src/lib/image.ts](file:///D:/CodeBase/rayCode/src/lib/image.ts) and [src/components/code/ExportButton.tsx](file:///D:/CodeBase/rayCode/src/components/code/ExportButton.tsx):
+
 - **PNG Export**: Captures the DOM node of `#frame` using `html-to-image` at user-selected pixel ratios (1x, 2x) while embedding local fonts (Commit Mono, Soehne Mono, Inter).
 - **SVG Export**: Clones the DOM structure, inlines styles and fonts, and packages the result as an SVG data URL or blob.
 - **Clipboard Copy**: Detects browser support for `navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])` and triggers a toast notification along with a tactile audio click.
@@ -204,23 +208,25 @@ Implemented in [src/lib/image.ts](file:///D:/CodeBase/rayCode/src/lib/image.ts) 
 ## 5. Development & Production Operations
 
 ### Prerequisites
+
 - **Bun** (v1.2+ recommended) or **Node.js** (v20+)
 
 ### Commands
 
-| Command | Action |
-| :--- | :--- |
-| `bun install` | Install all dependencies |
-| `bun run dev` | Launch Vite development server with SolidStart SSR on `http://localhost:3000` |
-| `bun run build` | Build production client bundle and Nitro server bundle in `.output/` |
-| `bun run start` | Run the compiled production Nitro server (`node .output/server/index.mjs`) |
-| `bun run preview`| Preview the production build via Vite preview |
+| Command           | Action                                                                        |
+| :---------------- | :---------------------------------------------------------------------------- |
+| `bun install`     | Install all dependencies                                                      |
+| `bun run dev`     | Launch Vite development server with SolidStart SSR on `http://localhost:3000` |
+| `bun run build`   | Build production client bundle and Nitro server bundle in `.output/`          |
+| `bun run start`   | Run the compiled production Nitro server (`node .output/server/index.mjs`)    |
+| `bun run preview` | Preview the production build via Vite preview                                 |
 
 ---
 
 ## 6. Verification & Quality Assurance
 
 The SolidStart refactoring was verified through:
+
 1. **Compilation & Bundle**: Complete Vite and Nitro production build (`bun run build`) passing with **exit code 0** and zero unresolved modules.
 2. **SSR & Hydration**: Server-side rendering verified on port 3000 returning valid SolidStart `$HY` hydrated markup.
 3. **API Endpoints**: `/api/config` and `/api/shorten-url` tested and operating as expected.

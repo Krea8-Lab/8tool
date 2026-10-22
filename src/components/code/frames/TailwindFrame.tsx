@@ -1,37 +1,16 @@
 import {
   paddingOption,
   showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
-import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
-
-
 import beams from "@/assets/tailwind/beams.png";
-
-
-
 import useIsSafari from "@/util/useIsSafari";
-
 import Editor from "../Editor";
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./TailwindFrame.module.css";
 
 const TailwindFrame = () => {
-  
-  
-  
-  
   const isSafari = useIsSafari();
 
   return (
@@ -46,7 +25,9 @@ const TailwindFrame = () => {
       )}
       style={{ padding: `${paddingOption()}px` }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       {showBackgroundAtom() && <img src={beams} alt="beams" class={styles.beams} />}
       <div class={styles.beams} />
       <div class={styles.window}>

@@ -3,36 +3,15 @@ import {
   showBackgroundAtom,
   fileNameAtom,
   setFileName,
-  subtitleAtom,
-  setSubtitle,
-  windowWidthAtom,
 } from "@/store";
-import {
-  themeAtom,
-  themeBackgroundAtom,
-  themeDarkModeAtom,
-} from "@/store/themes";
-import { selectedLanguageAtom, codeAtom } from "@/store/code";
+import { themeDarkModeAtom } from "@/store/themes";
 import { flashShown } from "@/store/flash";
 import { cn } from "@/utils/cn";
-
-
-
-
-
-
-
 import Editor from "../Editor";
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./PrismaFrame.module.css";
 
 const PrismaFrame = () => {
-  
-  
-  
-  
-  
-
   return (
     <div
       class={cn(
@@ -44,7 +23,9 @@ const PrismaFrame = () => {
       )}
       style={{ padding: `${paddingOption()}px` }}
     >
-      {!showBackgroundAtom() && <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>}
+      {!showBackgroundAtom() && (
+        <div data-ignore-in-export class={sharedStyles.transparentPattern}></div>
+      )}
       <div class={styles.window}>
         <span data-frameborder />
         <span data-frameborder />
