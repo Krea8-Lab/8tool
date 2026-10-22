@@ -1,0 +1,56 @@
+{
+  "name": "8tool",
+  "type": "module",
+  "scripts": {
+    "vite:dev": "vite dev",
+    "dev": "turbo run vite:dev",
+    "build": "vite build",
+    "start": "node .output/server/index.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@astral-sh/ruff-wasm-web": "^0.17.1",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^1.0.0",
+    "@solidjs/start": "^2.0.0",
+    "@t3-oss/env-core": "^0.13.11",
+    "@tailwindcss/vite": "^4.3.3",
+    "@tanstack/solid-hotkeys": "^0.16.0",
+    "@zag-js/combobox": "^1.46.0",
+    "@zag-js/dialog": "^1.46.0",
+    "@zag-js/menu": "^1.46.0",
+    "@zag-js/solid": "^1.46.0",
+    "@zag-js/switch": "^1.46.0",
+    "@zag-js/toast": "^1.46.0",
+    "@zag-js/toggle-group": "^1.46.0",
+    "@zag-js/tooltip": "^1.46.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dub": "^0.74.0",
+    "highlight.js": "^11.12.0",
+    "html-to-image": "^1.11.13",
+    "js-base64": "^3.9.4",
+    "nitro": "^3.0.260610-beta",
+    "prettier": "^3.9.10",
+    "shiki": "^4.5.0",
+    "solid-js": "^1.9.14",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.0.0",
+    "vite-plugin-solid-svg": "^0.8.1",
+    "zod": "^4.6.7"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "turbo": "^2.11.10"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "bun",
+      "version": "1.4.0"
+    }
+  }
+}
