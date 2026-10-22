@@ -1,4 +1,4 @@
-<img src="/placeholder.png" alt="placeholder" />
+<img src="/public/placeholder.png" alt="placeholder" />
 
 # 8tool
 
