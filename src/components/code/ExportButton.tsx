@@ -1,25 +1,24 @@
+import ArrowsExpandingIcon from "@/assets/icons/arrows-expanding-16.svg";
+import ChevronDownIcon from "@/assets/icons/chevron-down-16.svg";
+import ClipboardIcon from "@/assets/icons/clipboard-16.svg";
+import ImageIcon from "@/assets/icons/image-16.svg";
+import LinkIcon from "@/assets/icons/link-16.svg";
+import { Button } from "@/components/button";
+import { ButtonGroup } from "@/components/button-group";
+import { ChevronRightIcon, CircleIcon, DownloadIcon } from "@/components/icons";
+import { Kbd, KbdGroup } from "@/components/kbd";
+import { toast } from "@/components/toast";
+import { toPng, toSvg, toBlob } from "@/lib/image";
+import { frameRef, fileNameAtom, setFlashShown } from "@/store";
+import { triggerFlash } from "@/store/flash";
+import { EXPORT_SIZE_OPTIONS, SIZE_LABELS, exportSize, setExportSize } from "@/store/image";
+import download from "@/util/download";
+import usePngClipboardSupported from "@/util/usePngClipboardSupported";
+import useHotkeys from "@/utils/useHotkeys";
 import * as menu from "@zag-js/menu";
 import { normalizeProps, useMachine } from "@zag-js/solid";
 import { createMemo, createSignal, createUniqueId, onMount, Show, For } from "solid-js";
 import { Portal } from "solid-js/web";
-import ImageIcon from "@/assets/icons/image-16.svg";
-import LinkIcon from "@/assets/icons/link-16.svg";
-import ChevronDownIcon from "@/assets/icons/chevron-down-16.svg";
-import ClipboardIcon from "@/assets/icons/clipboard-16.svg";
-import ArrowsExpandingIcon from "@/assets/icons/arrows-expanding-16.svg";
-
-import { frameRef, fileNameAtom, setFlashShown } from "@/store";
-import { triggerFlash } from "@/store/flash";
-import download from "@/util/download";
-import { toPng, toSvg, toBlob } from "@/lib/image";
-import useHotkeys from "@/utils/useHotkeys";
-import usePngClipboardSupported from "@/util/usePngClipboardSupported";
-import { EXPORT_SIZE_OPTIONS, SIZE_LABELS, exportSize, setExportSize } from "@/store/image";
-import { ButtonGroup } from "@/components/button-group";
-import { Button } from "@/components/button";
-import { ChevronRightIcon, CircleIcon, DownloadIcon } from "@/components/icons";
-import { Kbd, KbdGroup } from "@/components/kbd";
-import { toast } from "@/components/toast";
 
 export const ExportButton = () => {
   const [dropdownOpen, setDropdownOpen] = createSignal(false);
@@ -245,11 +244,11 @@ export const ExportButton = () => {
           <div {...rootApi().getPositionerProps()} class="z-50">
             <div
               {...rootApi().getContentProps()}
-              class="bg-panel border-gray-4 animate-slideDownAndFade z-50 min-w-[9.5rem] overflow-hidden rounded-md border p-1 shadow-md outline-none"
+              class="animate-slideDownAndFade z-50 min-w-[9.5rem] overflow-hidden rounded-md border border-gray-4 bg-panel p-1 shadow-md outline-none"
             >
               <div
                 {...rootApi().getItemProps({ value: "save-png" })}
-                class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
+                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
               >
                 <ImageIcon /> <span class="ml-2">Save PNG</span>
                 <KbdGroup>
@@ -260,7 +259,7 @@ export const ExportButton = () => {
 
               <div
                 {...rootApi().getItemProps({ value: "save-svg" })}
-                class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
+                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
               >
                 <ImageIcon /> <span class="ml-2">Save SVG</span>
                 <KbdGroup>
@@ -273,7 +272,7 @@ export const ExportButton = () => {
               <Show when={pngClipboardSupported()}>
                 <div
                   {...rootApi().getItemProps({ value: "copy-png" })}
-                  class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
+                  class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
                 >
                   <ClipboardIcon /> <span class="ml-2">Copy Image</span>
                   <KbdGroup>
@@ -285,7 +284,7 @@ export const ExportButton = () => {
 
               <div
                 {...rootApi().getItemProps({ value: "copy-url" })}
-                class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
+                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
               >
                 <LinkIcon /> <span class="ml-2">Copy URL</span>
                 <KbdGroup>
@@ -295,17 +294,17 @@ export const ExportButton = () => {
                 </KbdGroup>
               </div>
 
-              <div {...rootApi().getSeparatorProps()} class="bg-gray-4 -mx-1 my-1 h-px" />
+              <div {...rootApi().getSeparatorProps()} class="-mx-1 my-1 h-px bg-gray-4" />
 
               {/* Submenu Trigger */}
               <div
                 {...rootApi().getTriggerItemProps(subApi())}
-                class="hover:bg-gray-a3 data-[highlighted]:bg-gray-a3 text-gray-11 relative flex cursor-default items-center rounded px-2 py-1.5 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
+                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
               >
                 <ArrowsExpandingIcon /> <span class="ml-2">Size</span>
                 <div class="ml-auto flex items-center gap-1">
                   <span class="text-gray-9">{SIZE_LABELS[exportSize()]}</span>
-                  <ChevronRightIcon class="text-gray-9 h-4 w-4" />
+                  <ChevronRightIcon class="h-4 w-4 text-gray-9" />
                 </div>
               </div>
             </div>
@@ -317,7 +316,7 @@ export const ExportButton = () => {
           <div {...subApi().getPositionerProps()} class="z-50">
             <div
               {...subApi().getContentProps()}
-              class="border-gray-4 bg-panel animate-slideRightAndFade z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-lg outline-none"
+              class="animate-slideRightAndFade z-50 min-w-[8rem] overflow-hidden rounded-md border border-gray-4 bg-panel p-1 shadow-lg outline-none"
             >
               <For each={EXPORT_SIZE_OPTIONS}>
                 {(size) => {
@@ -330,11 +329,11 @@ export const ExportButton = () => {
                         value: String(size),
                         checked: isChecked(),
                       })}
-                      class="hover:bg-gray-a3 text-gray-11 data-[highlighted]:bg-gray-a3 relative flex cursor-default items-center rounded py-1.5 pr-2 pl-8 text-sm transition-colors outline-none select-none hover:text-white data-[highlighted]:text-white"
+                      class="relative flex cursor-default items-center rounded py-1.5 pr-2 pl-8 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
                     >
                       <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
                         <Show when={isChecked()}>
-                          <CircleIcon class="text-brand h-2 w-2 fill-current" />
+                          <CircleIcon class="h-2 w-2 fill-current text-brand" />
                         </Show>
                       </span>
                       {SIZE_LABELS[size]}

@@ -1,14 +1,14 @@
-import { JSX, For } from "solid-js";
 import { cn } from "@/utils/cn";
+import { JSX, For } from "solid-js";
 
 export function Kbd(props: { children: JSX.Element; size?: "small" | "medium" }) {
   const size = () => props.size || "small";
   return (
     <kbd
       class={cn(
-        "inline-flex items-center justify-center px-2 font-medium bg-gray-a4 tracking-[0.1px] font-sans w-auto text-gray-a10",
-        size() === "small" && "h-[18px] px-1 text-[10px] rounded-[3px] min-w-[18px]",
-        size() === "medium" && "h-[28px] px-2 text-xs rounded-md min-w-[28px]",
+        "inline-flex w-auto items-center justify-center bg-gray-a4 px-2 font-sans font-medium tracking-[0.1px] text-gray-a10",
+        size() === "small" && "h-[18px] min-w-[18px] rounded-[3px] px-1 text-[10px]",
+        size() === "medium" && "h-[28px] min-w-[28px] rounded-md px-2 text-xs",
       )}
     >
       {props.children}
@@ -23,7 +23,7 @@ export function KbdGroup(props: { children: JSX.Element }) {
 export function Shortcut(props: { children: JSX.Element; keys: string[] }) {
   return (
     <div class="flex items-center justify-between">
-      <div class="text-gray-11 text-[13px]">{props.children}</div>
+      <div class="text-[13px] text-gray-11">{props.children}</div>
       <div class="flex items-end gap-1">
         <For each={props.keys}>{(key) => <Kbd size="medium">{key}</Kbd>}</For>
       </div>

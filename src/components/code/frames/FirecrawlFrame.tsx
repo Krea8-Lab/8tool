@@ -1,12 +1,11 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-} from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
+import { paddingOption, showBackgroundAtom } from "@/store";
 import { exportSize } from "@/store/image";
+import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
-import { createSignal, createEffect, onMount, onCleanup, JSX } from "solid-js";
+import { createSignal, createEffect, onMount, onCleanup } from "solid-js";
+
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./FirecrawlFrame.module.css";
 

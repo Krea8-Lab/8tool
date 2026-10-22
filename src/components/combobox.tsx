@@ -1,5 +1,8 @@
+import { ChevronDownIcon, MagnifyingGlassIcon } from "@/components/icons";
+import { cn } from "@/utils/cn";
 import * as combobox from "@zag-js/combobox";
 import { normalizeProps, useMachine } from "@zag-js/solid";
+import { cva } from "class-variance-authority";
 import {
   createMemo,
   createSignal,
@@ -9,12 +12,8 @@ import {
   createContext,
   useContext,
   JSX,
-  ParentComponent,
 } from "solid-js";
 import { Portal } from "solid-js/web";
-import { ChevronDownIcon, MagnifyingGlassIcon } from "@/components/icons";
-import { cn } from "@/utils/cn";
-import { cva, VariantProps } from "class-variance-authority";
 
 interface ComboboxContextType<T = any> {
   api: () => combobox.Api<T>;
@@ -105,15 +104,13 @@ export function Combobox<T = any>(props: ComboboxProps<T>) {
 }
 
 const triggerVariants = cva(
-  `gap-1 flex w-full items-center whitespace-nowrap rounded-md text-sm font-normal transition-colors duration-100 overflow-hidden cursor-default
-  focus-visible:outline-none focus-visible:ring-1
-  disabled:pointer-events-none disabled:opacity-50`,
+  `flex w-full cursor-default items-center gap-1 overflow-hidden rounded-md text-sm font-normal whitespace-nowrap transition-colors duration-100 focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50`,
   {
     variants: {
       variant: {
         classic:
-          "bg-gray-2 text-gray-a12 border border-gray-a4 hover:border-gray-a6 focus-within:border-gray-a6 ring-transparent",
-        soft: "bg-gray-a3 text-gray-a12 border border-gray-a3 hover:border-gray-a5 focus-within:border-gray-a5 ring-transparent",
+          "border border-gray-a4 bg-gray-2 text-gray-a12 ring-transparent focus-within:border-gray-a6 hover:border-gray-a6",
+        soft: "border border-gray-a3 bg-gray-a3 text-gray-a12 ring-transparent focus-within:border-gray-a5 hover:border-gray-a5",
       },
       size: {
         small: "h-[24px] rounded-md px-2 text-sm",
@@ -185,18 +182,18 @@ export function ComboboxContent(props: {
           <div
             {...ctx.api().getContentProps()}
             class={cn(
-              "z-50 min-w-[12rem] max-h-80 overflow-hidden rounded-md bg-panel border border-gray-4 p-1 shadow-lg animate-slideDownAndFade outline-none flex flex-col",
+              "animate-slideDownAndFade z-50 flex max-h-80 min-w-[12rem] flex-col overflow-hidden rounded-md border border-gray-4 bg-panel p-1 shadow-lg outline-none",
               props.class,
             )}
           >
-            <div class="border-gray-4 flex items-center gap-2 border-b px-2 py-1.5">
+            <div class="flex items-center gap-2 border-b border-gray-4 px-2 py-1.5">
               <Show when={props.showSearchIcon ?? true}>
-                <MagnifyingGlassIcon class="text-gray-9 h-3.5 w-3.5 shrink-0" />
+                <MagnifyingGlassIcon class="h-3.5 w-3.5 shrink-0 text-gray-9" />
               </Show>
               <input
                 {...ctx.api().getInputProps()}
                 placeholder={props.searchPlaceholder || "Search..."}
-                class="text-gray-12 placeholder:text-gray-9 w-full border-none bg-transparent text-xs outline-none"
+                class="w-full border-none bg-transparent text-xs text-gray-12 outline-none placeholder:text-gray-9"
                 value={ctx.query()}
                 onInput={(e) => ctx.setQuery(e.currentTarget.value)}
                 autofocus
@@ -204,7 +201,7 @@ export function ComboboxContent(props: {
             </div>
             <div
               class={cn(
-                "overflow-y-auto max-h-60 p-1 flex flex-col gap-0.5 bg-transparent scrollbar-thin",
+                "flex max-h-60 scrollbar-thin flex-col gap-0.5 overflow-y-auto bg-transparent p-1",
                 props.listClass,
               )}
             >
@@ -223,7 +220,7 @@ export function ComboboxEmpty(props: { children: JSX.Element }) {
 
   return (
     <Show when={ctx.filteredItems().length === 0}>
-      <div class="text-gray-9 py-4 text-center text-xs">{props.children}</div>
+      <div class="py-4 text-center text-xs text-gray-9">{props.children}</div>
     </Show>
   );
 }
@@ -254,8 +251,8 @@ export function ComboboxItem<T = any>(props: { value: T; children: JSX.Element; 
     <div
       onClick={() => ctx.onSelect(props.value)}
       class={cn(
-        "relative flex cursor-default select-none items-center rounded px-2 py-1.5 text-xs outline-none transition-colors hover:bg-gray-a3 text-gray-11 hover:text-white",
-        isSelected() && "bg-gray-a3 text-white font-medium",
+        "relative flex cursor-default items-center rounded px-2 py-1.5 text-xs text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white",
+        isSelected() && "bg-gray-a3 font-medium text-white",
         props.class,
       )}
     >
@@ -281,12 +278,12 @@ export function ComboboxGroup(props: {
 
 export function ComboboxGroupLabel(props: { children: JSX.Element }) {
   return (
-    <div class="text-gray-9 px-2 py-1 text-[10px] font-semibold tracking-wider uppercase">
+    <div class="px-2 py-1 text-[10px] font-semibold tracking-wider text-gray-9 uppercase">
       {props.children}
     </div>
   );
 }
 
 export function ComboboxSeparator() {
-  return <div class="bg-gray-4 -mx-1 my-1 h-px" />;
+  return <div class="-mx-1 my-1 h-px bg-gray-4" />;
 }

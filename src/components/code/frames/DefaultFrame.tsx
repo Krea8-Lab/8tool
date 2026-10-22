@@ -1,13 +1,10 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-} from "@/store";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
 import { themeAtom, themeBackgroundAtom, themeDarkModeAtom } from "@/store/themes";
-import { cn } from "@/utils/cn";
 import useIsSafari from "@/util/useIsSafari";
+import { cn } from "@/utils/cn";
+
 import Editor from "../Editor";
+
 import styles from "./DefaultFrame.module.css";
 
 const DefaultFrame = () => {

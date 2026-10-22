@@ -1,7 +1,8 @@
+import { Switch } from "@/components/switch";
 import { showBackground, setShowBackground } from "@/store";
 import useHotkeys from "@/utils/useHotkeys";
+
 import ControlContainer from "./ControlContainer";
-import { Switch } from "@/components/switch";
 
 export const BackgroundControl = () => {
   useHotkeys("b", () => {

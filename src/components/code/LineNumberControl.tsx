@@ -1,8 +1,9 @@
+import { Switch } from "@/components/switch";
 import { setShowLineNumbers } from "@/store";
 import { themeAtom, themeLineNumbersAtom } from "@/store/themes";
 import useHotkeys from "@/utils/useHotkeys";
+
 import ControlContainer from "./ControlContainer";
-import { Switch } from "@/components/switch";
 
 export const LineNumberControl = () => {
   const isDisabled = () => {

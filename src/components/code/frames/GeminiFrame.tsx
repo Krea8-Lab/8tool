@@ -1,16 +1,11 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-} from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
 import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
+import useIsSafari from "@/util/useIsSafari";
 import { cn } from "@/utils/cn";
 
-import useIsSafari from "@/util/useIsSafari";
-
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./GeminiFrame.module.css";
 

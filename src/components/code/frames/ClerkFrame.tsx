@@ -1,13 +1,12 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-} from "@/store";
+import clerkPattern from "@/assets/clerk/pattern.svg?url";
+import { paddingOption, showBackgroundAtom } from "@/store";
 import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
-import clerkPattern from "@/assets/clerk/pattern.svg?url";
+
 import Editor from "../Editor";
-import sharedStyles from "./DefaultFrame.module.css";
+
 import styles from "./ClerkFrame.module.css";
+import sharedStyles from "./DefaultFrame.module.css";
 
 const ClerkFrame = () => {
   return (

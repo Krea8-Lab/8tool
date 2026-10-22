@@ -5,15 +5,15 @@ import {
   setFileName,
   subtitleAtom,
 } from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
 import { selectedLanguageAtom } from "@/store/code";
+import { themeDarkModeAtom } from "@/store/themes";
+import useIsSafari from "@/util/useIsSafari";
 import { cn } from "@/utils/cn";
 
-import useIsSafari from "@/util/useIsSafari";
-
 import Editor from "../Editor";
-import sharedStyles from "./DefaultFrame.module.css";
+
 import styles from "./Auth0Frame.module.css";
+import sharedStyles from "./DefaultFrame.module.css";
 
 const Auth0Frame = () => {
   const isSafari = useIsSafari();

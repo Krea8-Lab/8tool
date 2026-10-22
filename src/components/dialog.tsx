@@ -1,3 +1,5 @@
+import { MultiplyIcon } from "@/components/icons";
+import { cn } from "@/utils/cn";
 import * as dialog from "@zag-js/dialog";
 import { normalizeProps, useMachine } from "@zag-js/solid";
 import {
@@ -8,11 +10,8 @@ import {
   useContext,
   JSX,
   ParentComponent,
-  splitProps,
 } from "solid-js";
 import { Portal } from "solid-js/web";
-import { MultiplyIcon } from "@/components/icons";
-import { cn } from "@/utils/cn";
 
 interface DialogContextType {
   api: () => dialog.Api;
@@ -81,7 +80,7 @@ export function DialogContent(props: {
           <div
             {...ctx.api().getContentProps()}
             class={cn(
-              "grid w-full gap-4 rounded-md bg-panel border border-gray-a3 shadow-md duration-200 data-[state=open]:animate-contentShow sm:rounded-lg my-10 relative",
+              "data-[state=open]:animate-contentShow relative my-10 grid w-full gap-4 rounded-md border border-gray-a3 bg-panel shadow-md duration-200 sm:rounded-lg",
               size() === "small" && "max-w-xs p-8",
               size() === "medium" && "max-w-lg p-6",
               size() === "large" && "max-w-3xl p-6",
@@ -92,7 +91,7 @@ export function DialogContent(props: {
             <button
               type="button"
               {...ctx.api().getCloseTriggerProps()}
-              class="ring-offset-panel focus:ring-gray-7 text-gray-11 absolute top-4 right-4 rounded-full opacity-70 transition-opacity hover:text-white hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
+              class="absolute top-4 right-4 rounded-full text-gray-11 opacity-70 ring-offset-panel transition-opacity hover:text-white hover:opacity-100 focus:ring-2 focus:ring-gray-7 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
               aria-label="Close"
             >
               <MultiplyIcon class="h-4 w-4" />
@@ -108,7 +107,7 @@ export function DialogTitle(props: { children: JSX.Element; class?: string }) {
   const ctx = useContext(DialogContext);
   if (!ctx)
     return (
-      <h2 class={cn("text-base font-semibold leading-none tracking-tight", props.class)}>
+      <h2 class={cn("text-base leading-none font-semibold tracking-tight", props.class)}>
         {props.children}
       </h2>
     );
@@ -116,7 +115,7 @@ export function DialogTitle(props: { children: JSX.Element; class?: string }) {
   return (
     <h2
       {...ctx.api().getTitleProps()}
-      class={cn("text-base font-semibold leading-none tracking-tight", props.class)}
+      class={cn("text-base leading-none font-semibold tracking-tight", props.class)}
     >
       {props.children}
     </h2>

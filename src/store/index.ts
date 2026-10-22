@@ -1,22 +1,21 @@
-import { createSignal, createEffect, onMount } from "solid-js";
-import { isServer } from "solid-js/web";
-import type { Highlighter } from "shiki";
 import { Base64 } from "js-base64";
-import { themeId, setThemeId, darkMode, setDarkMode } from "./themes";
-import { padding, setPadding, isPadding, Padding } from "./padding";
-import { font, setFont, Font, FONTS } from "./font";
+import type { Highlighter } from "shiki";
+import { createSignal, createEffect } from "solid-js";
+import { isServer } from "solid-js/web";
+
+import { LANGUAGES } from "../util/languages";
 import {
   code,
-  setCode,
   userInputtedLanguage,
   setUserInputtedLanguage,
-  userInputtedCode,
   setUserInputtedCode,
   detectLanguage,
   setDetectedLanguage,
 } from "./code";
-import { LANGUAGES } from "../util/languages";
 import { flashShown, setFlashShown } from "./flash";
+import { Font, FONTS } from "./font";
+import { isPadding, Padding } from "./padding";
+import { themeId, setThemeId, darkMode, setDarkMode } from "./themes";
 
 const [windowWidth, setWindowWidth] = createSignal<number | null>(null);
 const [showBackground, setShowBackground] = createSignal<boolean>(true);

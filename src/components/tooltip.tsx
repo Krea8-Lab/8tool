@@ -1,5 +1,6 @@
-import * as tooltip from "@zag-js/tooltip";
+import { cn } from "@/utils/cn";
 import { normalizeProps, useMachine } from "@zag-js/solid";
+import * as tooltip from "@zag-js/tooltip";
 import {
   createMemo,
   createUniqueId,
@@ -10,7 +11,6 @@ import {
   useContext,
 } from "solid-js";
 import { Portal } from "solid-js/web";
-import { cn } from "@/utils/cn";
 
 interface TooltipContextType {
   api: () => tooltip.Api;
@@ -46,7 +46,7 @@ export function Tooltip(props: {
               <div {...api().getPositionerProps()} class="z-50">
                 <div
                   {...api().getContentProps()}
-                  class="bg-gray-4 text-gray-12 animate-slideDownAndFade border-gray-a3 rounded-lg border px-3 py-2 text-sm leading-none shadow-md select-none"
+                  class="animate-slideDownAndFade rounded-lg border border-gray-a3 bg-gray-4 px-3 py-2 text-sm leading-none text-gray-12 shadow-md select-none"
                 >
                   {props.content}
                 </div>
@@ -91,7 +91,7 @@ export function TooltipContent(props: {
           <div
             {...ctx.api().getContentProps()}
             class={cn(
-              "px-3 py-2 bg-gray-4 text-gray-12 rounded-lg text-sm leading-none select-none shadow-md animate-slideDownAndFade border border-gray-a3",
+              "animate-slideDownAndFade rounded-lg border border-gray-a3 bg-gray-4 px-3 py-2 text-sm leading-none text-gray-12 shadow-md select-none",
               props.class,
             )}
           >

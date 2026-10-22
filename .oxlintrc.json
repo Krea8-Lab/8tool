@@ -1,15 +1,33 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "typescript",
-    "unicorn",
-    "oxc"
-  ],
+  "plugins": ["typescript", "unicorn", "oxc", "import"],
   "categories": {
     "correctness": "error"
   },
-  "rules": {},
   "env": {
-    "builtin": true
-  }
+    "builtin": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-unassigned-vars": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "unicorn/filename-case": "off"
+  },
+  "ignorePatterns": [
+    "dist/**",
+    ".output/**",
+    ".vinxi/**",
+    ".turbo/**",
+    "node_modules/**",
+    "public/**",
+    "bun.lock"
+  ]
 }

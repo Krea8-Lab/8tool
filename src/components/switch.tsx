@@ -1,7 +1,7 @@
-import * as zagSwitch from "@zag-js/switch";
-import { normalizeProps, useMachine } from "@zag-js/solid";
-import { createMemo, createUniqueId, JSX } from "solid-js";
 import { cn } from "@/utils/cn";
+import { normalizeProps, useMachine } from "@zag-js/solid";
+import * as zagSwitch from "@zag-js/switch";
+import { createMemo, createUniqueId } from "solid-js";
 
 export interface SwitchProps {
   checked?: boolean;
@@ -30,7 +30,7 @@ export function Switch(props: SwitchProps) {
     <label
       {...api().getRootProps()}
       class={cn(
-        "inline-flex h-4 w-7 px-[3px] shrink-0 cursor-default items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-7 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-2 disabled:cursor-not-allowed disabled:opacity-50 duration-200",
+        "inline-flex h-4 w-7 shrink-0 cursor-default items-center rounded-full px-[3px] transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-gray-7 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
         api().checked ? (props.color === "purple" ? "bg-purple" : "bg-blue") : "bg-gray-7",
         props.class || props.className,
       )}

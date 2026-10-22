@@ -1,4 +1,5 @@
 import { ParentComponent } from "solid-js";
+
 import styles from "./ControlContainer.module.css";
 
 export const ControlContainer: ParentComponent<{ title: string }> = (props) => {

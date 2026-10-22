@@ -1,16 +1,13 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-} from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
 import { selectedLanguageAtom } from "@/store/code";
 import { flashShown } from "@/store/flash";
+import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
+
 import Editor from "../Editor";
-import sharedStyles from "./DefaultFrame.module.css";
+
 import styles from "./CloudflareFrame.module.css";
+import sharedStyles from "./DefaultFrame.module.css";
 
 const CloudflareFrame = () => {
   return (

@@ -1,15 +1,12 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-} from "@/store";
-import { themeBackgroundAtom, themeDarkModeAtom } from "@/store/themes";
+import triggerPattern from "@/assets/triggerdev/pattern.svg?url";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
 import { selectedLanguageAtom } from "@/store/code";
 import { flashShown } from "@/store/flash";
+import { themeBackgroundAtom, themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
-import triggerPattern from "@/assets/triggerdev/pattern.svg?url";
+
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./TriggerdevFrame.module.css";
 

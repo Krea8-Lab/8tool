@@ -1,7 +1,6 @@
-import { createSignal, createMemo } from "solid-js";
-import { isServer } from "solid-js/web";
-import { Base64 } from "js-base64";
 import hljs from "highlight.js";
+import { createSignal, createMemo } from "solid-js";
+
 import { LANGUAGES, Language } from "../util/languages";
 
 export type CodeSample = {

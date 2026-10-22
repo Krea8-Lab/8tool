@@ -1,7 +1,8 @@
+import { Switch } from "@/components/switch";
 import { darkMode, setDarkMode, themeAtom, themeDarkModeAtom } from "@/store/themes";
 import useHotkeys from "@/utils/useHotkeys";
+
 import ControlContainer from "./ControlContainer";
-import { Switch } from "@/components/switch";
 
 export const DarkModeControl = () => {
   const canToggle = () => {

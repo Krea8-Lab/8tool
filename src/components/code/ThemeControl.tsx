@@ -1,10 +1,3 @@
-import { createMemo, Show } from "solid-js";
-import { Dynamic } from "solid-js/web";
-import { themeAtom, setThemeId, THEMES, unlockedThemesAtom } from "@/store/themes";
-import { setPaddingOption } from "@/store";
-import ControlContainer from "./ControlContainer";
-import styles from "./ThemeControl.module.css";
-import useHotkeys from "@/utils/useHotkeys";
 import {
   Combobox,
   ComboboxTrigger,
@@ -14,8 +7,17 @@ import {
   ComboboxValue,
   ComboboxEmpty,
 } from "@/components/combobox";
-import { UniqueSvg } from "@/components/unique-svg";
 import { ChevronUpIcon } from "@/components/icons";
+import { UniqueSvg } from "@/components/unique-svg";
+import { setPaddingOption } from "@/store";
+import { themeAtom, setThemeId, THEMES, unlockedThemesAtom } from "@/store/themes";
+import useHotkeys from "@/utils/useHotkeys";
+import { createMemo, Show } from "solid-js";
+import { Dynamic } from "solid-js/web";
+
+import ControlContainer from "./ControlContainer";
+
+import styles from "./ThemeControl.module.css";
 
 function ThemePreview(props: { theme: any }) {
   const icon = () => props.theme?.icon;

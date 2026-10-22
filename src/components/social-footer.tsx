@@ -24,12 +24,11 @@ const socialLinks = [
   },
 ];
 
-export function SocialFooter(props: { referral?: string }) {
-  const referral = () => props.referral || "ray-so";
+export function SocialFooter(_props?: { referral?: string }) {
   return (
     <div class="mt-auto pt-2">
       <div class="mt-2 flex items-center justify-between gap-2">
-        <div class="text-gray-12 group flex items-center gap-1">
+        <div class="group flex items-center gap-1 text-gray-12">
           <RaycastLogoNegIcon class="h-6 w-6" />
           <span class="text-[11px] font-medium">Made by Krea8 &</span>
           <span class="text-[11px] font-medium">
@@ -46,7 +45,7 @@ export function SocialFooter(props: { referral?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  class="text-gray-9 hover:text-gray-11 transition-colors"
+                  class="text-gray-9 transition-colors hover:text-gray-11"
                 >
                   <Icon class="h-4 w-4" />
                 </a>

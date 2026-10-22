@@ -1,13 +1,11 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  windowWidthAtom,
-} from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
+import { paddingOption, showBackgroundAtom, windowWidthAtom } from "@/store";
 import { codeAtom } from "@/store/code";
+import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
 import { createEffect, createSignal, onMount, onCleanup } from "solid-js";
+
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./ElevenLabsFrame.module.css";
 

@@ -1,8 +1,9 @@
-import * as zagToast from "@zag-js/toast";
+import { cn } from "@/utils/cn";
 import { normalizeProps, useMachine } from "@zag-js/solid";
+import * as zagToast from "@zag-js/toast";
 import { createMemo, createUniqueId, For, Show, JSX } from "solid-js";
 import { Portal } from "solid-js/web";
-import { cn } from "@/utils/cn";
+
 import { MultiplyIcon } from "./icons";
 
 const toaster = zagToast.createStore({
@@ -94,19 +95,19 @@ function ToastItem(props: { toast: any; parent: any; index: number }) {
     <div
       {...api().getRootProps()}
       class={cn(
-        "pointer-events-auto flex items-center justify-between gap-3 w-auto min-w-[240px] max-w-md rounded-lg p-3 shadow-lg border text-xs font-medium transition-all duration-200 animate-slideDownAndFade bg-background text-gray-12 border-gray-4",
+        "animate-slideDownAndFade pointer-events-auto flex w-auto max-w-md min-w-[240px] items-center justify-between gap-3 rounded-lg border border-gray-4 bg-background p-3 text-xs font-medium text-gray-12 shadow-lg transition-all duration-200",
         api().type === "error" && "border-red-900/50 text-red-200",
         api().type === "success" && "border-emerald-900/50 text-emerald-200",
       )}
     >
       <div class="flex flex-col gap-1">
         <Show when={api().title}>
-          <span {...api().getTitleProps()} class="text-gray-12 font-medium">
+          <span {...api().getTitleProps()} class="font-medium text-gray-12">
             {api().title as JSX.Element}
           </span>
         </Show>
         <Show when={api().description}>
-          <div {...api().getDescriptionProps()} class="text-gray-11 text-[11px]">
+          <div {...api().getDescriptionProps()} class="text-[11px] text-gray-11">
             {typeof api().description === "function"
               ? (api().description as any)()
               : (api().description as JSX.Element)}
@@ -115,7 +116,7 @@ function ToastItem(props: { toast: any; parent: any; index: number }) {
       </div>
       <button
         {...api().getCloseTriggerProps()}
-        class="text-gray-9 rounded p-1 text-xs transition-colors hover:text-white"
+        class="rounded p-1 text-xs text-gray-9 transition-colors hover:text-white"
       >
         <MultiplyIcon class="h-4 w-4" />
       </button>
@@ -123,7 +124,7 @@ function ToastItem(props: { toast: any; parent: any; index: number }) {
   );
 }
 
-export function Toaster(props: { position?: string; offset?: number; duration?: number }) {
+export function Toaster(_props?: { position?: string; offset?: number; duration?: number }) {
   const service = useMachine(zagToast.group.machine, () => ({
     id: createUniqueId(),
     store: toaster,

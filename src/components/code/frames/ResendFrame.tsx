@@ -1,13 +1,10 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-} from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
 import { selectedLanguageAtom } from "@/store/code";
+import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
+
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./ResendFrame.module.css";
 

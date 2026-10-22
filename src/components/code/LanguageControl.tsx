@@ -1,10 +1,3 @@
-import { createMemo } from "solid-js";
-import { autoDetectLanguage, selectedLanguage, setSelectedLanguage } from "@/store/code";
-import { loadingLanguage } from "@/store";
-import { Language, LANGUAGES } from "@/util/languages";
-import ControlContainer from "./ControlContainer";
-import styles from "./LanguageControl.module.css";
-import useHotkeys from "@/utils/useHotkeys";
 import {
   Combobox,
   ComboboxContent,
@@ -14,8 +7,17 @@ import {
   ComboboxValue,
   ComboboxEmpty,
 } from "@/components/combobox";
-import { cn } from "@/utils/cn";
 import { ChevronUpIcon } from "@/components/icons";
+import { loadingLanguage } from "@/store";
+import { autoDetectLanguage, selectedLanguage, setSelectedLanguage } from "@/store/code";
+import { Language, LANGUAGES } from "@/util/languages";
+import { cn } from "@/utils/cn";
+import useHotkeys from "@/utils/useHotkeys";
+import { createMemo } from "solid-js";
+
+import ControlContainer from "./ControlContainer";
+
+import styles from "./LanguageControl.module.css";
 
 type LanguageItem = {
   id: string;

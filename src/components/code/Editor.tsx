@@ -1,6 +1,6 @@
-import { createSignal, onMount, onCleanup, createMemo, JSX } from "solid-js";
-import styles from "./Editor.module.css";
+import { setHighlightedLines } from "@/store";
 import { code, setCode, isCodeExample, selectedLanguage } from "@/store/code";
+import { triggerFlash } from "@/store/flash";
 import {
   THEMES,
   themeAtom,
@@ -11,13 +11,15 @@ import {
   setUnlockedThemesAtom,
   setThemeId,
 } from "@/store/themes";
-import useHotkeys from "@/utils/useHotkeys";
-import HighlightedCode from "./HighlightedCode";
-import { triggerFlash } from "@/store/flash";
-import { setHighlightedLines } from "@/store";
 import { LANGUAGES } from "@/util/languages";
 import { cn } from "@/utils/cn";
+import useHotkeys from "@/utils/useHotkeys";
+import { createSignal, onMount, onCleanup, createMemo, JSX } from "solid-js";
 import { Dynamic } from "solid-js/web";
+
+import HighlightedCode from "./HighlightedCode";
+
+import styles from "./Editor.module.css";
 
 function indentText(text: string) {
   return text

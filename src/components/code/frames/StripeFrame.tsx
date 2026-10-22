@@ -1,14 +1,12 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  windowWidthAtom,
-} from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
+import { paddingOption, showBackgroundAtom, windowWidthAtom } from "@/store";
 import { code } from "@/store/code";
+import { themeDarkModeAtom } from "@/store/themes";
+import useIsSafari from "@/util/useIsSafari";
 import { cn } from "@/utils/cn";
 import { createSignal, createEffect } from "solid-js";
-import useIsSafari from "@/util/useIsSafari";
+
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./StripeFrame.module.css";
 

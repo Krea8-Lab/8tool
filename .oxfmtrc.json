@@ -1,5 +1,26 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "ignorePatterns": ["dist/**", ".output/**", "node_modules/**", ".gitignore", "bun.lock"],
-  "sortTailwindcss": true
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "sortTailwindcss": {
+    "stylesheet": "./src/app.css",
+    "functions": ["clsx", "cn", "cva", "twMerge"]
+  },
+  "sortImports": {
+    "internalPattern": ["~/**", "@/**"]
+  },
+  "ignorePatterns": [
+    "dist/**",
+    ".output/**",
+    ".vinxi/**",
+    ".turbo/**",
+    "node_modules/**",
+    "public/**",
+    "bun.lock"
+  ]
 }

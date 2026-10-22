@@ -1,17 +1,18 @@
-import { onMount, Show, createSignal } from "solid-js";
-import { Title, Meta } from "@solidjs/meta";
-import type { Highlighter } from "shiki";
-import { shikiTheme } from "@/store/themes";
-import tailwindLight from "@/assets/tailwind/light.json";
 import tailwindDark from "@/assets/tailwind/dark.json";
-import { LANGUAGES } from "@/util/languages";
-import { highlighterAtom, setHighlighter, initHashSync } from "@/store";
-import Frame from "@/components/code/Frame";
+import tailwindLight from "@/assets/tailwind/light.json";
 import Controls from "@/components/code/Controls";
 import ExportButton from "@/components/code/ExportButton";
 import FormatCodeButton from "@/components/code/FormatCodeButton";
+import Frame from "@/components/code/Frame";
 import InfoDialog from "@/components/code/InfoDialog";
 import { NavigationActions } from "@/components/navigation";
+import { highlighterAtom, setHighlighter, initHashSync } from "@/store";
+import { shikiTheme } from "@/store/themes";
+import { LANGUAGES } from "@/util/languages";
+import { Title, Meta } from "@solidjs/meta";
+import type { Highlighter } from "shiki";
+import { onMount, Show, createSignal } from "solid-js";
+
 import styles from "@/components/code/code.module.css";
 
 export default function Home() {

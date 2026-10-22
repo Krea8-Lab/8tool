@@ -1,19 +1,12 @@
-import { createSignal, onMount, Show } from "solid-js";
-import { WandIcon } from "@/components/icons";
-import formatCode, { formatterSupportedLanguages } from "@/util/formatCode";
-import { code, setCode, selectedLanguage, setSelectedLanguage } from "@/store/code";
-import useHotkeys from "@/utils/useHotkeys";
 import { Button } from "@/components/button";
+import { WandIcon } from "@/components/icons";
 import { toast } from "@/components/toast";
+import { code, setCode, selectedLanguage, setSelectedLanguage } from "@/store/code";
+import formatCode, { formatterSupportedLanguages } from "@/util/formatCode";
 import { cn } from "@/utils/cn";
+import useHotkeys from "@/utils/useHotkeys";
 
 export const FormatCodeButton = () => {
-  const [isClient, setIsClient] = createSignal(false);
-
-  onMount(() => {
-    setIsClient(true);
-  });
-
   const handleFormatCode = () => {
     const lang = selectedLanguage();
     const isSupported = lang && formatterSupportedLanguages.includes(lang.name);
@@ -40,7 +33,7 @@ export const FormatCodeButton = () => {
             return {
               message: "Code formatting failed",
               description: () => (
-                <pre class="scrollbar-hide bg-gray-a3 w-full max-w-[300px] overflow-auto rounded p-2.5 text-xs">
+                <pre class="scrollbar-hide w-full max-w-[300px] overflow-auto rounded bg-gray-a3 p-2.5 text-xs">
                   <code class="w-full">{errorMessage}</code>
                 </pre>
               ),
@@ -67,7 +60,7 @@ export const FormatCodeButton = () => {
         "hidden",
         selectedLanguage() &&
           formatterSupportedLanguages.includes(selectedLanguage()!.name) &&
-          "sm:inline-flex gap-2",
+          "gap-2 sm:inline-flex",
       )}
     >
       <WandIcon width={16} height={16} />

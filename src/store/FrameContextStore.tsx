@@ -1,4 +1,5 @@
 import { createContext, ParentComponent, Accessor } from "solid-js";
+
 import { frameRef, setFrameRef } from "./index";
 
 export const FrameContext = createContext<Accessor<HTMLDivElement | null>>(frameRef);

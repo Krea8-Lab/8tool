@@ -1,12 +1,11 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-} from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
-import { cn } from "@/utils/cn";
 import beams from "@/assets/tailwind/beams.png";
+import { paddingOption, showBackgroundAtom } from "@/store";
+import { themeDarkModeAtom } from "@/store/themes";
 import useIsSafari from "@/util/useIsSafari";
+import { cn } from "@/utils/cn";
+
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./TailwindFrame.module.css";
 

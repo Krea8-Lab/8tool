@@ -1,9 +1,10 @@
-import { createSignal, createEffect } from "solid-js";
-import { Language, LANGUAGES } from "@/util/languages";
-import styles from "./Editor.module.css";
 import { highlightedLinesAtom, highlighterAtom, setLoadingLanguage } from "@/store";
 import { themeDarkModeAtom, themeAtom } from "@/store/themes";
+import { Language, LANGUAGES } from "@/util/languages";
 import { cn } from "@/utils/cn";
+import { createSignal, createEffect } from "solid-js";
+
+import styles from "./Editor.module.css";
 
 export interface HighlightedCodeProps {
   selectedLanguage: Language | null;

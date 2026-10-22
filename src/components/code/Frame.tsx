@@ -1,11 +1,12 @@
-import { THEMES, themeAtom, themeDarkModeAtom } from "@/store/themes";
 import { setFrameRef } from "@/store";
+import { THEMES, themeAtom, themeDarkModeAtom } from "@/store/themes";
+
 import FlashMessage from "./FlashMessage";
-import ResizableFrame from "./ResizableFrame";
+import Auth0Frame from "./frames/Auth0Frame";
+import AwsFrame from "./frames/AwsFrame";
 import BrowserbaseFrame from "./frames/BrowserbaseFrame";
 import ClerkFrame from "./frames/ClerkFrame";
 import CloudflareFrame from "./frames/CloudflareFrame";
-import Auth0Frame from "./frames/Auth0Frame";
 import DefaultFrame from "./frames/DefaultFrame";
 import ElevenLabsFrame from "./frames/ElevenLabsFrame";
 import FirecrawlFrame from "./frames/FirecrawlFrame";
@@ -20,7 +21,7 @@ import SupabaseFrame from "./frames/SupabaseFrame";
 import TailwindFrame from "./frames/TailwindFrame";
 import TriggerdevFrame from "./frames/TriggerdevFrame";
 import VercelFrame from "./frames/VercelFrame";
-import AwsFrame from "./frames/AwsFrame";
+import ResizableFrame from "./ResizableFrame";
 
 import styles from "./Frame.module.css";
 import "./gemini-styles.css";

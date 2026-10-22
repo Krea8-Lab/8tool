@@ -1,13 +1,11 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-} from "@/store";
+import { paddingOption, showBackgroundAtom } from "@/store";
 import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
 
 import Editor from "../Editor";
-import sharedStyles from "./DefaultFrame.module.css";
+
 import styles from "./AwsFrame.module.css";
+import sharedStyles from "./DefaultFrame.module.css";
 
 const AwsFrame = () => {
   return (

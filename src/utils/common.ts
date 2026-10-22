@@ -1,5 +1,3 @@
-import { toast } from "../components/toast";
-
 export const BASE_URL =
   typeof window !== "undefined" ? window.location.origin : "http://localhost:3000";
 

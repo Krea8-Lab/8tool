@@ -1,9 +1,10 @@
-import { defineConfig } from "vite";
-import { nitro } from "nitro/vite";
-import tailwindcss from "@tailwindcss/vite";
-import { solidStart } from "@solidjs/start/config";
-import solidSvg from "vite-plugin-solid-svg";
 import path from "node:path";
+
+import { solidStart } from "@solidjs/start/config";
+import tailwindcss from "@tailwindcss/vite";
+import { nitro } from "nitro/vite";
+import { defineConfig } from "vite";
+import solidSvg from "vite-plugin-solid-svg";
 
 export default defineConfig({
   plugins: [

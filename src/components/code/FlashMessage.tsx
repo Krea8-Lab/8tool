@@ -1,11 +1,12 @@
-import { createEffect, Show } from "solid-js";
 import { flashMessage, flashShown } from "@/store/flash";
 import useAudio from "@/util/useAudio";
-import styles from "./FlashMessage.module.css";
 import { cn } from "@/utils/cn";
+import { createEffect, Show } from "solid-js";
+
+import styles from "./FlashMessage.module.css";
 
 export const FlashMessage = () => {
-  const [playing, toggle] = useAudio("unlock.mp3");
+  const [, toggle] = useAudio("unlock.mp3");
 
   createEffect(() => {
     const msg = flashMessage();

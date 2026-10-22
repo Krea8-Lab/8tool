@@ -1,8 +1,10 @@
-import { For } from "solid-js";
 import { paddingOption, setPaddingOption } from "@/store";
 import { PADDING_OPTIONS } from "@/store/padding";
 import useHotkeys from "@/utils/useHotkeys";
+import { For } from "solid-js";
+
 import ControlContainer from "./ControlContainer";
+
 import styles from "./PaddingControl.module.css";
 
 export const PaddingControl = () => {

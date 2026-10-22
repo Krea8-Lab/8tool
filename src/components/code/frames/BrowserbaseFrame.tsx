@@ -1,15 +1,11 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-} from "@/store";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
 import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
 
 import Editor from "../Editor";
-import sharedStyles from "./DefaultFrame.module.css";
+
 import styles from "./BrowserbaseFrame.module.css";
+import sharedStyles from "./DefaultFrame.module.css";
 
 const BrowserbaseFrame = () => {
   return (

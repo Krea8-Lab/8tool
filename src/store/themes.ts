@@ -1,50 +1,50 @@
 import { createSignal, createMemo, JSX } from "solid-js";
+
 import { showLineNumbers } from "./index";
-import { BASE_URL } from "@/utils/common";
 
 type CSSProperties = JSX.CSSProperties | Record<string, string | number | undefined>;
 
-import { Font } from "./font";
-import FirecrawlLogo from "@/assets/firecrawl.svg";
-import FirecrawlLogoUrl from "@/assets/firecrawl.svg?url";
-import CloudflareLogo from "@/assets/cloudflare.svg";
-import CloudflareLogoUrl from "@/assets/cloudflare.svg?url";
+import Auth0Logo from "@/assets/auth0.svg";
+import Auth0LogoUrl from "@/assets/auth0.svg?url";
 import AWSLogo from "@/assets/aws.svg";
 import AWSLogoUrl from "@/assets/aws.svg?url";
-import VercelLogo from "@/assets/vercel.svg";
-import VercelLogoUrl from "@/assets/vercel.svg?url";
+import BrowserbaseLogo from "@/assets/browserbase.svg";
+import BrowserbaseLogoUrl from "@/assets/browserbase.svg?url";
+import ClerkLogo from "@/assets/clerk.svg";
+import ClerkLogoUrl from "@/assets/clerk.svg?url";
+import CloudflareLogo from "@/assets/cloudflare.svg";
+import CloudflareLogoUrl from "@/assets/cloudflare.svg?url";
+import ElevenLabsLogo from "@/assets/elevenlabs.svg";
+import ElevenLabsLogoUrl from "@/assets/elevenlabs.svg?url";
+import FirecrawlLogo from "@/assets/firecrawl.svg";
+import FirecrawlLogoUrl from "@/assets/firecrawl.svg?url";
+import GeminiLogo from "@/assets/gemini.svg";
+import GeminiLogoUrl from "@/assets/gemini.svg?url";
+import MintlifyLogo from "@/assets/mintlify.svg";
+import MintlifyLogoUrl from "@/assets/mintlify.svg?url";
+import NuxtLogo from "@/assets/nuxt.svg";
+import NuxtLogoUrl from "@/assets/nuxt.svg?url";
+import OpenAiLogo from "@/assets/openai.svg";
+import OpenAiLogoUrl from "@/assets/openai.svg?url";
+import PrismaLogo from "@/assets/prisma.svg";
+import PrismaLogoUrl from "@/assets/prisma.svg?url";
 import RabbitLogo from "@/assets/rabbit.svg";
 import RabbitLogoUrl from "@/assets/rabbit.svg?url";
+import ResendLogo from "@/assets/resend.svg";
+import ResendLogoUrl from "@/assets/resend.svg?url";
+import StripeLogo from "@/assets/stripe.svg";
+import StripeLogoUrl from "@/assets/stripe.svg?url";
 import SupabaseLogo from "@/assets/supabase.svg";
 import SupabaseLogoUrl from "@/assets/supabase.svg?url";
 import TailwindLogo from "@/assets/tailwind.svg";
 import TailwindLogoUrl from "@/assets/tailwind.svg?url";
 import TriggerLogo from "@/assets/triggerdev.svg";
 import TriggerLogoUrl from "@/assets/triggerdev.svg?url";
-import GeminiLogo from "@/assets/gemini.svg";
-import GeminiLogoUrl from "@/assets/gemini.svg?url";
-import OpenAiLogo from "@/assets/openai.svg";
-import OpenAiLogoUrl from "@/assets/openai.svg?url";
-import ClerkLogo from "@/assets/clerk.svg";
-import ClerkLogoUrl from "@/assets/clerk.svg?url";
-import PrismaLogo from "@/assets/prisma.svg";
-import PrismaLogoUrl from "@/assets/prisma.svg?url";
-import MintlifyLogo from "@/assets/mintlify.svg";
-import MintlifyLogoUrl from "@/assets/mintlify.svg?url";
-import ElevenLabsLogo from "@/assets/elevenlabs.svg";
-import ElevenLabsLogoUrl from "@/assets/elevenlabs.svg?url";
-import ResendLogo from "@/assets/resend.svg";
-import ResendLogoUrl from "@/assets/resend.svg?url";
-import BrowserbaseLogo from "@/assets/browserbase.svg";
-import BrowserbaseLogoUrl from "@/assets/browserbase.svg?url";
-import NuxtLogo from "@/assets/nuxt.svg";
-import NuxtLogoUrl from "@/assets/nuxt.svg?url";
-import StripeLogo from "@/assets/stripe.svg";
-import StripeLogoUrl from "@/assets/stripe.svg?url";
-import Auth0Logo from "@/assets/auth0.svg";
-import Auth0LogoUrl from "@/assets/auth0.svg?url";
+import VercelLogo from "@/assets/vercel.svg";
+import VercelLogoUrl from "@/assets/vercel.svg?url";
 
 import { createCssVariablesTheme } from "../util/theme-css-variables";
+import { Font } from "./font";
 
 export const shikiTheme = createCssVariablesTheme({
   name: "css-variables",

@@ -1,10 +1,9 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-} from "@/store";
+import { paddingOption, showBackgroundAtom } from "@/store";
 import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
+
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./SupabaseFrame.module.css";
 

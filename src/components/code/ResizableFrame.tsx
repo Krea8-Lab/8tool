@@ -1,8 +1,9 @@
-import { createSignal, ParentComponent, Show } from "solid-js";
-import { windowWidth, setWindowWidth } from "@/store";
-import styles from "./ResizableFrame.module.css";
 import XMarkIcon from "@/assets/icons/x-mark-circle-filled-16.svg";
+import { windowWidth, setWindowWidth } from "@/store";
 import { cn } from "@/utils/cn";
+import { createSignal, ParentComponent, Show } from "solid-js";
+
+import styles from "./ResizableFrame.module.css";
 
 type Handle = "right" | "left";
 

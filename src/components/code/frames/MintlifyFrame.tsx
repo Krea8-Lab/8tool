@@ -1,16 +1,11 @@
-import {
-  paddingOption,
-  showBackgroundAtom,
-  fileNameAtom,
-  setFileName,
-} from "@/store";
+import mintlifyPatternDark from "@/assets/mintlify-pattern-dark.svg?url";
+import mintlifyPatternLight from "@/assets/mintlify-pattern-light.svg?url";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
 import { themeDarkModeAtom } from "@/store/themes";
 import { cn } from "@/utils/cn";
 
-import mintlifyPatternDark from "@/assets/mintlify-pattern-dark.svg?url";
-import mintlifyPatternLight from "@/assets/mintlify-pattern-light.svg?url";
-
 import Editor from "../Editor";
+
 import sharedStyles from "./DefaultFrame.module.css";
 import styles from "./MintlifyFrame.module.css";
 
