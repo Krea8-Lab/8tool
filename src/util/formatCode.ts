@@ -1,6 +1,8 @@
+import type { Plugin } from "prettier";
+
 import { Language } from "./languages";
 
-const parsers = {
+const parsers: Record<string, { import: () => Promise<Plugin>; name: string }> = {
   JavaScript: { import: () => import("prettier/plugins/babel"), name: "babel" },
   TypeScript: { import: () => import("prettier/plugins/typescript"), name: "typescript" },
   TSX: { import: () => import("prettier/plugins/typescript"), name: "typescript" },
@@ -11,10 +13,9 @@ const parsers = {
   CSS: { import: () => import("prettier/plugins/postcss"), name: "css" },
   SCSS: { import: () => import("prettier/plugins/postcss"), name: "css" },
   YAML: { import: () => import("prettier/plugins/yaml"), name: "yaml" },
-  Python: { import: () => Promise.resolve({ default: {} }), name: "python" },
 };
 
-export const formatterSupportedLanguages: Language["name"][] = Object.keys(parsers);
+export const formatterSupportedLanguages: Language["name"][] = [...Object.keys(parsers), "Python"];
 
 const prettierConfig = {
   singleQuote: false,
@@ -52,7 +53,7 @@ const formatCode = async (code: string, language: Language | null) => {
     plugins: [
       parserModule,
       ...(["TypeScript", "JavaScript", "TSX", "JSX", "JSON"].includes(language.name)
-        ? [(await import("prettier/plugins/estree")).default]
+        ? [await import("prettier/plugins/estree")]
         : []),
     ],
     ...prettierConfig,

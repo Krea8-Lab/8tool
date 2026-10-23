@@ -2,15 +2,16 @@
   "name": "8tool",
   "type": "module",
   "scripts": {
-    "vite:dev": "vite dev",
+    "vite:dev": "vp dev",
     "dev": "turbo run vite:dev",
-    "build": "vite build",
+    "build": "vp build",
     "start": "node .output/server/index.mjs",
-    "preview": "vite preview",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix"
+    "preview": "vp preview",
+    "fmt": "vp fmt",
+    "fmt:check": "vp fmt --check",
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix",
+    "prepare": "vp config"
   },
   "dependencies": {
     "@astral-sh/ruff-wasm-web": "^0.17.1",
@@ -40,15 +41,18 @@
     "solid-js": "^1.9.14",
     "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3",
-    "vite": "^8.0.0",
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
     "vite-plugin-solid-svg": "^0.8.1",
     "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
-    "oxfmt": "^0.74.0",
-    "oxlint": "^1.89.0",
-    "turbo": "^2.11.10"
+    "turbo": "^2.11.10",
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
+    "vite-plus": "1.4.0"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0"
   },
   "devEngines": {
     "packageManager": {

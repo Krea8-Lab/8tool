@@ -109,7 +109,7 @@ export const isCodeExample = createMemo(() => {
 export function setCode(newCode: string) {
   setUserInputtedCode(newCode);
 
-  detectLanguage(newCode).then((langKey) => {
+  void detectLanguage(newCode).then((langKey) => {
     if (LANGUAGES[langKey]) {
       setDetectedLanguage(LANGUAGES[langKey]);
     }

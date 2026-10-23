@@ -11,7 +11,7 @@ export const SIZE_LABELS = {
 
 export type ExportSize = (typeof EXPORT_SIZE_OPTIONS)[number];
 
-export function isExportSize(value: ExportSize | unknown): value is ExportSize {
+export function isExportSize(value: unknown): value is ExportSize {
   return EXPORT_SIZE_OPTIONS.indexOf(value as ExportSize) !== -1;
 }
 

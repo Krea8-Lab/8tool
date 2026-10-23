@@ -40,7 +40,9 @@ export function Tooltip(props: {
     <TooltipContext.Provider value={{ api }}>
       {props.content ? (
         <div class="inline-flex">
-          <div {...api().getTriggerProps()}>{props.children}</div>
+          <div {...(api().getTriggerProps() as JSX.HTMLAttributes<HTMLDivElement>)}>
+            {props.children}
+          </div>
           <Show when={api().open}>
             <Portal>
               <div {...api().getPositionerProps()} class="z-50">

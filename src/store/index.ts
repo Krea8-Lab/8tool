@@ -14,8 +14,8 @@ import {
 } from "./code";
 import { flashShown, setFlashShown } from "./flash";
 import { Font, FONTS } from "./font";
+import { showLineNumbers, setShowLineNumbers } from "./line-numbers";
 import { isPadding, Padding } from "./padding";
-import { showLineNumbers, setShowLineNumbers, showLineNumbersAtom } from "./line-numbers";
 import { themeId, setThemeId, darkMode, setDarkMode } from "./themes";
 
 const [windowWidth, setWindowWidth] = createSignal<number | null>(null);
@@ -95,7 +95,7 @@ export function readFromHash() {
         if (decoded) {
           setUserInputtedCode(decoded);
           if (!params.has("language")) {
-            detectLanguage(decoded).then((langKey) => {
+            void detectLanguage(decoded).then((langKey) => {
               if (LANGUAGES[langKey]) {
                 setDetectedLanguage(LANGUAGES[langKey]);
               }

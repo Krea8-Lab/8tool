@@ -134,7 +134,7 @@ export const ExportButton = () => {
       }
     } catch {}
 
-    navigator.clipboard.writeText(urlToCopy);
+    void navigator.clipboard.writeText(urlToCopy);
     triggerFlash({
       icon: <ClipboardIcon />,
       message: "URL Copied to clipboard!",
@@ -144,7 +144,7 @@ export const ExportButton = () => {
 
   const handleExportClick = (event: MouseEvent) => {
     event.preventDefault();
-    savePng();
+    void savePng();
   };
 
   // 1. Root Menu Machine
@@ -155,22 +155,22 @@ export const ExportButton = () => {
       setDropdownOpen(details.open);
     },
     positioning: {
-      placement: "bottom-end",
+      placement: "bottom-end" as const,
       gutter: 4,
     },
     onSelect(details) {
       switch (details.value) {
         case "save-png":
-          savePng();
+          void savePng();
           break;
         case "save-svg":
-          saveSvg();
+          void saveSvg();
           break;
         case "copy-png":
-          copyPng();
+          void copyPng();
           break;
         case "copy-url":
-          copyUrl();
+          void copyUrl();
           break;
       }
     },
@@ -203,24 +203,24 @@ export const ExportButton = () => {
 
   useHotkeys("mod+s", (event) => {
     event.preventDefault();
-    savePng();
+    void savePng();
   });
 
   useHotkeys("mod+c", (event) => {
     if (pngClipboardSupported()) {
       event.preventDefault();
-      copyPng();
+      void copyPng();
     }
   });
 
   useHotkeys("mod+shift+c", (event) => {
     event.preventDefault();
-    copyUrl();
+    void copyUrl();
   });
 
   useHotkeys("mod+shift+s", (event) => {
     event.preventDefault();
-    saveSvg();
+    void saveSvg();
   });
 
   return (
@@ -325,7 +325,6 @@ export const ExportButton = () => {
                     <div
                       {...subApi().getOptionItemProps({
                         type: "radio",
-                        name: "exportSize",
                         value: String(size),
                         checked: isChecked(),
                       })}

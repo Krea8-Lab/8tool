@@ -40,7 +40,7 @@ export const HighlightedCode = (props: HighlightedCodeProps) => {
       return;
     }
 
-    (async () => {
+    void (async () => {
       try {
         const loadedLanguages = hl.getLoadedLanguages() || [];
         const langName = selectedLanguage.name.toLowerCase();

@@ -1,7 +1,7 @@
 import { ChevronDownIcon, MagnifyingGlassIcon } from "@/components/icons";
 import { cn } from "@/utils/cn";
 import * as combobox from "@zag-js/combobox";
-import { normalizeProps, useMachine } from "@zag-js/solid";
+import { normalizeProps, useMachine, type PropTypes } from "@zag-js/solid";
 import { cva } from "class-variance-authority";
 import {
   createMemo,
@@ -16,7 +16,7 @@ import {
 import { Portal } from "solid-js/web";
 
 interface ComboboxContextType<T = any> {
-  api: () => combobox.Api<T>;
+  api: () => combobox.Api<PropTypes, T>;
   items: () => T[];
   query: () => string;
   setQuery: (q: string) => void;

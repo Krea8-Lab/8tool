@@ -9,7 +9,7 @@ import {
   createContext,
   useContext,
   JSX,
-  ParentComponent,
+  ParentProps,
 } from "solid-js";
 import { Portal } from "solid-js/web";
 
@@ -122,7 +122,7 @@ export function DialogTitle(props: { children: JSX.Element; class?: string }) {
   );
 }
 
-export function DialogHeader(props: ParentComponent<{ class?: string }>) {
+export function DialogHeader(props: ParentProps<{ class?: string }>) {
   return (
     <div class={cn("flex flex-col space-y-1.5 text-center sm:text-left", props.class)}>
       {props.children}
@@ -130,7 +130,7 @@ export function DialogHeader(props: ParentComponent<{ class?: string }>) {
   );
 }
 
-export function DialogFooter(props: ParentComponent<{ class?: string }>) {
+export function DialogFooter(props: ParentProps<{ class?: string }>) {
   return (
     <div class={cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", props.class)}>
       {props.children}

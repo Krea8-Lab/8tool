@@ -70,7 +70,7 @@ const StripeFrame = () => {
         <div class={styles.background}>
           <div
             class={styles.backgroundGridlineContainer}
-            style={{ "--window-width": `${innerWindowWidth}px` }}
+            style={{ "--window-width": `${innerWindowWidth()}px` }}
           >
             <div class={styles.backgroundGridline}></div>
             <div class={styles.backgroundGridline}></div>
@@ -82,7 +82,7 @@ const StripeFrame = () => {
           <div class={cn(styles.stripe)}>
             <div
               class={styles.backgroundGridlineContainer}
-              style={{ "--window-width": `${innerWindowWidth}px` }}
+              style={{ "--window-width": `${innerWindowWidth()}px` }}
             >
               <div class={styles.backgroundGridline}></div>
               <div class={styles.backgroundGridline}></div>
