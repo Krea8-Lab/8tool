@@ -1,4 +1,3 @@
-import { cn } from "@/utils/cn";
 import { normalizeProps, useMachine } from "@zag-js/solid";
 import * as tooltip from "@zag-js/tooltip";
 import {
@@ -11,6 +10,7 @@ import {
   useContext,
 } from "solid-js";
 import { Portal } from "solid-js/web";
+import { cn } from "~/utils/cn";
 
 interface TooltipContextType {
   api: () => tooltip.Api;

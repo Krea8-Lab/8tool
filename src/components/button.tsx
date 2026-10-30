@@ -1,6 +1,6 @@
-import { cn } from "@/utils/cn";
 import { cva, type VariantProps } from "class-variance-authority";
 import { JSX, splitProps } from "solid-js";
+import { cn } from "~/utils/cn";
 
 export const buttonVariants = cva(
   `inline-flex shrink-0 items-center justify-center overflow-hidden rounded-md text-sm font-medium whitespace-nowrap transition-colors duration-100 hover:cursor-default focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50`,

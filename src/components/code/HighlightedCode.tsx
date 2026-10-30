@@ -1,8 +1,8 @@
-import { highlightedLinesAtom, highlighterAtom, setLoadingLanguage } from "@/store";
-import { themeDarkModeAtom, themeAtom } from "@/store/themes";
-import { Language, LANGUAGES } from "@/util/languages";
-import { cn } from "@/utils/cn";
 import { createSignal, createEffect } from "solid-js";
+import { highlightedLinesAtom, highlighterAtom, setLoadingLanguage } from "~/apps/code/store";
+import { themeDarkModeAtom, themeAtom } from "~/apps/code/store/themes";
+import { Language, LANGUAGES } from "~/apps/code/util/languages";
+import { cn } from "~/utils/cn";
 
 import styles from "./Editor.module.css";
 

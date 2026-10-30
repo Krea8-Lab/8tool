@@ -1,9 +1,9 @@
-import triggerPattern from "@/assets/triggerdev/pattern.svg?url";
-import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
-import { selectedLanguageAtom } from "@/store/code";
-import { flashShown } from "@/store/flash";
-import { themeBackgroundAtom, themeDarkModeAtom } from "@/store/themes";
-import { cn } from "@/utils/cn";
+import triggerPattern from "~/apps/code/assets/triggerdev/pattern.svg?url";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "~/apps/code/store";
+import { selectedLanguageAtom } from "~/apps/code/store/code";
+import { flashShown } from "~/apps/code/store/flash";
+import { themeBackgroundAtom, themeDarkModeAtom } from "~/apps/code/store/themes";
+import { cn } from "~/utils/cn";
 
 import Editor from "../Editor";
 

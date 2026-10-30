@@ -1,7 +1,7 @@
-import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
-import { themeAtom, themeBackgroundAtom, themeDarkModeAtom } from "@/store/themes";
-import useIsSafari from "@/util/useIsSafari";
-import { cn } from "@/utils/cn";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "~/apps/code/store";
+import { themeAtom, themeBackgroundAtom, themeDarkModeAtom } from "~/apps/code/store/themes";
+import useIsSafari from "~/apps/code/util/useIsSafari";
+import { cn } from "~/utils/cn";
 
 import Editor from "../Editor";
 

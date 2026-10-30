@@ -1,6 +1,6 @@
 import type { ComponentProps } from "solid-js";
 
-export function RaycastLogoNegIcon(props: ComponentProps<"svg">) {
+export function Krea8LogoIcon(props: ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

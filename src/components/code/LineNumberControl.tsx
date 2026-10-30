@@ -1,7 +1,7 @@
-import { Switch } from "@/components/switch";
-import { setShowLineNumbers } from "@/store";
-import { themeAtom, themeLineNumbersAtom } from "@/store/themes";
-import useHotkeys from "@/utils/useHotkeys";
+import { setShowLineNumbers } from "~/apps/code/store";
+import { themeAtom, themeLineNumbersAtom } from "~/apps/code/store/themes";
+import { Switch } from "~/components/switch";
+import useHotkeys from "~/utils/useHotkeys";
 
 import ControlContainer from "./ControlContainer";
 

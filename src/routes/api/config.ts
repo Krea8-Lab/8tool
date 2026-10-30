@@ -1,6 +1,6 @@
-import { PADDING_OPTIONS } from "@/store/padding";
-import { THEMES } from "@/store/themes";
-import { LANGUAGES } from "@/util/languages";
+import { PADDING_OPTIONS } from "~/apps/code/store/padding";
+import { THEMES } from "~/apps/code/store/themes";
+import { LANGUAGES } from "~/apps/code/util/languages";
 
 export async function GET() {
   const languages = Object.entries(LANGUAGES).map(([key, { src: _src, ...rest }]) => ({

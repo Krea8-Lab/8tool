@@ -1,7 +1,7 @@
-import XMarkIcon from "@/assets/icons/x-mark-circle-filled-16.svg";
-import { windowWidth, setWindowWidth } from "@/store";
-import { cn } from "@/utils/cn";
 import { createSignal, ParentComponent, Show } from "solid-js";
+import XMarkIcon from "~/apps/code/assets/icons/x-mark-circle-filled-16.svg";
+import { windowWidth, setWindowWidth } from "~/apps/code/store";
+import { cn } from "~/utils/cn";
 
 import styles from "./ResizableFrame.module.css";
 

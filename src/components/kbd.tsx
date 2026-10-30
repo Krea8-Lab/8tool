@@ -1,5 +1,5 @@
-import { cn } from "@/utils/cn";
 import { JSX, For } from "solid-js";
+import { cn } from "~/utils/cn";
 
 export function Kbd(props: { children: JSX.Element; size?: "small" | "medium" }) {
   const size = () => props.size || "small";

@@ -1,5 +1,3 @@
-import { MultiplyIcon } from "@/components/icons";
-import { cn } from "@/utils/cn";
 import * as dialog from "@zag-js/dialog";
 import { normalizeProps, useMachine } from "@zag-js/solid";
 import {
@@ -12,6 +10,8 @@ import {
   ParentProps,
 } from "solid-js";
 import { Portal } from "solid-js/web";
+import { MultiplyIcon } from "~/components/icons";
+import { cn } from "~/utils/cn";
 
 interface DialogContextType {
   api: () => dialog.Api;

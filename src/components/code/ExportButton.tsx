@@ -1,24 +1,29 @@
-import ArrowsExpandingIcon from "@/assets/icons/arrows-expanding-16.svg";
-import ChevronDownIcon from "@/assets/icons/chevron-down-16.svg";
-import ClipboardIcon from "@/assets/icons/clipboard-16.svg";
-import ImageIcon from "@/assets/icons/image-16.svg";
-import LinkIcon from "@/assets/icons/link-16.svg";
-import { Button } from "@/components/button";
-import { ButtonGroup } from "@/components/button-group";
-import { ChevronRightIcon, CircleIcon, DownloadIcon } from "@/components/icons";
-import { Kbd, KbdGroup } from "@/components/kbd";
-import { toast } from "@/components/toast";
-import { toPng, toSvg, toBlob } from "@/lib/image";
-import { frameRef, fileNameAtom, setFlashShown } from "@/store";
-import { triggerFlash } from "@/store/flash";
-import { EXPORT_SIZE_OPTIONS, SIZE_LABELS, exportSize, setExportSize } from "@/store/image";
-import download from "@/util/download";
-import usePngClipboardSupported from "@/util/usePngClipboardSupported";
-import useHotkeys from "@/utils/useHotkeys";
 import * as menu from "@zag-js/menu";
 import { normalizeProps, useMachine } from "@zag-js/solid";
 import { createMemo, createSignal, createUniqueId, onMount, Show, For } from "solid-js";
 import { Portal } from "solid-js/web";
+import ArrowsExpandingIcon from "~/apps/code/assets/icons/arrows-expanding-16.svg";
+import ChevronDownIcon from "~/apps/code/assets/icons/chevron-down-16.svg";
+import ClipboardIcon from "~/apps/code/assets/icons/clipboard-16.svg";
+import ImageIcon from "~/apps/code/assets/icons/image-16.svg";
+import LinkIcon from "~/apps/code/assets/icons/link-16.svg";
+import { toPng, toSvg, toBlob } from "~/apps/code/lib/image";
+import { frameRef, fileNameAtom, setFlashShown } from "~/apps/code/store";
+import { triggerFlash } from "~/apps/code/store/flash";
+import {
+  EXPORT_SIZE_OPTIONS,
+  SIZE_LABELS,
+  exportSize,
+  setExportSize,
+} from "~/apps/code/store/image";
+import download from "~/apps/code/util/download";
+import usePngClipboardSupported from "~/apps/code/util/usePngClipboardSupported";
+import { Button } from "~/components/button";
+import { ButtonGroup } from "~/components/button-group";
+import { ChevronRightIcon, CircleIcon, DownloadIcon } from "~/components/icons";
+import { Kbd, KbdGroup } from "~/components/kbd";
+import { toast } from "~/components/toast";
+import useHotkeys from "~/utils/useHotkeys";
 
 export const ExportButton = () => {
   const [dropdownOpen, setDropdownOpen] = createSignal(false);
@@ -227,7 +232,8 @@ export const ExportButton = () => {
     <ButtonGroup>
       <Button onClick={handleExportClick} variant="primary" aria-label="Export as PNG">
         <DownloadIcon class="h-4 w-4" />
-        <span>Export</span> <span class="hidden md:inline-block">Image</span>
+        <span class="sm:block hidden">Export</span>{" "}
+        <span class="hidden md:inline-block">Image</span>
       </Button>
       <Button
         {...rootApi().getTriggerProps()}

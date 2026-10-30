@@ -1,8 +1,8 @@
-import { paddingOption, showBackgroundAtom } from "@/store";
-import { exportSize } from "@/store/image";
-import { themeDarkModeAtom } from "@/store/themes";
-import { cn } from "@/utils/cn";
 import { createSignal, createEffect, onMount, onCleanup } from "solid-js";
+import { paddingOption, showBackgroundAtom } from "~/apps/code/store";
+import { exportSize } from "~/apps/code/store/image";
+import { themeDarkModeAtom } from "~/apps/code/store/themes";
+import { cn } from "~/utils/cn";
 
 import Editor from "../Editor";
 

@@ -1,6 +1,6 @@
-import { paddingOption, showBackgroundAtom } from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
-import { cn } from "@/utils/cn";
+import { paddingOption, showBackgroundAtom } from "~/apps/code/store";
+import { themeDarkModeAtom } from "~/apps/code/store/themes";
+import { cn } from "~/utils/cn";
 
 import Editor from "../Editor";
 

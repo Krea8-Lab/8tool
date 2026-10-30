@@ -4,11 +4,11 @@ import {
   fileNameAtom,
   setFileName,
   subtitleAtom,
-} from "@/store";
-import { selectedLanguageAtom } from "@/store/code";
-import { themeDarkModeAtom } from "@/store/themes";
-import useIsSafari from "@/util/useIsSafari";
-import { cn } from "@/utils/cn";
+} from "~/apps/code/store";
+import { selectedLanguageAtom } from "~/apps/code/store/code";
+import { themeDarkModeAtom } from "~/apps/code/store/themes";
+import useIsSafari from "~/apps/code/util/useIsSafari";
+import { cn } from "~/utils/cn";
 
 import Editor from "../Editor";
 

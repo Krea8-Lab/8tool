@@ -1,7 +1,7 @@
-import { cn } from "@/utils/cn";
 import { normalizeProps, useMachine } from "@zag-js/solid";
 import * as zagSwitch from "@zag-js/switch";
 import { createMemo, createUniqueId } from "solid-js";
+import { cn } from "~/utils/cn";
 
 export interface SwitchProps {
   checked?: boolean;

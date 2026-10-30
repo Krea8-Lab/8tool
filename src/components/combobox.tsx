@@ -1,5 +1,3 @@
-import { ChevronDownIcon, MagnifyingGlassIcon } from "@/components/icons";
-import { cn } from "@/utils/cn";
 import * as combobox from "@zag-js/combobox";
 import { normalizeProps, useMachine, type PropTypes } from "@zag-js/solid";
 import { cva } from "class-variance-authority";
@@ -14,6 +12,8 @@ import {
   JSX,
 } from "solid-js";
 import { Portal } from "solid-js/web";
+import { ChevronDownIcon, MagnifyingGlassIcon } from "~/components/icons";
+import { cn } from "~/utils/cn";
 
 interface ComboboxContextType<T = any> {
   api: () => combobox.Api<PropTypes, T>;
@@ -132,6 +132,7 @@ export function ComboboxTrigger(props: {
   class?: string;
   className?: string;
   icon?: (props: any) => JSX.Element;
+  ref?: HTMLButtonElement | ((el: HTMLButtonElement) => void);
 }) {
   const ctx = useContext(ComboboxContext);
   if (!ctx) return null;
@@ -140,6 +141,7 @@ export function ComboboxTrigger(props: {
 
   return (
     <button
+      ref={props.ref}
       type="button"
       {...ctx.api().getTriggerProps()}
       class={cn(

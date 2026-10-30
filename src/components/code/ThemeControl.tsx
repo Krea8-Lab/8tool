@@ -1,3 +1,7 @@
+import { createMemo, Show } from "solid-js";
+import { Dynamic } from "solid-js/web";
+import { setPaddingOption } from "~/apps/code/store";
+import { themeAtom, setThemeId, THEMES, unlockedThemesAtom } from "~/apps/code/store/themes";
 import {
   Combobox,
   ComboboxTrigger,
@@ -6,14 +10,10 @@ import {
   ComboboxItem,
   ComboboxValue,
   ComboboxEmpty,
-} from "@/components/combobox";
-import { ChevronUpIcon } from "@/components/icons";
-import { UniqueSvg } from "@/components/unique-svg";
-import { setPaddingOption } from "@/store";
-import { themeAtom, setThemeId, THEMES, unlockedThemesAtom } from "@/store/themes";
-import useHotkeys from "@/utils/useHotkeys";
-import { createMemo, Show } from "solid-js";
-import { Dynamic } from "solid-js/web";
+} from "~/components/combobox";
+import { ChevronUpIcon } from "~/components/icons";
+import { UniqueSvg } from "~/components/unique-svg";
+import useHotkeys from "~/utils/useHotkeys";
 
 import ControlContainer from "./ControlContainer";
 

@@ -4,6 +4,7 @@
   "scripts": {
     "vite:dev": "vp dev",
     "dev": "turbo run vite:dev",
+    "host": "vp dev --host",
     "build": "vp build",
     "start": "node .output/server/index.mjs",
     "preview": "vp preview",
@@ -14,15 +15,16 @@
     "prepare": "vp config"
   },
   "dependencies": {
+    "@ark-ui/solid": "^5.40.0",
     "@astral-sh/ruff-wasm-web": "^0.17.1",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^1.0.0",
     "@solidjs/start": "^2.0.0",
     "@t3-oss/env-core": "^0.13.11",
     "@tailwindcss/vite": "^4.3.3",
-    "@tanstack/solid-hotkeys": "^0.16.0",
     "@zag-js/combobox": "^1.46.0",
     "@zag-js/dialog": "^1.46.0",
+    "@zag-js/drawer": "^1.47.0",
     "@zag-js/menu": "^1.46.0",
     "@zag-js/solid": "^1.46.0",
     "@zag-js/switch": "^1.46.0",
@@ -46,6 +48,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@iconify-icon/solid": "^3.0.5",
     "@types/node": "^26.6.5",
     "turbo": "^2.11.10",
     "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",

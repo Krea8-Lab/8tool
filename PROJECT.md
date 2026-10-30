@@ -19,20 +19,20 @@ The application allows developers to:
 
 Every React-specific library and Next.js pattern in the original codebase was replaced with a Solid or web-standard alternative:
 
-| Feature / Domain         | Original Next.js Stack                    | SolidStart Stack                          | Rationale                                                                                                                                                 |
-| :----------------------- | :---------------------------------------- | :---------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Meta-Framework**       | Next.js 16 (App Router)                   | **SolidStart 2.0 (`@solidjs/start`)**     | Full SSR and hybrid static rendering, file-system routing, and unified Nitro server engine.                                                               |
-| **Reactivity & UI**      | React 19 (`useState`, `useEffect`, Jotai) | **Solid.js 1.9 Fine-grained Reactivity**  | Real DOM node manipulation without a Virtual DOM overhead; reactive signals (`createSignal`), memos (`createMemo`), and control flow (`<Show>`, `<For>`). |
-| **Server Engine**        | Next.js Node Runtime / Edge               | **Nitro 3 (`node-server` preset)**        | Lightweight, cross-platform server runtime for production and edge deployment.                                                                            |
-| **Bundler & Build Tool** | Webpack / Turbopack                       | **Vite 8 + Rolldown**                     | Lightning-fast HMR and bundle compilation.                                                                                                                |
-| **Styling**              | Tailwind CSS v4                           | **Tailwind CSS v4 (`@tailwindcss/vite`)** | Next-generation Tailwind CSS with native CSS variables and `@theme` directive support.                                                                    |
-| **Headless UI**          | Radix UI / Base UI / Sonner               | **Zag.js for Solid (`@zag-js/solid`)**    | State-machine driven headless components for Dialog, Menu, Combobox, Tooltip, Toast, and Switch.                                                          |
-| **Keyboard Shortcuts**   | `hotkeys-js`                              | **`@tanstack/solid-hotkeys`**             | Solid-friendly hotkey bindings with an SSR-safe wrapper.                                                                                                  |
-| **State Management**     | `jotai` + `jotai-location`                | **Native Solid Signals + URL Hash Sync**  | Global signals in `src/store/` with bidirectional hash synchronization (`#code=...&theme=...`).                                                           |
-| **Syntax Highlighting**  | `shiki` + `highlight.js`                  | **`shiki` + `highlight.js`**              | High-fidelity token-based highlighting with dual-theme (light/dark) support.                                                                              |
-| **Code Formatting**      | Prettier + `@astral-sh/ruff-wasm-web`     | **Prettier + `@astral-sh/ruff-wasm-web`** | In-browser formatting using WebAssembly and standalone Prettier plugins.                                                                                  |
-| **Image Export**         | `html-to-image` + SVG rasterizer          | **`html-to-image` + Canvas + Web Audio**  | High-DPI screenshot generation with audio click cues and clipboard integration.                                                                           |
-| **SVG Processing**       | `@svgr/webpack`                           | **`vite-plugin-solid-svg`**               | Imports SVGs as native Solid JSX components or raw asset URLs via `?url`.                                                                                 |
+| Feature / Domain         | Original Next.js Stack                    | SolidStart Stack                             | Rationale                                                                                                                                                 |
+| :----------------------- | :---------------------------------------- | :------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Meta-Framework**       | Next.js 16 (App Router)                   | **SolidStart 2.0 (`@solidjs/start`)**        | Full SSR and hybrid static rendering, file-system routing, and unified Nitro server engine.                                                               |
+| **Reactivity & UI**      | React 19 (`useState`, `useEffect`, Jotai) | **Solid.js 1.9 Fine-grained Reactivity**     | Real DOM node manipulation without a Virtual DOM overhead; reactive signals (`createSignal`), memos (`createMemo`), and control flow (`<Show>`, `<For>`). |
+| **Server Engine**        | Next.js Node Runtime / Edge               | **Nitro 3 (`node-server` preset)**           | Lightweight, cross-platform server runtime for production and edge deployment.                                                                            |
+| **Bundler & Build Tool** | Webpack / Turbopack                       | **Vite 8 + Rolldown**                        | Lightning-fast HMR and bundle compilation.                                                                                                                |
+| **Styling**              | Tailwind CSS v4                           | **Tailwind CSS v4 (`@tailwindcss/vite`)**    | Next-generation Tailwind CSS with native CSS variables and `@theme` directive support.                                                                    |
+| **Headless UI**          | Radix UI / Base UI / Sonner               | **Zag.js for Solid (`@zag-js/solid`)**       | State-machine driven headless components for Dialog, Menu, Combobox, Tooltip, Toast, and Switch.                                                          |
+| **Keyboard Shortcuts**   | `hotkeys-js`                              | **Ark UI Hotkeys (`@ark-ui/solid/hotkeys`)** | Native Zag.js-powered keyboard shortcut bindings with SSR safety and input exclusion.                                                                     |
+| **State Management**     | `jotai` + `jotai-location`                | **Native Solid Signals + URL Hash Sync**     | Global signals in `src/store/` with bidirectional hash synchronization (`#code=...&theme=...`).                                                           |
+| **Syntax Highlighting**  | `shiki` + `highlight.js`                  | **`shiki` + `highlight.js`**                 | High-fidelity token-based highlighting with dual-theme (light/dark) support.                                                                              |
+| **Code Formatting**      | Prettier + `@astral-sh/ruff-wasm-web`     | **Prettier + `@astral-sh/ruff-wasm-web`**    | In-browser formatting using WebAssembly and standalone Prettier plugins.                                                                                  |
+| **Image Export**         | `html-to-image` + SVG rasterizer          | **`html-to-image` + Canvas + Web Audio**     | High-DPI screenshot generation with audio click cues and clipboard integration.                                                                           |
+| **SVG Processing**       | `@svgr/webpack`                           | **`vite-plugin-solid-svg`**                  | Imports SVGs as native Solid JSX components or raw asset URLs via `?url`.                                                                                 |
 
 ---
 
@@ -142,7 +142,7 @@ rayCode/
 │       ├── languages.ts        # Language definitions and Shiki grammar loaders
 │       ├── theme-css-variables.ts # Custom CSS variable generation for partner themes
 │       ├── useAudio.ts         # Sound effect synthesis on user action
-│       ├── useHotkeys.ts       # SSR-safe TanStack hotkey bindings
+│       ├── useHotkeys.ts       # SSR-safe Ark UI hotkey bindings
 │       ├── useIsSafari.ts      # Safari detection helper
 │       └── usePngClipboardSupported.ts # Clipboard API feature detection
 │

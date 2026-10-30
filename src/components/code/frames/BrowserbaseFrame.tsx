@@ -1,6 +1,6 @@
-import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
-import { cn } from "@/utils/cn";
+import { paddingOption, showBackgroundAtom, fileNameAtom, setFileName } from "~/apps/code/store";
+import { themeDarkModeAtom } from "~/apps/code/store/themes";
+import { cn } from "~/utils/cn";
 
 import Editor from "../Editor";
 

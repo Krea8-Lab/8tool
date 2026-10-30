@@ -1,11 +1,11 @@
-import { Navigation } from "@/components/navigation";
-import { Toaster } from "@/components/toast";
 import { MetaProvider, Title, Meta, Link } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
+import { Navigation } from "~/components/navigation";
+import { Toaster } from "~/components/toast";
 
-import "./app.css";
+import "./index.css";
 
 export default function App() {
   return (

@@ -1,6 +1,6 @@
-import { Switch } from "@/components/switch";
-import { darkMode, setDarkMode, themeAtom, themeDarkModeAtom } from "@/store/themes";
-import useHotkeys from "@/utils/useHotkeys";
+import { darkMode, setDarkMode, themeAtom, themeDarkModeAtom } from "~/apps/code/store/themes";
+import { Switch } from "~/components/switch";
+import useHotkeys from "~/utils/useHotkeys";
 
 import ControlContainer from "./ControlContainer";
 

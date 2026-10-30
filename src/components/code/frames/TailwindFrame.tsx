@@ -1,8 +1,8 @@
-import beams from "@/assets/tailwind/beams.png";
-import { paddingOption, showBackgroundAtom } from "@/store";
-import { themeDarkModeAtom } from "@/store/themes";
-import useIsSafari from "@/util/useIsSafari";
-import { cn } from "@/utils/cn";
+import beams from "~/apps/code/assets/tailwind/beams.png";
+import { paddingOption, showBackgroundAtom } from "~/apps/code/store";
+import { themeDarkModeAtom } from "~/apps/code/store/themes";
+import useIsSafari from "~/apps/code/util/useIsSafari";
+import { cn } from "~/utils/cn";
 
 import Editor from "../Editor";
 

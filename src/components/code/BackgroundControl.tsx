@@ -1,6 +1,6 @@
-import { Switch } from "@/components/switch";
-import { showBackground, setShowBackground } from "@/store";
-import useHotkeys from "@/utils/useHotkeys";
+import { showBackground, setShowBackground } from "~/apps/code/store";
+import { Switch } from "~/components/switch";
+import useHotkeys from "~/utils/useHotkeys";
 
 import ControlContainer from "./ControlContainer";
 

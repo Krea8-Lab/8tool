@@ -1,9 +1,9 @@
-import { paddingOption, showBackgroundAtom, windowWidthAtom } from "@/store";
-import { code } from "@/store/code";
-import { themeDarkModeAtom } from "@/store/themes";
-import useIsSafari from "@/util/useIsSafari";
-import { cn } from "@/utils/cn";
 import { createSignal, createEffect } from "solid-js";
+import { paddingOption, showBackgroundAtom, windowWidthAtom } from "~/apps/code/store";
+import { code } from "~/apps/code/store/code";
+import { themeDarkModeAtom } from "~/apps/code/store/themes";
+import useIsSafari from "~/apps/code/util/useIsSafari";
+import { cn } from "~/utils/cn";
 
 import Editor from "../Editor";
 

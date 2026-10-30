@@ -1,6 +1,8 @@
-import { setHighlightedLines } from "@/store";
-import { code, setCode, isCodeExample, selectedLanguage } from "@/store/code";
-import { triggerFlash } from "@/store/flash";
+import { createSignal, onMount, onCleanup, createMemo, JSX } from "solid-js";
+import { Dynamic } from "solid-js/web";
+import { setHighlightedLines } from "~/apps/code/store";
+import { code, setCode, isCodeExample, selectedLanguage } from "~/apps/code/store/code";
+import { triggerFlash } from "~/apps/code/store/flash";
 import {
   THEMES,
   themeAtom,
@@ -10,12 +12,10 @@ import {
   unlockedThemesAtom,
   setUnlockedThemesAtom,
   setThemeId,
-} from "@/store/themes";
-import { LANGUAGES } from "@/util/languages";
-import { cn } from "@/utils/cn";
-import useHotkeys from "@/utils/useHotkeys";
-import { createSignal, onMount, onCleanup, createMemo, JSX } from "solid-js";
-import { Dynamic } from "solid-js/web";
+} from "~/apps/code/store/themes";
+import { LANGUAGES } from "~/apps/code/util/languages";
+import { cn } from "~/utils/cn";
+import useHotkeys from "~/utils/useHotkeys";
 
 import HighlightedCode from "./HighlightedCode";
 

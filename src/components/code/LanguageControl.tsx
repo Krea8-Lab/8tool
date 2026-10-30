@@ -1,3 +1,7 @@
+import { createMemo } from "solid-js";
+import { loadingLanguage } from "~/apps/code/store";
+import { autoDetectLanguage, selectedLanguage, setSelectedLanguage } from "~/apps/code/store/code";
+import { Language, LANGUAGES } from "~/apps/code/util/languages";
 import {
   Combobox,
   ComboboxContent,
@@ -6,14 +10,10 @@ import {
   ComboboxTrigger,
   ComboboxValue,
   ComboboxEmpty,
-} from "@/components/combobox";
-import { ChevronUpIcon } from "@/components/icons";
-import { loadingLanguage } from "@/store";
-import { autoDetectLanguage, selectedLanguage, setSelectedLanguage } from "@/store/code";
-import { Language, LANGUAGES } from "@/util/languages";
-import { cn } from "@/utils/cn";
-import useHotkeys from "@/utils/useHotkeys";
-import { createMemo } from "solid-js";
+} from "~/components/combobox";
+import { ChevronUpIcon } from "~/components/icons";
+import { cn } from "~/utils/cn";
+import useHotkeys from "~/utils/useHotkeys";
 
 import ControlContainer from "./ControlContainer";
 
@@ -47,8 +47,11 @@ export const LanguageControl = () => {
     return items().find((item) => item.language?.name === sel.name) ?? AUTO_DETECT_ITEM;
   });
 
+  let triggerRef: HTMLButtonElement | undefined;
+
   useHotkeys("l", (event) => {
     event.preventDefault();
+    triggerRef?.click();
   });
 
   return (
@@ -64,6 +67,7 @@ export const LanguageControl = () => {
         itemToStringLabel={(item) => item?.name ?? ""}
       >
         <ComboboxTrigger
+          ref={triggerRef}
           size="small"
           class={cn("w-[146px]", loadingLanguage() && styles.loadingShimmer)}
           icon={ChevronUpIcon}

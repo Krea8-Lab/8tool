@@ -1,10 +1,10 @@
-import { Button } from "@/components/button";
-import { WandIcon } from "@/components/icons";
-import { toast } from "@/components/toast";
-import { code, setCode, selectedLanguage, setSelectedLanguage } from "@/store/code";
-import formatCode, { formatterSupportedLanguages } from "@/util/formatCode";
-import { cn } from "@/utils/cn";
-import useHotkeys from "@/utils/useHotkeys";
+import { code, setCode, selectedLanguage, setSelectedLanguage } from "~/apps/code/store/code";
+import formatCode, { formatterSupportedLanguages } from "~/apps/code/util/formatCode";
+import { Button } from "~/components/button";
+import { WandIcon } from "~/components/icons";
+import { toast } from "~/components/toast";
+import { cn } from "~/utils/cn";
+import useHotkeys from "~/utils/useHotkeys";
 
 export const FormatCodeButton = () => {
   const handleFormatCode = () => {
@@ -60,11 +60,11 @@ export const FormatCodeButton = () => {
         "hidden",
         selectedLanguage() &&
           formatterSupportedLanguages.includes(selectedLanguage()!.name) &&
-          "gap-2 sm:inline-flex",
+          "gap-2 inline-flex",
       )}
     >
       <WandIcon width={16} height={16} />
-      <span>Format Code</span>
+      <span class="hidden sm:block">Format Code</span>
     </Button>
     // </Show>
   );

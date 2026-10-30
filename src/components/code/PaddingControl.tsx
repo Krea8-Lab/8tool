@@ -1,7 +1,7 @@
-import { paddingOption, setPaddingOption } from "@/store";
-import { PADDING_OPTIONS } from "@/store/padding";
-import useHotkeys from "@/utils/useHotkeys";
 import { For } from "solid-js";
+import { paddingOption, setPaddingOption } from "~/apps/code/store";
+import { PADDING_OPTIONS } from "~/apps/code/store/padding";
+import useHotkeys from "~/utils/useHotkeys";
 
 import ControlContainer from "./ControlContainer";
 

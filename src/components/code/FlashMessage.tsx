@@ -1,7 +1,7 @@
-import { flashMessage, flashShown } from "@/store/flash";
-import useAudio from "@/util/useAudio";
-import { cn } from "@/utils/cn";
 import { createEffect, Show } from "solid-js";
+import { flashMessage, flashShown } from "~/apps/code/store/flash";
+import useAudio from "~/apps/code/util/useAudio";
+import { cn } from "~/utils/cn";
 
 import styles from "./FlashMessage.module.css";
 

@@ -1,24 +1,24 @@
-import { Button } from "@/components/button";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/dialog";
-import { Info02Icon } from "@/components/icons";
-import { Shortcut } from "@/components/kbd";
-import { SocialFooter } from "@/components/social-footer";
-import usePngClipboardSupported from "@/util/usePngClipboardSupported";
-import useHotkeys from "@/utils/useHotkeys";
 import { createSignal } from "solid-js";
+import usePngClipboardSupported from "~/apps/code/util/usePngClipboardSupported";
+import { Button } from "~/components/button";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "~/components/dialog";
+import { Info02Icon } from "~/components/icons";
+import { Shortcut } from "~/components/kbd";
+import { SocialFooter } from "~/components/social-footer";
+import useHotkeys from "~/utils/useHotkeys";
 
 export function InfoDialog() {
   const [isOpen, setIsOpen] = createSignal(false);
   const toggleOpen = () => setIsOpen(!isOpen());
   const pngClipboardSupported = usePngClipboardSupported();
 
-  useHotkeys("shift+/", toggleOpen);
+  useHotkeys("?", toggleOpen);
 
   return (
     <Dialog open={isOpen()} onOpenChange={setIsOpen}>
-      <DialogTrigger class="hidden md:inline-flex">
+      <DialogTrigger class="inline-flex">
         <Button variant="transparent" class="gap-2">
-          <Info02Icon width={16} height={16} /> <span>About</span>
+          <Info02Icon width={16} height={16} /> <span class="hidden sm:block">About</span>
         </Button>
       </DialogTrigger>
       <DialogContent size="large">

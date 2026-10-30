@@ -1,5 +1,5 @@
-import { setFrameRef } from "@/store";
-import { THEMES, themeAtom, themeDarkModeAtom } from "@/store/themes";
+import { setFrameRef } from "~/apps/code/store";
+import { THEMES, themeAtom, themeDarkModeAtom } from "~/apps/code/store/themes";
 
 import FlashMessage from "./FlashMessage";
 import Auth0Frame from "./frames/Auth0Frame";
