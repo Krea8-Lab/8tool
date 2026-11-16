@@ -48,7 +48,7 @@ export function Tooltip(props: {
               <div {...api().getPositionerProps()} class="z-50">
                 <div
                   {...api().getContentProps()}
-                  class="animate-slideDownAndFade rounded-lg border border-gray-a3 bg-gray-4 px-3 py-2 text-sm leading-none text-gray-12 shadow-md select-none"
+                  class="animate-slideDownAndFade rounded-lg border border-border bg-accent px-3 py-2 text-sm leading-none text-accent-foreground shadow-md select-none"
                 >
                   {props.content}
                 </div>
@@ -93,7 +93,7 @@ export function TooltipContent(props: {
           <div
             {...ctx.api().getContentProps()}
             class={cn(
-              "animate-slideDownAndFade rounded-lg border border-gray-a3 bg-gray-4 px-3 py-2 text-sm leading-none text-gray-12 shadow-md select-none",
+              "animate-slideDownAndFade rounded-lg border border-border bg-accent px-3 py-2 text-sm leading-none text-accent-foreground shadow-md select-none",
               props.class,
             )}
           >

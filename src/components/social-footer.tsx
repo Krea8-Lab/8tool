@@ -23,7 +23,7 @@ export function SocialFooter(_props?: { referral?: string }) {
   return (
     <div class="mt-auto pt-2">
       <div class="mt-2 flex items-center justify-between gap-2">
-        <div class="group flex items-center gap-1 text-gray-12">
+        <div class="group flex items-center gap-1">
           <Krea8LogoIcon class="h-6 w-6" />
           <span class="text-[11px] font-medium">Forked by Krea8 &</span>
           <span class="text-[11px] font-medium">
@@ -40,7 +40,7 @@ export function SocialFooter(_props?: { referral?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  class="text-gray-9 transition-colors hover:text-gray-11"
+                  class="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <Icon class="h-4 w-4" />
                 </a>

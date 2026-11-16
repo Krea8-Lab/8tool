@@ -3,16 +3,16 @@ import { JSX, splitProps } from "solid-js";
 import { cn } from "~/utils/cn";
 
 export const buttonVariants = cva(
-  `inline-flex shrink-0 items-center justify-center overflow-hidden rounded-md text-sm font-medium whitespace-nowrap transition-colors duration-100 hover:cursor-default focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50`,
+  `inline-flex shrink-0 items-center justify-center overflow-hidden rounded-md text-sm font-medium whitespace-nowrap transition-all duration-150 hover:cursor-default active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50`,
   {
     variants: {
       variant: {
         primary:
-          "bg-brand/15 text-brand shadow-[inset_0_0_0_1px_#4d2a2a] hover:bg-brand/30 hover:shadow-[inset_0_0_0_1px_#6d2d2d] focus-visible:shadow-[inset_0_0_0_1px_#6d2d2d] focus-visible:ring-[#6d2d2d]",
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow focus-visible:ring-2 focus-visible:ring-ring",
         secondary:
-          "bg-gray-a3 text-gray-a11 shadow-[inset_0_0_0_1px_var(--gray-a2)] hover:bg-gray-a4 hover:text-gray-12 focus-visible:shadow-[inset_0_0_0_1px_var(--gray-a7)] focus-visible:ring-gray-a7",
+          "bg-secondary text-secondary-foreground border border-border shadow-xs hover:bg-secondary/80 hover:border-ring/40 focus-visible:ring-2 focus-visible:ring-ring",
         transparent:
-          "text-gray-a11 hover:bg-gray-a4 hover:text-gray-12 focus-visible:ring-2 focus-visible:ring-gray-a7",
+          "text-foreground/80 hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring",
       },
       size: {
         medium: "h-[30px] gap-1.5 rounded-md px-3 text-sm",

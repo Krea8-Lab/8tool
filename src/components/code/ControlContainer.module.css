@@ -5,8 +5,9 @@
 }
 
 .controlTitle {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--muted-foreground);
   cursor: default;
+  user-select: none;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.1px;

@@ -29,7 +29,9 @@ export const Controls = () => {
               <DrawerGrabber>
                 <DrawerGrabberIndicator />
               </DrawerGrabber>
-              <DrawerTitle class="border-b border-white/50">Controls</DrawerTitle>
+              <DrawerTitle class="border-b border-border pb-2 text-foreground">
+                Controls
+              </DrawerTitle>
               <div class="flex flex-col gap-2">
                 <ThemeControl />
                 <BackgroundControl />

@@ -95,19 +95,20 @@ function ToastItem(props: { toast: any; parent: any; index: number }) {
     <div
       {...api().getRootProps()}
       class={cn(
-        "animate-slideDownAndFade pointer-events-auto flex w-auto max-w-md min-w-[240px] items-center justify-between gap-3 rounded-lg border border-gray-4 bg-background p-3 text-xs font-medium text-gray-12 shadow-lg transition-all duration-200",
-        api().type === "error" && "border-red-900/50 text-red-200",
-        api().type === "success" && "border-emerald-900/50 text-emerald-200",
+        "animate-slideDownAndFade pointer-events-auto flex w-auto max-w-md min-w-[240px] items-center justify-between gap-3 rounded-lg border border-border bg-popover p-3 text-xs font-medium text-popover-foreground shadow-xl transition-all duration-200",
+        api().type === "error" &&
+          "border-destructive/60 bg-destructive/10 text-destructive-foreground",
+        api().type === "success" && "border-primary/50 text-foreground",
       )}
     >
       <div class="flex flex-col gap-1">
         <Show when={api().title}>
-          <span {...api().getTitleProps()} class="font-medium text-gray-12">
+          <span {...api().getTitleProps()} class="font-medium text-popover-foreground">
             {api().title as JSX.Element}
           </span>
         </Show>
         <Show when={api().description}>
-          <div {...api().getDescriptionProps()} class="text-[11px] text-gray-11">
+          <div {...api().getDescriptionProps()} class="text-[11px] text-muted-foreground">
             {typeof api().description === "function"
               ? (api().description as any)()
               : (api().description as JSX.Element)}
@@ -116,7 +117,7 @@ function ToastItem(props: { toast: any; parent: any; index: number }) {
       </div>
       <button
         {...api().getCloseTriggerProps()}
-        class="rounded p-1 text-xs text-gray-9 transition-colors hover:text-white"
+        class="rounded p-1 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
       >
         <MultiplyIcon class="h-4 w-4" />
       </button>

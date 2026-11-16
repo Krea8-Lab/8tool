@@ -69,7 +69,7 @@ export function DropdownMenuContent(props: {
           <div
             {...ctx.api().getContentProps()}
             class={cn(
-              "animate-slideDownAndFade z-50 min-w-[9.5rem] overflow-hidden rounded-md border border-gray-4 bg-panel p-1 shadow-md outline-none",
+              "animate-slideDownAndFade z-50 min-w-[9.5rem] overflow-hidden rounded-md border border-border bg-secondary p-1 shadow-md outline-none",
               props.class,
             )}
           >
@@ -103,7 +103,7 @@ export function DropdownMenuItem(props: {
         }
       }}
       class={cn(
-        "relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-secondary-foreground transition-colors outline-none select-none hover:bg-accent hover:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         props.class || props.className,
       )}
     >
@@ -117,7 +117,7 @@ export function DropdownMenuSeparator(props: { class?: string }) {
   return (
     <div
       {...(ctx ? ctx.api().getSeparatorProps() : {})}
-      class={cn("-mx-1 my-1 h-px bg-gray-4", props.class)}
+      class={cn("-mx-1 my-1 h-px bg-border", props.class)}
     />
   );
 }
@@ -152,7 +152,7 @@ export function DropdownMenuRadioItem(props: {
         props.onSelect?.();
       }}
       class={cn(
-        "relative flex cursor-default items-center rounded py-1.5 pr-2 pl-8 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white",
+        "relative flex cursor-default items-center rounded py-1.5 pr-2 pl-8 text-sm text-secondary-foreground transition-colors outline-none select-none hover:bg-accent hover:text-white",
         props.class,
       )}
     >

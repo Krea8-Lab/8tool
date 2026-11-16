@@ -250,11 +250,11 @@ export const ExportButton = () => {
           <div {...rootApi().getPositionerProps()} class="z-50">
             <div
               {...rootApi().getContentProps()}
-              class="animate-slideDownAndFade z-50 min-w-[9.5rem] overflow-hidden rounded-md border border-gray-4 bg-panel p-1 shadow-md outline-none"
+              class="animate-slideDownAndFade z-50 min-w-[9.5rem] overflow-hidden rounded-md border border-border bg-popover p-1 text-popover-foreground shadow-xl outline-none"
             >
               <div
                 {...rootApi().getItemProps({ value: "save-png" })}
-                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
+                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-foreground transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"
               >
                 <ImageIcon /> <span class="ml-2">Save PNG</span>
                 <KbdGroup>
@@ -265,7 +265,7 @@ export const ExportButton = () => {
 
               <div
                 {...rootApi().getItemProps({ value: "save-svg" })}
-                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
+                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-foreground transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"
               >
                 <ImageIcon /> <span class="ml-2">Save SVG</span>
                 <KbdGroup>
@@ -278,7 +278,7 @@ export const ExportButton = () => {
               <Show when={pngClipboardSupported()}>
                 <div
                   {...rootApi().getItemProps({ value: "copy-png" })}
-                  class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
+                  class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-foreground transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"
                 >
                   <ClipboardIcon /> <span class="ml-2">Copy Image</span>
                   <KbdGroup>
@@ -290,7 +290,7 @@ export const ExportButton = () => {
 
               <div
                 {...rootApi().getItemProps({ value: "copy-url" })}
-                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
+                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-foreground transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"
               >
                 <LinkIcon /> <span class="ml-2">Copy URL</span>
                 <KbdGroup>
@@ -300,17 +300,17 @@ export const ExportButton = () => {
                 </KbdGroup>
               </div>
 
-              <div {...rootApi().getSeparatorProps()} class="-mx-1 my-1 h-px bg-gray-4" />
+              <div {...rootApi().getSeparatorProps()} class="-mx-1 my-1 h-px bg-border" />
 
               {/* Submenu Trigger */}
               <div
                 {...rootApi().getTriggerItemProps(subApi())}
-                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
+                class="relative flex cursor-default items-center rounded px-2 py-1.5 text-sm text-foreground transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"
               >
                 <ArrowsExpandingIcon /> <span class="ml-2">Size</span>
                 <div class="ml-auto flex items-center gap-1">
-                  <span class="text-gray-9">{SIZE_LABELS[exportSize()]}</span>
-                  <ChevronRightIcon class="h-4 w-4 text-gray-9" />
+                  <span class="">{SIZE_LABELS[exportSize()]}</span>
+                  <ChevronRightIcon class="h-4 w-4" />
                 </div>
               </div>
             </div>
@@ -322,7 +322,7 @@ export const ExportButton = () => {
           <div {...subApi().getPositionerProps()} class="z-50">
             <div
               {...subApi().getContentProps()}
-              class="animate-slideRightAndFade z-50 min-w-[8rem] overflow-hidden rounded-md border border-gray-4 bg-panel p-1 shadow-lg outline-none"
+              class="animate-slideRightAndFade z-50 min-w-[8rem] overflow-hidden rounded-md border border-border bg-popover p-1 text-popover-foreground shadow-xl outline-none"
             >
               <For each={EXPORT_SIZE_OPTIONS}>
                 {(size) => {
@@ -334,11 +334,11 @@ export const ExportButton = () => {
                         value: String(size),
                         checked: isChecked(),
                       })}
-                      class="relative flex cursor-default items-center rounded py-1.5 pr-2 pl-8 text-sm text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white data-[highlighted]:bg-gray-a3 data-[highlighted]:text-white"
+                      class="relative flex cursor-default items-center rounded py-1.5 pr-2 pl-8 text-sm text-foreground transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"
                     >
                       <span class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
                         <Show when={isChecked()}>
-                          <CircleIcon class="h-2 w-2 fill-current text-brand" />
+                          <CircleIcon class="h-2 w-2 fill-current text-primary" />
                         </Show>
                       </span>
                       {SIZE_LABELS[size]}

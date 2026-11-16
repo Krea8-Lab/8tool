@@ -104,18 +104,18 @@ export function Combobox<T = any>(props: ComboboxProps<T>) {
 }
 
 const triggerVariants = cva(
-  `flex w-full cursor-default items-center gap-1 overflow-hidden rounded-md text-sm font-normal whitespace-nowrap transition-colors duration-100 focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50`,
+  `flex w-full cursor-pointer border items-center gap-1.5 overflow-hidden rounded-md text-xs font-normal whitespace-nowrap transition-all duration-150 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50`,
   {
     variants: {
       variant: {
         classic:
-          "border border-gray-a4 bg-gray-2 text-gray-a12 ring-transparent focus-within:border-gray-a6 hover:border-gray-a6",
-        soft: "border border-gray-a3 bg-gray-a3 text-gray-a12 ring-transparent focus-within:border-gray-a5 hover:border-gray-a5",
+          "bg-secondary text-secondary-foreground border-border shadow-xs hover:bg-secondary/80 hover:border-ring/40 focus-visible:border-ring active:scale-[0.98]",
+        soft: "bg-muted text-foreground border-border shadow-xs hover:bg-muted/80 hover:border-ring/40 focus-visible:border-ring active:scale-[0.98]",
       },
       size: {
-        small: "h-[24px] rounded-md px-2 text-sm",
-        medium: "h-[30px] rounded-md px-2 text-sm",
-        large: "h-9 px-3 py-2",
+        small: "h-[24px] rounded px-2 text-xs",
+        medium: "h-[26px] rounded-md px-2 text-xs",
+        large: "h-9 px-3 py-2 text-sm",
       },
     },
     defaultVariants: {
@@ -184,18 +184,18 @@ export function ComboboxContent(props: {
           <div
             {...ctx.api().getContentProps()}
             class={cn(
-              "animate-slideDownAndFade z-50 flex max-h-80 min-w-[12rem] flex-col overflow-hidden rounded-md border border-gray-4 bg-panel p-1 shadow-lg outline-none",
+              "animate-slideDownAndFade z-50 flex max-h-80 min-w-[12rem] flex-col overflow-hidden rounded-md border border-border bg-popover text-popover-foreground p-1 shadow-xl outline-none backdrop-blur-md",
               props.class,
             )}
           >
-            <div class="flex items-center gap-2 border-b border-gray-4 px-2 py-1.5">
+            <div class="flex items-center gap-2 border-b border-border px-2 py-1.5">
               <Show when={props.showSearchIcon ?? true}>
-                <MagnifyingGlassIcon class="h-3.5 w-3.5 shrink-0 text-gray-9" />
+                <MagnifyingGlassIcon class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
               </Show>
               <input
                 {...ctx.api().getInputProps()}
                 placeholder={props.searchPlaceholder || "Search..."}
-                class="w-full border-none bg-transparent text-xs text-gray-12 outline-none placeholder:text-gray-9"
+                class="w-full border-none bg-transparent text-xs text-foreground outline-none placeholder:text-muted-foreground"
                 value={ctx.query()}
                 onInput={(e) => ctx.setQuery(e.currentTarget.value)}
                 autofocus
@@ -222,7 +222,7 @@ export function ComboboxEmpty(props: { children: JSX.Element }) {
 
   return (
     <Show when={ctx.filteredItems().length === 0}>
-      <div class="py-4 text-center text-xs text-gray-9">{props.children}</div>
+      <div class="py-4 text-center text-xs text-muted-foreground">{props.children}</div>
     </Show>
   );
 }
@@ -253,8 +253,8 @@ export function ComboboxItem<T = any>(props: { value: T; children: JSX.Element; 
     <div
       onClick={() => ctx.onSelect(props.value)}
       class={cn(
-        "relative flex cursor-default items-center rounded px-2 py-1.5 text-xs text-gray-11 transition-colors outline-none select-none hover:bg-gray-a3 hover:text-white",
-        isSelected() && "bg-gray-a3 font-medium text-white",
+        "relative flex cursor-pointer items-center rounded px-2 py-1.5 text-xs text-popover-foreground transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground",
+        isSelected() && "bg-accent/80 font-medium text-accent-foreground",
         props.class,
       )}
     >
@@ -280,12 +280,12 @@ export function ComboboxGroup(props: {
 
 export function ComboboxGroupLabel(props: { children: JSX.Element }) {
   return (
-    <div class="px-2 py-1 text-[10px] font-semibold tracking-wider text-gray-9 uppercase">
+    <div class="px-2 py-1 text-[10px] font-semibold tracking-wider text-foreground uppercase">
       {props.children}
     </div>
   );
 }
 
 export function ComboboxSeparator() {
-  return <div class="-mx-1 my-1 h-px bg-gray-4" />;
+  return <div class="-mx-1 my-1 h-px bg-muted" />;
 }

@@ -75,12 +75,12 @@ export function DialogContent(props: {
       <Portal>
         <div
           {...ctx.api().getBackdropProps()}
-          class="data-[state=open]:animate-overlayShow fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/60"
+          class="data-[state=open]:animate-overlayShow fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-background/80 backdrop-blur-sm"
         >
           <div
             {...ctx.api().getContentProps()}
             class={cn(
-              "data-[state=open]:animate-contentShow relative my-10 grid w-full gap-4 rounded-md border border-gray-a3 bg-panel shadow-md duration-200 sm:rounded-lg",
+              "data-[state=open]:animate-contentShow relative my-10 grid w-full gap-4 rounded-xl border border-border bg-popover text-popover-foreground shadow-2xl duration-200",
               size() === "small" && "max-w-xs p-8",
               size() === "medium" && "max-w-lg p-6",
               size() === "large" && "max-w-3xl p-6",
@@ -91,7 +91,7 @@ export function DialogContent(props: {
             <button
               type="button"
               {...ctx.api().getCloseTriggerProps()}
-              class="absolute top-4 right-4 rounded-full text-gray-11 opacity-70 ring-offset-panel transition-opacity hover:text-white hover:opacity-100 focus:ring-2 focus:ring-gray-7 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
+              class="absolute top-4 right-4 rounded-full p-1 text-muted-foreground ring-offset-background transition-all hover:bg-accent hover:text-foreground focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
               aria-label="Close"
             >
               <MultiplyIcon class="h-4 w-4" />

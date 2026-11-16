@@ -52,7 +52,7 @@ export default function Home() {
         <FormatCodeButton />
         <ExportButton />
       </NavigationActions>
-      <div class={styles.app}>
+      <div class={`text-foreground ${styles.app}`}>
         <Show when={mounted() && highlighterAtom()}>
           <Frame />
           <Controls />

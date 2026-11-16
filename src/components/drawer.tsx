@@ -20,7 +20,7 @@ export function DrawerTrigger(props: DrawerTriggerProps) {
   return (
     <DrawerPrimitive.Trigger
       class={cn(
-        "inline-flex h-10 cursor-pointer items-center justify-center rounded-md border border-gray-a4 bg-panel px-4 text-sm font-medium text-gray-12 transition-colors hover:border-gray-a6 hover:bg-gray-a3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand",
+        "inline-flex h-10 cursor-pointer items-center justify-center rounded-md border border-border bg-background px-4 text-sm font-medium text-gray-12 transition-colors hover:border-gray-a6 hover:bg-gray-a3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand",
         local.class,
       )}
       {...others}
@@ -67,7 +67,7 @@ export function DrawerContent(props: DrawerContentProps) {
   return (
     <DrawerPrimitive.Content
       class={cn(
-        "[--bleed:3rem] relative flex h-full max-h-[96svh] w-full flex-col rounded-t-[16px] border border-gray-a3 bg-panel px-5 shadow-2xl outline-none transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] after:pointer-events-none after:absolute after:inset-x-0 after:top-full after:h-[var(--bleed)] after:bg-inherit after:content-[''] data-[state=open]:[animation:slide-in-bottom_0.5s_cubic-bezier(0.32,0.72,0,1)] data-[state=closed]:[animation:slide-out-bottom_0.3s_cubic-bezier(0.4,0,0.2,1)] data-[swipe-direction=up]:rounded-t-none data-[swipe-direction=up]:rounded-b-[16px] data-[swipe-direction=up]:after:bottom-full data-[swipe-direction=up]:after:top-auto data-[swipe-direction=up]:data-[state=open]:[animation:slide-in-top_0.5s_cubic-bezier(0.32,0.72,0,1)] data-[swipe-direction=up]:data-[state=closed]:[animation:slide-out-top_0.3s_cubic-bezier(0.4,0,0.2,1)] data-[swipe-direction=left]:max-h-none data-[swipe-direction=left]:max-w-[400px] data-[swipe-direction=left]:rounded-l-none data-[swipe-direction=left]:rounded-r-[16px] data-[swipe-direction=left]:after:inset-x-auto data-[swipe-direction=left]:after:inset-y-0 data-[swipe-direction=left]:after:top-0 data-[swipe-direction=left]:after:right-full data-[swipe-direction=left]:after:h-auto data-[swipe-direction=left]:after:w-[var(--bleed)] data-[swipe-direction=left]:data-[state=open]:[animation:slide-in-left_0.5s_cubic-bezier(0.32,0.72,0,1)] data-[swipe-direction=left]:data-[state=closed]:[animation:slide-out-left_0.3s_cubic-bezier(0.4,0,0.2,1)] data-[swipe-direction=right]:max-h-none data-[swipe-direction=right]:max-w-[400px] data-[swipe-direction=right]:rounded-r-none data-[swipe-direction=right]:rounded-l-[16px] data-[swipe-direction=right]:after:inset-x-auto data-[swipe-direction=right]:after:inset-y-0 data-[swipe-direction=right]:after:top-0 data-[swipe-direction=right]:after:left-full data-[swipe-direction=right]:after:h-auto data-[swipe-direction=right]:after:w-[var(--bleed)] data-[swipe-direction=right]:data-[state=open]:[animation:slide-in-right_0.5s_cubic-bezier(0.32,0.72,0,1)] data-[swipe-direction=right]:data-[state=closed]:[animation:slide-out-right_0.3s_cubic-bezier(0.4,0,0.2,1)]",
+        "[--bleed:3rem] relative flex h-full max-h-[96svh] w-full flex-col rounded-t-[16px] border border-border bg-card text-card-foreground px-5 shadow-2xl outline-none transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] after:pointer-events-none after:absolute after:inset-x-0 after:top-full after:h-[var(--bleed)] after:bg-inherit after:content-[''] data-[state=open]:[animation:slide-in-bottom_0.5s_cubic-bezier(0.32,0.72,0,1)] data-[state=closed]:[animation:slide-out-bottom_0.3s_cubic-bezier(0.4,0,0.2,1)] data-[swipe-direction=up]:rounded-t-none data-[swipe-direction=up]:rounded-b-[16px] data-[swipe-direction=up]:after:bottom-full data-[swipe-direction=up]:after:top-auto data-[swipe-direction=up]:data-[state=open]:[animation:slide-in-top_0.5s_cubic-bezier(0.32,0.72,0,1)] data-[swipe-direction=up]:data-[state=closed]:[animation:slide-out-top_0.3s_cubic-bezier(0.4,0,0.2,1)] data-[swipe-direction=left]:max-h-none data-[swipe-direction=left]:max-w-[400px] data-[swipe-direction=left]:rounded-l-none data-[swipe-direction=left]:rounded-r-[16px] data-[swipe-direction=left]:after:inset-x-auto data-[swipe-direction=left]:after:inset-y-0 data-[swipe-direction=left]:after:top-0 data-[swipe-direction=left]:after:right-full data-[swipe-direction=left]:after:h-auto data-[swipe-direction=left]:after:w-[var(--bleed)] data-[swipe-direction=left]:data-[state=open]:[animation:slide-in-left_0.5s_cubic-bezier(0.32,0.72,0,1)] data-[swipe-direction=left]:data-[state=closed]:[animation:slide-out-left_0.3s_cubic-bezier(0.4,0,0.2,1)] data-[swipe-direction=right]:max-h-none data-[swipe-direction=right]:max-w-[400px] data-[swipe-direction=right]:rounded-r-none data-[swipe-direction=right]:rounded-l-[16px] data-[swipe-direction=right]:after:inset-x-auto data-[swipe-direction=right]:after:inset-y-0 data-[swipe-direction=right]:after:top-0 data-[swipe-direction=right]:after:left-full data-[swipe-direction=right]:after:h-auto data-[swipe-direction=right]:after:w-[var(--bleed)] data-[swipe-direction=right]:data-[state=open]:[animation:slide-in-right_0.5s_cubic-bezier(0.32,0.72,0,1)] data-[swipe-direction=right]:data-[state=closed]:[animation:slide-out-right_0.3s_cubic-bezier(0.4,0,0.2,1)]",
         local.class,
       )}
       {...others}
@@ -101,7 +101,7 @@ export function DrawerGrabberIndicator(props: DrawerGrabberIndicatorProps) {
   return (
     <DrawerPrimitive.GrabberIndicator
       class={cn(
-        "h-1 w-10 rounded-full bg-gray-a5 transition-colors group-hover:bg-gray-a8",
+        "h-1 w-10 rounded-full bg-muted-foreground/30 transition-colors group-hover:bg-muted-foreground/60",
         local.class,
       )}
       {...others}
@@ -115,7 +115,7 @@ export function DrawerTitle(props: DrawerTitleProps) {
   const [local, others] = splitProps(props, ["class", "children"]);
   return (
     <DrawerPrimitive.Title
-      class={cn("m-0 mb-2 text-lg font-medium leading-7 text-gray-12", local.class)}
+      class={cn("m-0 mb-2 text-lg font-medium leading-7 text-foreground", local.class)}
       {...others}
     >
       {local.children}
@@ -129,7 +129,7 @@ export function DrawerDescription(props: DrawerPrimitive.DescriptionProps) {
   const [local, others] = splitProps(props, ["class", "children"]);
   return (
     <DrawerPrimitive.Description
-      class={cn("mt-1 mb-0 text-sm leading-6 text-gray-11", local.class)}
+      class={cn("mt-1 mb-0 text-sm leading-6 text-muted-foreground", local.class)}
       {...others}
     >
       {local.children}
@@ -145,7 +145,7 @@ export function DrawerCloseTrigger(props: DrawerCloseTriggerProps) {
     <DrawerPrimitive.CloseTrigger
       aria-label="Close"
       class={cn(
-        "absolute top-12 right-4 flex h-7 w-7 cursor-pointer items-center justify-center rounded-[4px] border-none bg-transparent p-0 text-gray-a11 transition-colors hover:bg-gray-a3 hover:text-gray-12 focus-visible:-outline-offset-1 focus-visible:outline-2 focus-visible:outline-brand [&_svg]:h-4 [&_svg]:w-4",
+        "absolute top-12 right-4 flex h-7 w-7 cursor-pointer items-center justify-center rounded-md border-none bg-transparent p-0 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring [&_svg]:h-4 [&_svg]:w-4",
         local.class,
       )}
       {...others}
@@ -176,7 +176,7 @@ export function DrawerScrollable(props: DrawerScrollableProps) {
   return (
     <div
       class={cn(
-        "flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto overscroll-y-contain py-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-[3px] [&::-webkit-scrollbar-thumb]:bg-gray-a4 [&::-webkit-scrollbar-thumb:hover]:bg-gray-a7",
+        "flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto overscroll-y-contain py-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-[3px] [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar-thumb:hover]:bg-muted-foreground/50",
         local.class,
       )}
       {...others}
@@ -193,7 +193,7 @@ export function DrawerScrollableItem(props: DrawerScrollableItemProps) {
   return (
     <div
       class={cn(
-        "flex h-12 shrink-0 items-center justify-center rounded-lg border border-gray-a4 bg-gray-a2 px-4 text-sm font-medium text-gray-12 transition-colors hover:bg-gray-a4",
+        "flex h-12 shrink-0 items-center justify-center rounded-lg border border-border bg-secondary/50 px-4 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary hover:border-ring/40",
         local.class,
       )}
       {...others}

@@ -1698,13 +1698,13 @@ export const themeFontAtom = createMemo(() => themeAtom()?.font || "fira-code");
 
 export const themeLineNumbersAtom = createMemo(() => {
   const currentTheme = themeAtom();
+  if (showLineNumbersAtom() !== undefined) {
+    return showLineNumbersAtom()!;
+  }
   if (currentTheme.partner) {
-    if (currentTheme.lineNumbersToggleable) {
-      return showLineNumbersAtom() ?? currentTheme.lineNumbers ?? false;
-    }
     return currentTheme.lineNumbers || false;
   }
-  return showLineNumbersAtom() ?? false;
+  return false;
 });
 
 export const [unlockedThemesAtom, setUnlockedThemesAtom] = createSignal<string[]>([]);

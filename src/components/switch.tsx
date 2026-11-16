@@ -30,8 +30,10 @@ export function Switch(props: SwitchProps) {
     <label
       {...api().getRootProps()}
       class={cn(
-        "inline-flex h-4 w-7 shrink-0 cursor-default items-center rounded-full px-[3px] transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-gray-7 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
-        api().checked ? (props.color === "purple" ? "bg-purple" : "bg-blue") : "bg-gray-7",
+        "inline-flex h-4 w-7 shrink-0 cursor-pointer items-center rounded-full px-[3px] transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+        api().checked
+          ? "bg-primary hover:bg-primary/90"
+          : "bg-muted-foreground/30 hover:bg-muted-foreground/50",
         props.class || props.className,
       )}
     >
@@ -39,8 +41,8 @@ export function Switch(props: SwitchProps) {
       <span
         {...api().getThumbProps()}
         class={cn(
-          "pointer-events-none block h-2.5 w-2.5 rounded-full bg-white ring-0 transition-transform duration-200",
-          api().checked ? "translate-x-3" : "translate-x-0",
+          "pointer-events-none block h-2.5 w-2.5 rounded-full ring-0 shadow-xs transition-transform duration-200",
+          api().checked ? "translate-x-3 bg-primary-foreground" : "translate-x-0 bg-foreground",
         )}
       />
     </label>

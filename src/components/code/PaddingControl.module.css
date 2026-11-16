@@ -1,42 +1,47 @@
 .toggleGroup {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .toggleGroupItem {
   display: flex;
   justify-content: center;
+  align-items: center;
 
-  padding: 4px 6px;
-  border: none;
+  padding: 3px 7px;
+  border: 1px solid transparent;
   border-radius: 5px;
   background: transparent;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 13px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  cursor: pointer;
 
   font-weight: 500;
   letter-spacing: 0.1px;
   line-height: 16px;
 
   transition:
-    color 200ms,
-    background-color 200ms;
-
-  --focus-ring-color: rgba(255, 255, 255, 0.1);
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease;
 
   &:hover {
-    color: white;
+    color: var(--foreground);
+    background-color: var(--muted);
   }
 
-  &:focus {
+  &:focus-visible {
     box-shadow:
-      0 0 0 2px var(--panel-background),
-      0 0 0 4px var(--focus-ring-color);
+      0 0 0 2px var(--card),
+      0 0 0 4px var(--ring);
     outline: none;
   }
 
   &[aria-checked="true"] {
-    background: var(--focus-ring-color);
-    color: white;
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    border-color: var(--border);
+    box-shadow: var(--shadow-2xs);
+    font-weight: 600;
   }
 }

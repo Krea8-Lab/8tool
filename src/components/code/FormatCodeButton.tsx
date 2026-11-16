@@ -33,7 +33,7 @@ export const FormatCodeButton = () => {
             return {
               message: "Code formatting failed",
               description: () => (
-                <pre class="scrollbar-hide w-full max-w-[300px] overflow-auto rounded bg-gray-a3 p-2.5 text-xs">
+                <pre class="scrollbar-hide w-full max-w-[300px] overflow-auto rounded-md border border-border bg-muted p-2.5 text-xs text-muted-foreground">
                   <code class="w-full">{errorMessage}</code>
                 </pre>
               ),

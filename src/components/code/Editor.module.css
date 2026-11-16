@@ -14,29 +14,16 @@
     width: calc(100% + 32px);
     padding: 0 16px;
     margin: 0 -16px;
-    transition:
-      width 0.2s,
-      padding 0.2s,
-      margin 0.2s;
 
     &:before {
-      position: relative;
-      left: 6px;
-      display: inline-block;
-      width: 1rem;
-      margin-right: 1.5rem;
-      margin-left: -2.5rem;
-      color: var(--line-number);
-      content: attr(data-line);
-      opacity: 0;
-      text-align: right;
-      transition: opacity 0.2s;
+      display: none;
+      content: none;
     }
   }
 
   :global(.highlighted-line) {
     position: relative;
-    background-color: var(--ray-highlight) !important;
+    background-color: color-mix(in srgb, var(--accent) 15%, transparent) !important;
 
     &:after {
       position: absolute;
@@ -44,7 +31,7 @@
       bottom: 0;
       left: -1px;
       width: 2px;
-      background-color: var(--ray-highlight-border);
+      background-color: var(--primary);
       content: "";
     }
   }
@@ -52,7 +39,7 @@
 
 .isHighlightingLines {
   :global(.line):hover {
-    background-color: var(--ray-highlight-hover);
+    background-color: color-mix(in srgb, var(--accent) 25%, transparent);
     cursor: default;
   }
   .textarea {
@@ -75,7 +62,6 @@
   letter-spacing: 0.1px;
   line-height: 22.5px;
   tab-size: 2;
-  transition: padding 0.2s;
   white-space: pre-wrap;
 }
 
@@ -93,7 +79,16 @@
     margin: 0 -16px 0 calc(-1 * var(--line-number-padding));
 
     &:before {
-      opacity: 1;
+      position: relative;
+      left: 6px;
+      display: inline-block;
+      width: 1rem;
+      margin-right: 1.5rem;
+      margin-left: -2.5rem;
+      color: var(--muted-foreground);
+      content: attr(data-line);
+      opacity: 0.7;
+      text-align: right;
     }
   }
 
@@ -108,7 +103,7 @@
   min-height: min-content;
   border: none;
   background: transparent;
-  caret-color: var(--ray-foreground);
+  caret-color: var(--card-foreground);
   resize: none;
   -webkit-text-fill-color: transparent;
   text-size-adjust: none;
@@ -131,18 +126,18 @@
 }
 
 .plainText {
-  color: var(--ray-foreground);
+  color: var(--card-foreground);
 }
 
 .firaCode {
   font-family:
-    var(--font-firacode), "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", monospace;
+    var(--font-mono), "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", monospace;
   font-weight: 400;
 }
 
 .googleSans {
   font-family:
-    var(--font-google-sans), "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    var(--font-sans), "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   font-weight: 400;
 }
 

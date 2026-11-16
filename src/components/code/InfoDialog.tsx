@@ -22,8 +22,8 @@ export function InfoDialog() {
         </Button>
       </DialogTrigger>
       <DialogContent size="large">
-        <div class="flex gap-8">
-          <div class="flex flex-1 flex-col gap-3 text-[13px] leading-relaxed text-gray-11">
+        <div class="flex gap-8 text-muted-foreground">
+          <div class="flex flex-1 flex-col gap-3 text-[13px] leading-relaxed">
             <DialogTitle>About</DialogTitle>
             <p>
               This tool is a customized fork of Raycast’s code snippet tool (
@@ -31,7 +31,7 @@ export function InfoDialog() {
                 href="https://github.com/raycast/ray-so"
                 target="_blank"
                 rel="noopener"
-                class="text-gray-12 underline underline-offset-2"
+                class="text-foreground underline underline-offset-2 hover:text-primary transition-colors"
               >
                 ray.so
               </a>
@@ -46,7 +46,7 @@ export function InfoDialog() {
               When ready, click export image to save your snippet as a PNG or SVG, or copy it
               directly to your clipboard.
             </p>
-            <h2 class="text-base font-medium text-gray-12">Credits & Source</h2>
+            <h2 class="text-base font-medium">Credits & Source</h2>
             <ul>
               <li>
                 {" "}
@@ -55,7 +55,7 @@ export function InfoDialog() {
                   href="https://github.com/raycast/ray-so"
                   target="_blank"
                   rel="noopener"
-                  class="text-gray-12 underline underline-offset-2"
+                  class="text-foreground underline underline-offset-2 hover:text-primary transition-colors"
                 >
                   <em>Raycast</em>
                 </a>
@@ -68,7 +68,7 @@ export function InfoDialog() {
                   href="https://github.com/Krea8-Lab"
                   target="_blank"
                   rel="noopener"
-                  class="text-gray-12 underline underline-offset-2"
+                  class="text-foreground underline underline-offset-2 hover:text-primary transition-colors"
                 >
                   <em>Krea8</em>
                 </a>
@@ -78,10 +78,10 @@ export function InfoDialog() {
             <SocialFooter referral="code-image" />
           </div>
 
-          <div class="h-full w-px bg-gray-a3" />
+          <div class="h-full w-px bg-border" />
 
           <div class="flex flex-1 flex-col gap-2">
-            <h2 class="-mt-[3px] font-medium text-gray-12">Shortcuts</h2>
+            <h2 class="-mt-[3px] font-medium">Shortcuts</h2>
             <div class="flex flex-col gap-2">
               <Shortcut keys={["F"]}>Focus text editor</Shortcut>
               <Shortcut keys={["Esc"]}>Unfocus text editor</Shortcut>

@@ -1,6 +1,6 @@
 /* Shared frame styles */
 .frame {
-  transition: padding 200ms;
+  /* padding applied without layout animation to prevent CPU reflow */
 }
 
 .transparentPattern {
@@ -18,6 +18,8 @@
     -10px 0;
   background-size: 20px 20px;
   inset: 0;
+  contain: strict;
+  pointer-events: none;
 }
 
 .window {
@@ -26,23 +28,29 @@
   flex-direction: column;
   align-items: stretch;
   padding-top: 10px;
-  border: 1px solid hsl(0 0% 100% / 0.3);
+  border: 1px solid var(--border);
   border-radius: 18px;
-  background: var(--frame-background);
-  transition: all ease 0.3s;
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform: translateZ(0);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
   &.withBorder {
     border: none;
     box-shadow:
-      0 0 0 1px var(--frame-highlight-border),
-      0 0 0 1.5px var(--frame-shadow-border);
+      0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent),
+      0 0 0 1.5px color-mix(in srgb, var(--background) 50%, transparent);
   }
 
   &.withShadow {
     border: none;
     box-shadow:
-      0 0 0 1px var(--frame-highlight-border),
-      0 0 0 1.5px var(--frame-shadow-border),
+      0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent),
+      0 0 0 1.5px color-mix(in srgb, var(--background) 50%, transparent),
       0 2.8px 2.2px rgba(0, 0, 0, 0.034),
       0 6.7px 5.3px rgba(0, 0, 0, 0.048),
       0 12.5px 10px rgba(0, 0, 0, 0.06),
@@ -70,7 +78,8 @@
   width: 14px;
   height: 14px;
   border-radius: 7px;
-  background-color: var(--frame-control-color);
+  background-color: var(--muted-foreground);
+  opacity: 0.35;
 }
 
 .fileName {
@@ -79,7 +88,7 @@
   height: 16px;
   align-items: center;
   justify-content: center;
-  color: var(--frame-title-placeholder-color);
+  color: var(--muted-foreground);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.32px;
@@ -96,7 +105,7 @@
     border: none;
     margin: 0;
     background-color: transparent;
-    color: var(--frame-title-color);
+    color: var(--card-foreground);
     font-family: var(--font-sans), sans-serif;
     font-size: 12px;
     font-weight: 500;
@@ -168,8 +177,8 @@
   .withShadow {
     border: none;
     box-shadow:
-      0 0 0 1px var(--frame-highlight-border),
-      0 0 0 1.5px var(--frame-shadow-border),
+      0 0 0 1px color-mix(in srgb, var(--foreground) 12%, transparent),
+      0 0 0 1.5px color-mix(in srgb, var(--background) 50%, transparent),
       0 4px 6px rgba(0, 0, 0, 0.05);
   }
 
